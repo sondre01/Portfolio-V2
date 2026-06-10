@@ -1,0 +1,43 @@
+/* Import section-specific stylesheets */
+@import "home.css";
+@import "about.css";
+@import "skills.css";
+@import "education.css";
+@import "work.css";
+@import "contact.css";
+
+/* ==========================================================================
+   DEBUG / LAYOUT GUIDE
+   These temporary outlines help you visualize where containers start and end.
+   ========================================================================== */
+
+/* Neon pink outline for header */
+.header {
+    outline: 2px solid #ff007f;
+
+    /* Align items horizontally */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+
+    /* Adjust size here */
+    width: 96%;
+    height: 90px;
+}
+
+/* Navigation buttons container */
+.locator-buttons {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    /* Adjust this value to change spacing between buttons */
+}
+
+/* Logo / Name wrapper */
+.logo-myname {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* Adjust spacing between 'Sondre' and 'Khin Andrei' here */
+}
