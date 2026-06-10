@@ -9,4 +9,29 @@
     /* Adjust size here */
     width: 100%;
     height: 610px;
+
+    /* Align items horizontally on the same line */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.Intro-Text {
+    outline: 2px solid #ffaa00;
+}
+
+.Intro-Image {
+    outline: 2px solid #00ff00;
+    position: center;
+
+    /* Adjust size here */
+    width: 300px;
+    height: 400px;
+}
+
+/* This makes the picture scale to fit the container size above */
+.Intro-Image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }

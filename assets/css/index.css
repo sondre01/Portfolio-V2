@@ -30,7 +30,7 @@
 .locator-buttons {
     display: flex;
     align-items: center;
-    gap: 25px;
+    gap: 40px;
     /* Adjust this value to change spacing between buttons */
 }
 
@@ -38,6 +38,6 @@
 .logo-myname {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
     /* Adjust spacing between 'Sondre' and 'Khin Andrei' here */
 }
