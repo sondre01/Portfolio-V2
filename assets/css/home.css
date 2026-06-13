@@ -525,40 +525,19 @@ body.header-hidden .feedback-card {
     line-height: 1.2;
 }
 
-/* Prompt idea cycler */
-.feedback-prompt-container {
-    background: #f8fafc;
-    border-left: 2px solid #cbd5e1;
-    padding: 8px 12px;
-    font-size: 0.8rem;
-    color: #64748b;
-    display: flex;
-    gap: 6px;
-    align-items: flex-start;
-    min-height: 48px; /* prevents layout shifts when text height changes */
-}
-
-.feedback-prompt-label {
-    font-weight: 700;
-    color: #ff5e00;
-}
-
-.feedback-prompt-text {
-    font-weight: 500;
-    line-height: 1.3;
-    transition: opacity 0.2s ease;
-}
-
-.feedback-prompt-text.fade-out {
-    opacity: 0;
-}
-
-/* Textarea input */
+/* Textarea input wrapper - unified design */
 .feedback-form {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    transition: opacity 0.3s ease;
+    border: 1px solid #cbd5e1;
+    background-color: #ffffff;
+    padding: 8px;
+    transition: border-color 0.2s ease, opacity 0.3s ease;
+}
+
+.feedback-form:focus-within {
+    border-color: #ff5e00; /* border turns orange when focusing the textarea inside */
 }
 
 .feedback-form.feedback-form-hidden {
@@ -567,28 +546,24 @@ body.header-hidden .feedback-card {
 
 .feedback-card textarea {
     width: 100%;
-    padding: 10px;
+    padding: 4px;
     font-family: 'Inter', sans-serif;
     font-size: 0.85rem;
-    border: 1px solid #cbd5e1;
-    background-color: #ffffff;
+    border: none;
+    background-color: transparent;
     resize: none;
     outline: none;
-    transition: border-color 0.2s ease;
 }
 
-.feedback-card textarea:focus {
-    border-color: #ff5e00;
-}
-
-/* Button */
+/* Button docked to the right */
 .feedback-submit-btn {
+    align-self: flex-end; /* right align */
     background-color: #ff5e00;
     color: #ffffff;
     border: none;
-    padding: 10px 16px;
+    padding: 6px 14px;
     font-family: 'Poppins', sans-serif;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.2s ease;
