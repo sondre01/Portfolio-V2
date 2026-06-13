@@ -497,15 +497,15 @@
     gap: 12px;
     text-align: left;
     
-    /* Symmetrical slide transition with the navbar */
+    /* Symmetrical slide transition with the navbar (faster sync) */
     position: relative;
     z-index: 1;
     transform: translateY(80px); /* slides downward to hide */
     opacity: 0;
     visibility: hidden;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-                opacity 0.3s ease,
-                visibility 0.3s ease;
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.2s ease,
+                visibility 0.2s ease;
 }
 
 body.header-hidden .feedback-card {
@@ -525,46 +525,46 @@ body.header-hidden .feedback-card {
     line-height: 1.2;
 }
 
-/* Textarea input wrapper - unified design */
+/* Textarea input wrapper - vertical block */
 .feedback-form {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    border: 1px solid #cbd5e1;
-    background-color: #ffffff;
-    padding: 8px;
-    transition: border-color 0.2s ease, opacity 0.3s ease;
-}
-
-.feedback-form:focus-within {
-    border-color: #ff5e00; /* border turns orange when focusing the textarea inside */
+    transition: opacity 0.3s ease;
 }
 
 .feedback-form.feedback-form-hidden {
     display: none;
 }
 
-.feedback-card textarea {
+/* Single-line text input style */
+.feedback-card input[type="text"] {
     width: 100%;
-    padding: 4px;
+    padding: 10px 12px;
     font-family: 'Inter', sans-serif;
     font-size: 0.85rem;
-    border: none;
-    background-color: transparent;
-    resize: none;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px; /* a little curvy yet still has edge */
+    background-color: #ffffff;
     outline: none;
+    transition: border-color 0.2s ease;
 }
 
-/* Button docked to the right */
+.feedback-card input[type="text"]:focus {
+    border-color: #ff5e00;
+}
+
+/* Button outside of the text box, aligned to the bottom-right */
 .feedback-submit-btn {
-    align-self: flex-end; /* right align */
+    align-self: flex-end;
     background-color: #ff5e00;
     color: #ffffff;
     border: none;
-    padding: 6px 14px;
+    padding: 8px 16px;
     font-family: 'Poppins', sans-serif;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     font-weight: 600;
+    border-radius: 6px; /* curvy but has edge */
     cursor: pointer;
     transition: background-color 0.2s ease;
     display: flex;
