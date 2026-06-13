@@ -57,6 +57,7 @@
 .skills-card-header {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 12px;
     border-bottom: 2px solid #ff5e00;
     padding-bottom: 15px;
@@ -229,10 +230,7 @@
     transform: translateX(-50%) translateY(0);
 }
 
-/* Column 1 Centering rules */
-.skills-column:first-child .skills-card-header {
-    justify-content: center;
-}
+
 
 .skills-column:first-child .skills-subcategory h4 {
     text-align: center;
