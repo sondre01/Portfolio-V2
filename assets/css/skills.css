@@ -3,10 +3,168 @@
    ========================================================================== */
 
 .skills-section {
-    outline: 2px solid #00f3ff;
-    margin-bottom: 15px;
-    
-    /* Adjust size here */
     width: 100%;
-    height: 200px;
+    margin-bottom: 40px;
+    padding: 30px 0;
+}
+
+.skills-section h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-top: 0;
+    margin-bottom: 30px;
+    letter-spacing: -0.5px;
+}
+
+/* Skills Grid Layout (2 columns) */
+.skills-grid {
+    display: flex;
+    gap: 30px;
+    width: 100%;
+    align-items: stretch;
+}
+
+.skills-column {
+    flex: 1 1 0;
+    min-width: 0; /* Prevents overflow inside flex containers */
+    display: flex;
+}
+
+/* Card Container Styling with Sharp Corners */
+.skills-card {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 0; /* Sharp corners */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    padding: 35px 30px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                border-color 0.3s ease;
+}
+
+.skills-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    border-color: #ff5e00; /* Orange accent on hover */
+}
+
+/* Header style for each skill card */
+.skills-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 2px solid #ff5e00;
+    padding-bottom: 15px;
+}
+
+.skills-card-header svg {
+    color: #ff5e00;
+    flex-shrink: 0;
+}
+
+.skills-card-header h3 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin: 0;
+    letter-spacing: -0.3px;
+}
+
+/* Card Body structure */
+.skills-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Subcategories */
+.skills-subcategory {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.skills-subcategory h4 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #666666;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin: 0;
+    border-left: 3px solid #ff5e00;
+    padding-left: 10px;
+    line-height: 1;
+}
+
+/* Skills List layout and Indicators */
+.skills-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.skills-list li {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #333333;
+    position: relative;
+    padding-left: 20px;
+}
+
+/* Custom bullet styling */
+.skills-list li::before {
+    content: "•";
+    color: #ff5e00;
+    font-weight: bold;
+    font-size: 1.2rem;
+    position: absolute;
+    left: 4px;
+    top: -1px;
+    line-height: 1;
+}
+
+/* Skill detail descriptions styling */
+.skill-detail {
+    font-size: 0.85rem;
+    color: #666666;
+    font-weight: normal;
+    margin-left: 4px;
+}
+
+/* Logo-specific styles for Software Dev card */
+.skills-list.has-logos li {
+    padding-left: 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap; /* Wraps cleanly on narrow viewports */
+    gap: 6px;
+}
+
+.skills-list.has-logos li::before {
+    display: none; /* Hide custom bullet */
+}
+
+.skill-logo {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    flex-shrink: 0;
+    display: inline-block;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .skills-grid {
+        flex-direction: column; /* Stack columns on tablet/mobile screens */
+        gap: 20px;
+    }
 }
