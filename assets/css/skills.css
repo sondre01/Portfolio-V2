@@ -141,24 +141,103 @@
 }
 
 /* Logo-specific styles for Software Dev card */
-.skills-list.has-logos li {
-    padding-left: 0;
+.skills-grid-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px 25px;
+    padding: 10px 0;
+}
+
+.skill-item-logo-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 85px;
+    position: relative;
+    text-align: center;
+}
+
+.skill-logo-wrapper {
+    position: relative;
     display: flex;
     align-items: center;
-    flex-wrap: wrap; /* Wraps cleanly on narrow viewports */
+    justify-content: center;
     gap: 6px;
+    height: 40px;
 }
 
-.skills-list.has-logos li::before {
-    display: none; /* Hide custom bullet */
-}
-
-.skill-logo {
-    width: 20px;
-    height: 20px;
+.skill-logo-img {
+    width: 32px;
+    height: 32px;
     object-fit: contain;
-    flex-shrink: 0;
-    display: inline-block;
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.skill-item-logo-card:hover .skill-logo-img {
+    transform: scale(1.15);
+}
+
+.skill-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #333333;
+    line-height: 1.2;
+}
+
+/* Cloud comment / tooltip styling */
+.skill-tooltip {
+    position: absolute;
+    bottom: calc(100% + 12px);
+    left: 50%;
+    transform: translateX(-50%) translateY(8px);
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 8px 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    border-radius: 6px;
+    white-space: nowrap;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+                visibility 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 100;
+}
+
+/* Tooltip arrow */
+.skill-tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 6px;
+    border-style: solid;
+    border-color: #1a1a1a transparent transparent transparent;
+}
+
+/* Show tooltip on hover */
+.skill-item-logo-card:hover .skill-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Column 1 Centering rules */
+.skills-column:first-child .skills-card-header {
+    justify-content: center;
+}
+
+.skills-column:first-child .skills-subcategory h4 {
+    text-align: center;
+    border-left: none;
+    padding-left: 0;
 }
 
 /* Responsive adjustments */
