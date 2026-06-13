@@ -3,10 +3,263 @@
    ========================================================================== */
 
 .about-section {
-    outline: 2px solid #00f3ff;
-    margin-bottom: 15px;
-    
-    /* Adjust size here */
     width: 100%;
-    height: 200px;
+    margin-bottom: 40px;
+    padding: 30px 0;
 }
+
+.about-section h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-top: 0;
+    margin-bottom: 30px;
+    letter-spacing: -0.5px;
+}
+
+/* Combined Card Styling with Sharp Corners */
+.about-combined-card {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 0; /* Sharp corners as requested */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    overflow: hidden; /* Crops image cleanly to card border */
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                border-color 0.3s ease;
+}
+
+.about-combined-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    border-color: #ff5e00; /* Subtle orange highlight matching stats/brand accent */
+}
+
+/* Description Content - Left Side (60% width) */
+.about-desc-content {
+    flex: 3 1 0; /* 60% proportional width allocation */
+    padding: 40px 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.about-desc-content h2 {
+    margin-bottom: 5px;
+}
+
+.about-desc-content p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.98rem;
+    line-height: 1.7;
+    color: #444444;
+    margin: 0;
+}
+
+/* Image Content - Right Side (40% width) */
+.about-img-content {
+    flex: 2 1 0; /* 40% proportional width allocation */
+    overflow: hidden;
+    display: flex;
+}
+
+.about-img-wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+.about-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.about-combined-card:hover .about-photo {
+    transform: scale(1.04); /* Smooth micro-zoom premium transition */
+}
+
+/* Responsive Layout */
+@media (max-width: 992px) {
+    .about-combined-card {
+        flex-direction: column; /* Stacks vertically on tablet/mobile */
+    }
+    
+    .about-desc-content {
+        padding: 30px 24px;
+        order: 1; /* Keep description first when stacked */
+    }
+    
+    .about-img-content {
+        height: 400px; /* Fix height when stacked so picture occupies visual area */
+        order: 2; /* Put image second when stacked */
+    }
+}
+
+@media (max-width: 480px) {
+    .about-img-content {
+        height: 300px;
+    }
+}
+
+/* ==========================================================================
+   ABOUT MORE BUTTON & MODAL
+   ========================================================================== */
+
+.about-more-btn {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: #ff5e00;
+    border: 2px solid #ff5e00;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 5px;
+    transition: background-color 0.25s ease, color 0.25s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.about-more-btn:hover {
+    background-color: #ff5e00;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 94, 0, 0.2);
+}
+
+.about-more-btn svg {
+    transition: transform 0.25s ease;
+}
+
+.about-more-btn:hover svg {
+    transform: translateX(4px);
+}
+
+/* About Modal Overlay */
+.about-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.about-modal.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* About Modal Box */
+.about-modal-box {
+    background: #ffffff;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 600px;
+    padding: 35px 30px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.about-modal.active .about-modal-box {
+    transform: translateY(0);
+}
+
+/* Close Button */
+.about-modal-close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #666666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    border-radius: 50%;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.about-modal-close-btn:hover {
+    background-color: #f0f0f0;
+    color: #000000;
+}
+
+.about-modal-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.about-modal-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin: 0;
+    letter-spacing: -0.5px;
+    border-bottom: 2px solid #ff5e00;
+    padding-bottom: 10px;
+}
+
+.about-modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.about-modal-body p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.98rem;
+    line-height: 1.7;
+    color: #444444;
+    margin: 0;
+}
+
+/* Custom Scrollbar for Modal Body */
+.about-modal-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.about-modal-body::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.about-modal-body::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 3px;
+    transition: background 0.2s ease;
+}
+
+.about-modal-body::-webkit-scrollbar-thumb:hover {
+    background: #ff5e00;
+}
+
