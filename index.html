@@ -178,7 +178,7 @@
             </section>
 
             <!----------------- About --------------------->
-            <section class="section about-section" id="about">
+            <section class="section about-section scroll-reveal" id="about">
                 <div class="about-card about-combined-card">
                     <!-- Left side: Description -->
                     <div class="about-desc-content">
@@ -208,7 +208,7 @@
             </section>
 
             <!----------------- Skills --------------------->
-            <section class="section skills-section" id="skills">
+            <section class="section skills-section scroll-reveal" id="skills">
                 <h2>Skills</h2>
                 <div class="skills-grid">
                     <!-- Column 1: Software Developer Skills -->
@@ -397,17 +397,17 @@
             </section>
 
             <!----------------- Education --------------------->
-            <section class="section education-section" id="education">
+            <section class="section education-section scroll-reveal" id="education">
                 <h2>Education</h2>
             </section>
 
             <!----------------- Work --------------------->
-            <section class="section work-section" id="work">
+            <section class="section work-section scroll-reveal" id="work">
                 <h2>Work</h2>
             </section>
 
             <!----------------- Contact --------------------->
-            <section class="section contact-section" id="contact">
+            <section class="section contact-section scroll-reveal" id="contact">
                 <h2>Contact</h2>
             </section>
 
@@ -666,6 +666,26 @@
                     document.body.classList.remove('header-hidden');
                 }
                 lastScrollY = window.scrollY;
+            });
+        }
+
+        // Scroll reveal animation using Intersection Observer
+        const revealElements = document.querySelectorAll('.scroll-reveal');
+        if (revealElements.length > 0) {
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('reveal-active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            });
+
+            revealElements.forEach(element => {
+                revealObserver.observe(element);
             });
         }
     </script>
