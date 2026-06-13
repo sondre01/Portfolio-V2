@@ -7,6 +7,51 @@
 @import "contact.css";
 
 /* ==========================================================================
+   BASE STYLES / TYPOGRAPHY
+   ========================================================================== */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ==========================================================================
+   MAIN SPLIT LAYOUT
+   ========================================================================== */
+.main-layout {
+    display: flex;
+    justify-content: space-evenly; /* Even spacing on left side, middle gap, and right side */
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.sidebar-column {
+    flex: 0 0 25%; /* Takes exactly 1/4 of content split */
+    position: sticky;
+    top: 20px; /* Sticks to top of screen as the user scrolls content on the right */
+    height: fit-content;
+    z-index: 100;
+}
+
+.content-column {
+    flex: 0 0 65%; /* Takes 65% of split layout, leaving 10% space to split into three equal gaps of 3.3% */
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* ==========================================================================
    DEBUG / LAYOUT GUIDE
    These temporary outlines help you visualize where containers start and end.
    ========================================================================== */
@@ -24,10 +69,13 @@
     /* Adjust size here */
     width: 96%;
     height: 90px;
+    margin-bottom: 15px;
 }
 
 /* Navigation buttons container */
 .locator-buttons {
+    outline: 2px solid #00f3ff;
+    /* Neon cyan debug outline */
     display: flex;
     align-items: center;
     gap: 40px;
@@ -36,8 +84,52 @@
 
 /* Logo / Name wrapper */
 .logo-myname {
+    outline: 2px solid #ffaa00;
+    /* Neon orange debug outline */
     display: flex;
     align-items: center;
     gap: 15px;
     /* Adjust spacing between 'Sondre' and 'Khin Andrei' here */
+}
+
+/* Logo picture size */
+.logo-myname img {
+    width: 50px;
+    /* Adjust logo image width here */
+    height: auto;
+    /* Maintain aspect ratio */
+}
+
+/* Header Controls (Search & Theme Toggle) */
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    outline: 2px solid #e7fe00;
+    /* Neon yellow debug outline to show container position */
+}
+
+.control-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    outline: 2px solid #9d00ff;
+    /* Neon purple debug outline for individual buttons */
+}
+
+.control-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    /* light overlay for hover style */
+    transform: scale(1.05);
+}
+
+.control-btn svg {
+    display: block;
 }

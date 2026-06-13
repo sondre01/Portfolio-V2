@@ -4,34 +4,389 @@
 
 .home-section {
     outline: 2px solid #00f3ff;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 
     /* Adjust size here */
     width: 100%;
-    height: 610px;
+    min-height: 570px;
+    padding: 30px 0;
 
-    /* Align items horizontally on the same line */
+    /* Align items vertically on the same line */
     display: flex;
-    align-items: center;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .Intro-Text {
     outline: 2px solid #ffaa00;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Gap between headings */
 }
 
-.Intro-Image {
-    outline: 2px solid #00ff00;
-    position: center;
-
-    /* Adjust size here */
-    width: 300px;
-    height: 400px;
+/* "Home" Section Tag */
+.Intro-Text h2:nth-child(1) {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #666;
+    margin: 0;
 }
 
-/* This makes the picture scale to fit the container size above */
-.Intro-Image img {
+/* "What's up! I'm Andrei!" */
+.Intro-Text h2:nth-child(2) {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0;
+}
+
+/* "Aspiring IT Specialist..." description */
+.Intro-Text h2:nth-child(3) {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: #444;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* Expanded bio description */
+.Intro-Text .intro-description {
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: #555555;
+    line-height: 1.6;
+    margin: 8px 0 0 0;
+}
+
+/* Profile Intro Card (Inspired by Aaabad Ahmed card) */
+.intro-card {
+    position: relative;
+    overflow: hidden;
+    background: #ffffff;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    padding: 24px 20px;
+    flex: 0 0 25%; /* Allocates exactly 25% space (exactly 1/4 space distribution) */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    outline: 2px solid #00ff00; /* Neon green debug outline */
+}
+
+.intro-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+/* Background decorations dashed lines */
+.card-bg-decorations {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.card-img-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 280px; /* Reduced to make card more compact and prevent header overlap */
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.card-avatar {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.card-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+}
+
+.card-name {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #000000;
+    margin: 0;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+}
+
+/* Spark/Fire orange badge */
+.card-badge {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #ff5e00;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(255, 94, 0, 0.3);
+    z-index: 2;
+}
+
+.badge-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.card-description {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #666666;
+    margin: 0;
+    line-height: 1.5;
+    padding: 0 8px;
+}
+
+.card-socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 5px;
+}
+
+.social-link {
+    color: #ff5e00;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-link:hover {
+    transform: scale(1.15);
+    opacity: 0.8;
+}
+
+/* Resume Trigger Button */
+.resume-btn {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #ff5e00;
+    color: #ffffff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 12px rgba(255, 94, 0, 0.25);
+    outline: 2px solid #9d00ff; /* Neon purple debug outline */
+}
+
+.resume-btn:hover {
+    background-color: #e05300;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(255, 94, 0, 0.35);
+}
+
+/* Resume Modal Overlay */
+.resume-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.resume-modal.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* Modal Box */
+.modal-box {
+    background: #ffffff;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 500px;
+    padding: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+    outline: 2px solid #e7fe00; /* Neon yellow debug outline */
+}
+
+.resume-modal.active .modal-box {
+    transform: translateY(0);
+}
+
+/* Close Button */
+.modal-close-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #666666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    border-radius: 50%;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.modal-close-btn:hover {
+    background-color: #f0f0f0;
+    color: #000000;
+}
+
+/* Resume Preview Area (Placeholder Resume Layout) */
+.resume-preview-container {
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    background-color: #fafafa;
+    height: 380px;
+    padding: 20px;
+    overflow-y: auto;
+    font-family: 'Inter', sans-serif;
+    text-align: left;
+    box-shadow: inset 0 2px 8px rgba(0,0,0,0.02);
+}
+
+.preview-header {
+    border-bottom: 2px solid #ff5e00;
+    padding-bottom: 10px;
+    margin-bottom: 12px;
+}
+
+.preview-name {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0;
+}
+
+.preview-title {
+    font-size: 0.8rem;
+    color: #ff5e00;
+    font-weight: 600;
+    margin: 2px 0 0 0;
+    text-transform: uppercase;
+}
+
+.preview-section {
+    margin-bottom: 12px;
+}
+
+.preview-section-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #333333;
+    margin: 0 0 6px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.preview-item {
+    margin-bottom: 8px;
+}
+
+.preview-item-title {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0;
+}
+
+.preview-item-sub {
+    font-size: 0.75rem;
+    color: #666666;
+    margin: 1px 0;
+}
+
+.preview-line {
+    height: 6px;
+    background-color: #e0e0e0;
+    border-radius: 3px;
+    margin-bottom: 4px;
+}
+
+.preview-line.short {
+    width: 60%;
+}
+
+.preview-line.medium {
+    width: 80%;
+}
+
+/* Choices Buttons */
+.modal-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+}
+
+.action-btn {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.action-btn.secondary {
+    background-color: #f0f0f0;
+    color: #333333;
+}
+
+.action-btn.secondary:hover {
+    background-color: #e5e5e5;
+}
+
+.action-btn.primary {
+    background-color: #ff5e00;
+    color: #ffffff;
+}
+
+.action-btn.primary:hover {
+    background-color: #e05300;
 }

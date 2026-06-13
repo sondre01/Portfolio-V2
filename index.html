@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/index.css">
 </head>
 
@@ -13,7 +16,7 @@
     <!----------------- Header / Navigation --------------------->
     <header class="header section">
         <div class="logo-myname">
-            <p>Sondre</p>
+            <img src="./data/logo/logo-box (1).png" alt="Sondre">
             <p>Khin Andrei</p>
         </div>
 
@@ -26,20 +29,94 @@
             <a href="#contact" class="nav-link">Contact</a>
         </div>
 
+        <!-- Header Controls (Search & Theme Toggle) -->
+        <div class="header-controls">
+            <button class="control-btn search-btn" aria-label="Search">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+            <button class="control-btn theme-toggle-btn" aria-label="Toggle Theme">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+            </button>
+        </div>
+
     </header>
 
-    <!----------------- Home --------------------->
-    <section class="section home-section" id="home">
-        <div class="Intro-Text">
-            <h2>Home</h2>
-            <h2>What's up! I'm Andrei!</h2>
-            <h2>Aspiring IT Specialist and Full Stack Developer</h2>
-        </div>
+    <div class="main-layout">
+        <!-- Sticky Sidebar Left Column (1/4 space) -->
+        <aside class="sidebar-column">
+            <!-- Profile Intro Card -->
+            <div class="intro-card">
+            <!-- Decorative Background SVGs -->
+            <svg class="card-bg-decorations" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 330 520" fill="none">
+                <!-- Top-left dashed circle -->
+                <circle cx="20" cy="20" r="75" stroke="#ff5e00" stroke-width="2" stroke-dasharray="6,6" />
+                <!-- Bottom-left to center dashed line -->
+                <path d="M -20 400 Q 100 400 165 340" stroke="#ff5e00" stroke-width="2" stroke-dasharray="6,6" />
+            </svg>
 
-        <div class="Intro-Image">
-            <img src="data/image/kidgrad (2).png" alt="Andrei's Graduation Picture">
-        </div>
-    </section>
+            <div class="card-img-container">
+                <img src="data/image/profe-home.jpg" alt="Khin Andrei Gamboa" class="card-avatar">
+            </div>
+            <div class="card-content">
+                <h3 class="card-name">Khin Andrei Gamboa</h3>
+                
+                <!-- Decorative Fire/Spark Badge -->
+                <div class="card-badge">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="badge-icon">
+                        <path d="M17.66 11.57c-.77-3.95-2.9-6.86-6.41-8.39a.74.74 0 0 0-.93.99c.99 2.8.31 5.3-.85 7.32C8.3 13.51 7 15.82 7 19c0 2.72 2.22 5 5 5s5-2.28 5-5c0-2.82-1.74-5.32-4.34-7.43.34.67.66 1.41.66 2.43 0 1.1-.9 2-2 2s-2-.9-2-2c0-2.43 1.72-4.86 3.91-6.68 1.83 1.51 3.59 3.6 4.35 6.08a.74.74 0 0 0 .97.66.75.75 0 0 0 .6-.74z"/>
+                    </svg>
+                </div>
+
+                <p class="card-description">Aspiring Software Engineer crafting responsive web applications from pixel to database.</p>
+                <div class="card-socials">
+                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                    </a>
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                    <a href="mailto:andrei@example.com" class="social-link" aria-label="Email">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    </a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Scrollable Content Right Column (3/4 space) -->
+        <main class="content-column">
+
+            <!----------------- Home --------------------->
+            <section class="section home-section" id="home">
+                <div class="Intro-Text">
+                    <h2>Home</h2>
+                    <h2>What's up! I'm Andrei!</h2>
+                    <h2>Aspiring IT Specialist and Full Stack Developer</h2>
+                    <p class="intro-description">I build clean, user-focused, and highly performant web applications. With a solid foundation in both IT infrastructure and modern web technologies, I love turning complex problems into smooth, elegant digital solutions.</p>
+                    <button id="view-resume-btn" class="resume-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                        <span>View Resume</span>
+                    </button>
+                </div>
+            </section>
 
     <!----------------- About --------------------->
     <section class="section about-section" id="about">
@@ -61,10 +138,91 @@
         <h2>Work</h2>
     </section>
 
-    <!----------------- Contact --------------------->
-    <section class="section contact-section" id="contact">
-        <h2>Contact</h2>
-    </section>
+            <!----------------- Contact --------------------->
+            <section class="section contact-section" id="contact">
+                <h2>Contact</h2>
+            </section>
+
+        </main>
+    </div>
+
+    <!----------------- Resume Modal --------------------->
+    <div id="resume-modal" class="resume-modal">
+        <div class="modal-box">
+            <button id="modal-close-btn" class="modal-close-btn" aria-label="Close modal">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            
+            <div class="resume-preview-container">
+                <div class="preview-header">
+                    <div class="preview-name">Khin Andrei Gamboa</div>
+                    <div class="preview-title">Software Engineer</div>
+                </div>
+                
+                <div class="preview-section">
+                    <div class="preview-section-title">Education</div>
+                    <div class="preview-item">
+                        <div class="preview-item-title">Bachelor of Science in Information Technology</div>
+                        <div class="preview-item-sub">University Name • 2022 - 2026</div>
+                    </div>
+                </div>
+                
+                <div class="preview-section">
+                    <div class="preview-section-title">Experience</div>
+                    <div class="preview-item">
+                        <div class="preview-item-title">Full Stack Developer Intern</div>
+                        <div class="preview-line medium"></div>
+                        <div class="preview-line short"></div>
+                    </div>
+                </div>
+
+                <div class="preview-section">
+                    <div class="preview-section-title">Projects</div>
+                    <div class="preview-item">
+                        <div class="preview-item-title">Personal Portfolio Website</div>
+                        <div class="preview-line"></div>
+                        <div class="preview-line medium"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal-actions">
+                <a href="./data/resume.pdf" target="_blank" class="action-btn secondary" id="view-pdf-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    <span>View PDF</span>
+                </a>
+                <a href="./data/resume.pdf" download class="action-btn primary" id="download-pdf-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-download"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <span>Download</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const viewBtn = document.getElementById('view-resume-btn');
+        const modal = document.getElementById('resume-modal');
+        const closeBtn = document.getElementById('modal-close-btn');
+
+        if (viewBtn && modal && closeBtn) {
+            viewBtn.addEventListener('click', () => {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevents background scrolling when modal is open
+            });
+
+            const closeModal = () => {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            };
+
+            closeBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+        }
+    </script>
 
 </body>
 
