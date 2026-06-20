@@ -3,10 +3,248 @@
    ========================================================================== */
 
 .education-section {
-    outline: 2px solid #00f3ff;
-    margin-bottom: 15px;
-    
-    /* Adjust size here */
     width: 100%;
-    height: 200px;
+    margin-bottom: 40px;
+    padding: 30px 0;
+}
+
+.education-section h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-top: 0;
+    margin-bottom: 30px;
+    letter-spacing: -0.5px;
+}
+
+/* Roadmap Container */
+.education-roadmap {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding-left: 35px; /* Offset to house vertical line */
+    box-sizing: border-box;
+}
+
+/* Vertical Timeline Line */
+.roadmap-line {
+    position: absolute;
+    left: 8px; /* Centered with the 18px badge (left: 8px + 2px line width = 10px half) */
+    top: 15px;
+    bottom: 15px;
+    width: 2px;
+    background: #e2e8f0;
+    z-index: 1;
+}
+
+/* Individual Roadmap Item */
+.roadmap-item {
+    position: relative;
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Timeline Indicator Badge */
+.roadmap-badge {
+    position: absolute;
+    left: -35px; /* Aligned with vertical line */
+    top: 22px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    border: 3px solid #cbd5e1;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    transition: border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.2s ease;
+}
+
+/* Current Stage Badge Glow */
+.roadmap-item.current .roadmap-badge {
+    border-color: #ff5e00;
+    background-color: #ff5e00;
+    box-shadow: 0 0 0 4px rgba(255, 94, 0, 0.2);
+}
+
+.roadmap-item.current .badge-dot {
+    display: block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: #ffffff;
+}
+
+/* Roadmap Details Card */
+.roadmap-card {
+    display: flex;
+    gap: 20px;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 0; /* Sharp corners matching theme */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    padding: 25px 30px;
+    width: 100%;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+                border-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+/* Hover Micro-interactions */
+.roadmap-item:hover .roadmap-card {
+    transform: translateX(8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    border-color: #ff5e00;
+}
+
+.roadmap-item:hover .roadmap-badge {
+    border-color: #ff5e00;
+    transform: scale(1.15);
+}
+
+/* School Logo Container */
+.roadmap-logo {
+    flex-shrink: 0;
+    width: 65px;
+    height: 65px;
+    border: 1px solid #e2e8f0;
+    background-color: #fafafa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.roadmap-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.roadmap-item:hover .roadmap-logo img {
+    transform: scale(1.08);
+}
+
+/* Timeline Content */
+.roadmap-content {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex-grow: 1;
+}
+
+.roadmap-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.roadmap-time {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #ff5e00;
+    background-color: rgba(255, 94, 0, 0.08);
+    padding: 4px 10px;
+    line-height: 1;
+}
+
+.roadmap-status {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    line-height: 1;
+}
+
+.roadmap-content h3 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin: 0;
+    letter-spacing: -0.3px;
+    line-height: 1.2;
+}
+
+.roadmap-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: #666666;
+    margin: 0;
+    line-height: 1;
+}
+
+.roadmap-degree {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.98rem;
+    font-weight: 600;
+    color: #334155;
+    margin: 4px 0 2px 0;
+    line-height: 1.2;
+}
+
+.roadmap-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    color: #555555;
+    margin: 0;
+}
+
+.academic-tag {
+    display: inline-flex;
+    align-self: flex-start;
+    background-color: #f1f5f9;
+    border-left: 3px solid #ff5e00;
+    color: #334155;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 6px 12px;
+    margin-top: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+/* Responsive Roadmap Layout */
+@media (max-width: 768px) {
+    .roadmap-card {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .roadmap-card {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+    
+    .roadmap-logo {
+        width: 55px;
+        height: 55px;
+    }
+
+    .roadmap-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+    
+    .roadmap-status {
+        margin-top: 2px;
+    }
 }

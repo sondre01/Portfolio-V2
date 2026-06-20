@@ -7,12 +7,69 @@
 @import "contact.css";
 
 /* ==========================================================================
+   THEME VARIABLES & TOKENS
+   ========================================================================== */
+:root {
+    /* Brand Accent */
+    --accent: #ff5e00;
+    --accent-hover: #e05300;
+    --accent-rgba: rgba(255, 94, 0, 0.08);
+
+    /* Light Theme Tokens */
+    --bg-page: #f8fafc;
+    --bg-card: #ffffff;
+    --bg-header: rgba(255, 255, 255, 0.85);
+    --border-color: #e2e8f0;
+    --border-focus: #cbd5e1;
+    
+    --text-primary: #1a1a1a;
+    --text-secondary: #555555;
+    --text-muted: #888888;
+    
+    --modal-overlay: rgba(0, 0, 0, 0.6);
+    --vercel-logo-filter: none;
+    
+    --stat-bg: #ffffff;
+    --input-bg: #ffffff;
+    --badge-bg: #f1f5f9;
+    
+    --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    --card-shadow-hover: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+body.dark-mode {
+    /* Dark Theme Tokens (Ideal Dark Mode Formula) */
+    --bg-page: #121212;             /* Dark Gray/Charcoal background */
+    --bg-card: #1e1e1e;             /* Charcoal card background */
+    --bg-header: rgba(30, 30, 30, 0.85);
+    --border-color: #9e9e9e;        /* Muted Medium Gray border */
+    --border-focus: #ff5e00;
+    
+    --text-primary: #e0e0e0;        /* Off-white primary text */
+    --text-secondary: #b0b0b0;      /* Muted medium gray secondary text */
+    --text-muted: #9e9e9e;          /* Muted text */
+    
+    --modal-overlay: rgba(0, 0, 0, 0.8);
+    --vercel-logo-filter: invert(1);
+    
+    --stat-bg: #1e1e1e;
+    --input-bg: #121212;
+    --badge-bg: #2d2d2d;
+    
+    --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    --card-shadow-hover: 0 15px 35px rgba(0, 0, 0, 0.35);
+}
+
+/* ==========================================================================
    BASE STYLES / TYPOGRAPHY
    ========================================================================== */
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: var(--bg-page);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1,
@@ -22,6 +79,7 @@ h4,
 h5,
 h6 {
     font-family: 'Poppins', sans-serif;
+    color: var(--text-primary);
 }
 
 /* ==========================================================================
@@ -58,13 +116,9 @@ body.header-hidden .sidebar-column {
 
 
 /* ==========================================================================
-   DEBUG / LAYOUT GUIDE
-   These temporary outlines help you visualize where containers start and end.
+   HEADER CONFIGURATION
    ========================================================================== */
-
-/* Neon pink outline for header */
 .header {
-    outline: 2px solid #ff007f;
     width: 100%;
     height: 90px;
     
@@ -73,11 +127,12 @@ body.header-hidden .sidebar-column {
     top: 0;
     left: 0;
     z-index: 1000;
-    background-color: rgba(255, 255, 255, 0.85); /* Semitransparent white */
+    background-color: var(--bg-header);
     backdrop-filter: blur(10px); /* Premium glassmorphism blur effect */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* Modern soft drop shadow */
+    border-bottom: 1px solid var(--border-color);
     border-radius: 0; /* Sharp corners, no rounded edges */
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 /* Aligns the header items inside the 1400px split layout frame */
@@ -99,12 +154,9 @@ body.header-hidden .header {
 
 /* Navigation buttons container */
 .locator-buttons {
-    outline: 2px solid #00f3ff;
-    /* Neon cyan debug outline */
     display: flex;
     align-items: center;
     gap: 40px;
-    /* Adjust this value to change spacing between buttons */
 }
 
 /* Individual navigation link styling */
@@ -112,7 +164,7 @@ body.header-hidden .header {
     font-family: 'Poppins', sans-serif;
     font-size: 0.95rem;
     font-weight: 500;
-    color: #555555;
+    color: var(--text-secondary);
     text-decoration: none;
     position: relative;
     padding: 6px 0;
@@ -121,7 +173,7 @@ body.header-hidden .header {
 
 .nav-link:hover,
 .nav-link.active {
-    color: #ff5e00; /* Brand orange color */
+    color: var(--accent); /* Brand orange color */
 }
 
 /* Sliding/Expanding bottom underline transition */
@@ -132,7 +184,7 @@ body.header-hidden .header {
     left: 0;
     width: 100%;
     height: 2px;
-    background-color: #ff5e00;
+    background-color: var(--accent);
     transform: scaleX(0);
     transform-origin: right;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -147,20 +199,23 @@ body.header-hidden .header {
 
 /* Logo / Name wrapper */
 .logo-myname {
-    outline: 2px solid #ffaa00;
-    /* Neon orange debug outline */
     display: flex;
     align-items: center;
     gap: 15px;
-    /* Adjust spacing between 'Sondre' and 'Khin Andrei' here */
 }
 
 /* Logo picture size */
 .logo-myname img {
     width: 50px;
-    /* Adjust logo image width here */
     height: auto;
-    /* Maintain aspect ratio */
+}
+
+.logo-myname p {
+    color: var(--text-primary);
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    transition: color 0.3s ease;
 }
 
 /* Header Controls (Search & Theme Toggle) */
@@ -168,8 +223,6 @@ body.header-hidden .header {
     display: flex;
     align-items: center;
     gap: 15px;
-    outline: 2px solid #e7fe00;
-    /* Neon yellow debug outline to show container position */
 }
 
 .control-btn {
@@ -178,19 +231,20 @@ body.header-hidden .header {
     cursor: pointer;
     padding: 8px;
     border-radius: 50%;
-    color: inherit;
+    color: var(--text-primary);
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    outline: 2px solid #9d00ff;
-    /* Neon purple debug outline for individual buttons */
+    transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
 }
 
 .control-btn:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    /* light overlay for hover style */
+    background-color: rgba(0, 0, 0, 0.05);
     transform: scale(1.05);
+}
+
+body.dark-mode .control-btn:hover {
+    background-color: rgba(255, 255, 255, 0.08);
 }
 
 .control-btn svg {
@@ -211,4 +265,263 @@ body.header-hidden .header {
 .scroll-reveal.reveal-active {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* ==========================================================================
+   GLOBAL DARK MODE OVERRIDES
+   ========================================================================== */
+body.dark-mode .intro-card,
+body.dark-mode .modal-box,
+body.dark-mode .about-combined-card,
+body.dark-mode .skills-card,
+body.dark-mode .roadmap-card,
+body.dark-mode .work-card,
+body.dark-mode .contact-card,
+body.dark-mode .about-modal-box,
+body.dark-mode .feedback-card {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+    box-shadow: var(--card-shadow) !important;
+}
+
+body.dark-mode .intro-card:hover,
+body.dark-mode .about-combined-card:hover,
+body.dark-mode .skills-card:hover,
+body.dark-mode .roadmap-card:hover,
+body.dark-mode .work-card:hover,
+body.dark-mode .contact-card:hover,
+body.dark-mode .feedback-card:hover {
+    box-shadow: var(--card-shadow-hover) !important;
+    border-color: var(--accent) !important;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6,
+body.dark-mode .card-name,
+body.dark-mode .preview-name,
+body.dark-mode .preview-section-title,
+body.dark-mode .preview-item-title,
+body.dark-mode .about-modal-title,
+body.dark-mode .skills-list li strong {
+    color: var(--text-primary) !important;
+}
+
+body.dark-mode p,
+body.dark-mode span:not(.stat-number):not(.roadmap-time):not(.work-duration):not(.project-role):not(.badge-dot):not(.work-tag),
+body.dark-mode li,
+body.dark-mode .card-description,
+body.dark-mode .intro-description,
+body.dark-mode .preview-item-sub,
+body.dark-mode .preview-item-description,
+body.dark-mode .skill-name,
+body.dark-mode .skills-list li,
+body.dark-mode .roadmap-subtitle,
+body.dark-mode .roadmap-desc,
+body.dark-mode .work-card-desc,
+body.dark-mode .contact-intro,
+body.dark-mode .form-group label,
+body.dark-mode .feedback-card h4,
+body.dark-mode .feedback-success-visible span {
+    color: var(--text-secondary) !important;
+}
+
+body.dark-mode .stat-item,
+body.dark-mode .resume-preview-container,
+body.dark-mode .roadmap-logo,
+body.dark-mode .infra-badge,
+body.dark-mode .form-control,
+body.dark-mode .feedback-card input[type="text"] {
+    background-color: var(--input-bg) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-primary) !important;
+}
+
+body.dark-mode .resume-tab {
+    background-color: var(--input-bg) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-secondary) !important;
+}
+
+body.dark-mode .resume-tab.active {
+    background-color: var(--accent) !important;
+    border-color: var(--accent) !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode .action-btn.secondary {
+    background-color: var(--border-color) !important;
+    color: var(--text-primary) !important;
+}
+
+body.dark-mode .action-btn.secondary:hover {
+    background-color: var(--border-focus) !important;
+}
+
+body.dark-mode .infra-badge img[alt="Vercel Logo"] {
+    filter: invert(1);
+}
+
+body.dark-mode .academic-tag {
+    background-color: var(--badge-bg) !important;
+    color: var(--text-primary) !important;
+}
+
+body.dark-mode .work-tag {
+    background-color: var(--badge-bg) !important;
+    color: var(--text-secondary) !important;
+}
+
+body.dark-mode .work-card:hover .work-tag {
+    background-color: var(--border-color) !important;
+    color: var(--text-primary) !important;
+}
+
+body.dark-mode .about-modal-body::-webkit-scrollbar-track,
+body.dark-mode .resume-preview-container::-webkit-scrollbar-track {
+    background: var(--bg-page) !important;
+}
+
+body.dark-mode .about-modal-body::-webkit-scrollbar-thumb,
+body.dark-mode .resume-preview-container::-webkit-scrollbar-thumb {
+    background: var(--border-color) !important;
+}
+
+/* ==========================================================================
+   DARK MODE POLISH & SPECIFIC COMPONENT OVERRIDES
+   ========================================================================== */
+body.dark-mode button span,
+body.dark-mode a span {
+    color: inherit !important;
+}
+
+body.dark-mode .contribution-item {
+    color: var(--text-secondary) !important;
+}
+
+body.dark-mode .contribution-title {
+    color: var(--text-primary) !important;
+}
+
+body.dark-mode .work-contributions {
+    border-top-color: var(--border-color) !important;
+}
+
+body.dark-mode .project-subcategory-title::after {
+    background-color: var(--border-color) !important;
+}
+
+body.dark-mode .roadmap-line {
+    background-color: var(--border-color) !important;
+}
+
+body.dark-mode .roadmap-badge {
+    background-color: var(--bg-page) !important;
+    border-color: var(--border-color) !important;
+}
+
+body.dark-mode .contact-badge-section {
+    border-top-color: var(--border-color) !important;
+}
+
+body.dark-mode .modal-close-btn,
+body.dark-mode .about-modal-close-btn {
+    color: var(--text-secondary) !important;
+}
+
+body.dark-mode .modal-close-btn:hover,
+body.dark-mode .about-modal-close-btn:hover {
+    background-color: var(--border-color) !important;
+    color: var(--text-primary) !important;
+}
+
+body.dark-mode .form-status.success {
+    color: #4ade80 !important;
+    background-color: rgba(74, 222, 128, 0.1) !important;
+    border-color: #22c55e !important;
+}
+
+body.dark-mode .form-status.error {
+    color: #f87171 !important;
+    background-color: rgba(248, 113, 113, 0.1) !important;
+    border-color: #ef4444 !important;
+}
+
+/* ==========================================================================
+   GLOBAL EXPANDABLE CARD STYLES
+   ========================================================================== */
+.expandable-card {
+    cursor: pointer;
+}
+
+.card-details-wrapper {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+                opacity 0.3s ease, 
+                margin-top 0.3s ease;
+}
+
+.expandable-card.expanded .card-details-wrapper {
+    max-height: 1000px; /* High threshold to handle all details */
+    opacity: 1;
+    margin-top: 15px;
+}
+
+.card-expand-toggle-btn {
+    align-self: flex-start;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #ff5e00;
+    display: inline-flex;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 15px;
+    padding: 8px; /* Circular base padding */
+    border-radius: 30px;
+    transition: color 0.2s ease, background-color 0.2s ease, padding 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-expand-toggle-btn:hover {
+    color: #e05300;
+    background-color: rgba(255, 94, 0, 0.08);
+    padding: 8px 16px; /* Grow padding horizontally on hover */
+}
+
+.card-expand-toggle-btn .toggle-text {
+    max-width: 0;
+    opacity: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: max-width 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                opacity 0.2s ease, 
+                margin-left 0.3s ease;
+    margin-left: 0;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.card-expand-toggle-btn:hover .toggle-text {
+    max-width: 100px; /* Expand text visibility */
+    opacity: 1;
+    margin-left: 8px;
+}
+
+.card-expand-toggle-btn i {
+    transition: transform 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.expandable-card.expanded .card-expand-toggle-btn i {
+    transform: rotate(180deg);
 }
