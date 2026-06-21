@@ -212,10 +212,15 @@ body.header-hidden .header {
     gap: 15px;
 }
 
-/* Logo picture size */
+/* Logo picture size & transition */
 .logo-myname img {
     width: 50px;
     height: auto;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                border-color 0.3s ease, 
+                box-shadow 0.3s ease;
 }
 
 .logo-myname p {
@@ -224,6 +229,21 @@ body.header-hidden .header {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     transition: color 0.3s ease;
+}
+
+/* Logo interactive hover effects */
+.logo-myname {
+    cursor: pointer;
+}
+
+.logo-myname:hover img {
+    transform: scale(1.08) rotate(-4deg);
+    border-color: var(--accent);
+    box-shadow: 0 4px 12px rgba(255, 94, 0, 0.15);
+}
+
+.logo-myname:hover p {
+    color: var(--accent);
 }
 
 /* Header Controls (Search & Theme Toggle) */
@@ -732,119 +752,18 @@ body.dark-mode .row-expand-toggle-btn:hover {
     border-color: #d4f9d6 !important;
 }
 
-/* ==========================================================================
-   AWWWARDS BRANDING & CREATOR BADGES
-   ========================================================================== */
-
-/* Main Header Logo */
-.logo-myname {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+/* Typewriter Cursor */
+.typewriter-cursor {
+    color: var(--accent);
+    animation: typewriter-blink 0.7s infinite;
+    font-weight: 300;
+    margin-left: 2px;
 }
 
-.awwwards-logo-box {
-    width: 32px;
-    height: 32px;
-    background-color: #111111;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s ease;
+@keyframes typewriter-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }
 
-body.dark-mode .awwwards-logo-box {
-    background-color: #ffffff;
-}
 
-.awwwards-logo-w {
-    font-family: 'Georgia', 'Times New Roman', serif !important;
-    font-weight: 800 !important;
-    font-size: 20px !important;
-    color: #ffffff !important;
-    line-height: 1 !important;
-    margin-bottom: 2px;
-}
-
-body.dark-mode .awwwards-logo-w {
-    color: #111111 !important;
-}
-
-.awwwards-wordmark {
-    font-family: 'Inter', sans-serif !important;
-    font-size: 1.15rem !important;
-    font-weight: 800 !important;
-    letter-spacing: -0.04em !important;
-    color: var(--text-primary) !important;
-    text-transform: lowercase !important;
-}
-
-/* Avatar Curator Badge Overlay */
-.creator-badge-overlay {
-    position: absolute;
-    bottom: 12px;
-    right: 12px;
-    width: 36px;
-    height: 36px;
-    background-color: #111111;
-    border: 1.5px solid rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    z-index: 3;
-}
-
-body.dark-mode .creator-badge-overlay {
-    background-color: #ffffff;
-    border-color: rgba(17, 17, 17, 0.2);
-}
-
-.creator-badge-overlay .badge-w {
-    font-family: 'Georgia', serif !important;
-    font-weight: bold !important;
-    font-size: 18px !important;
-    color: #ffffff !important;
-    margin-bottom: 2px;
-}
-
-body.dark-mode .creator-badge-overlay .badge-w {
-    color: #111111 !important;
-}
-
-/* Project Card Creator Tag */
-.creator-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background-color: var(--badge-bg);
-    padding: 3px 8px;
-    border-radius: 9999px;
-    border: 1px solid var(--border-color);
-}
-
-.creator-avatar-mini {
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.creator-avatar-mini img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.creator-w-badge {
-    font-family: 'Georgia', serif !important;
-    font-weight: 800 !important;
-    font-size: 11px !important;
-    color: var(--text-secondary) !important;
-}
 
