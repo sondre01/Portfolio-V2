@@ -154,16 +154,16 @@
                     <!-- Minimal Statistics Row -->
                     <div class="intro-stats">
                         <div class="stat-item">
-                            <span class="stat-number">2+</span>
-                            <span class="stat-label">Years Experience</span>
+                            <span class="stat-number">1</span>
+                            <span class="stat-label">Work Job</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-number">10+</span>
+                            <span class="stat-number">5</span>
                             <span class="stat-label">Completed Projects</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-number">15+</span>
-                            <span class="stat-label">Tools & Tech</span>
+                            <span class="stat-number" id="views-count">--</span>
+                            <span class="stat-label">Portfolio Opens</span>
                         </div>
                     </div>
                 </div>
@@ -1365,6 +1365,24 @@
                 });
             }
         });
+
+        // Dynamic views counter via public Count API
+        const viewsCountSpan = document.getElementById('views-count');
+        if (viewsCountSpan) {
+            fetch('https://api.counterapi.dev/v1/portfolio-v2-khinandrei/page-views/up')
+                .then(res => res.json())
+                .then(data => {
+                    if (data && typeof data.value !== 'undefined') {
+                        viewsCountSpan.textContent = data.value;
+                    } else {
+                        viewsCountSpan.textContent = '1';
+                    }
+                })
+                .catch(err => {
+                    console.error('Views counter fetch failed:', err);
+                    viewsCountSpan.textContent = '1';
+                });
+        }
 
         // Initialize Lucide Icons on page load
         lucide.createIcons();
