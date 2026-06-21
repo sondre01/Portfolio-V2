@@ -40,7 +40,7 @@
                     <i data-lucide="search" style="width: 20px; height: 20px;"></i>
                 </button>
                 <button class="control-btn theme-toggle-btn" aria-label="Toggle Theme">
-                    <i data-lucide="sun" style="width: 20px; height: 20px;"></i>
+                    <i data-lucide="moon" style="width: 20px; height: 20px;"></i>
                 </button>
             </div>
         </div>
@@ -619,8 +619,12 @@
                     <!-- Subcategory A: Hardware, IoT & Embedded Systems -->
                     <div class="project-subcategory-title">
                         <span>A. Hardware, IoT & Embedded Systems</span>
+                        <button class="row-expand-toggle-btn" aria-label="Toggle Row Details" data-target="hardware-grid">
+                            <i data-lucide="chevron-down" style="width: 14px; height: 14px;"></i>
+                            <span class="toggle-text">Show More</span>
+                        </button>
                     </div>
-                    <div class="projects-cards-grid">
+                    <div class="projects-cards-grid" id="hardware-grid">
                         <!-- FOVB-AIOT -->
                         <div class="work-card project-card expandable-card">
                             <div class="card-header-meta">
@@ -641,10 +645,6 @@
                                     <span>Read Manuscript</span>
                                 </a>
                             </div>
-                            <button class="card-expand-toggle-btn" aria-label="Toggle Details">
-                                <i data-lucide="chevron-down" style="width: 16px; height: 16px;"></i>
-                                <span class="toggle-text">Show More</span>
-                            </button>
                         </div>
 
                         <!-- AI Kilo Bot -->
@@ -662,10 +662,6 @@
                                     <span class="work-tag">HX711 Load Cell</span>
                                 </div>
                             </div>
-                            <button class="card-expand-toggle-btn" aria-label="Toggle Details">
-                                <i data-lucide="chevron-down" style="width: 16px; height: 16px;"></i>
-                                <span class="toggle-text">Show More</span>
-                            </button>
                         </div>
 
                         <!-- RFID Tollgate System -->
@@ -683,18 +679,18 @@
                                     <span class="work-tag">C# Desktop UI</span>
                                 </div>
                             </div>
-                            <button class="card-expand-toggle-btn" aria-label="Toggle Details">
-                                <i data-lucide="chevron-down" style="width: 16px; height: 16px;"></i>
-                                <span class="toggle-text">Show More</span>
-                            </button>
                         </div>
                     </div>
 
                     <!-- Subcategory B: Desktop & Web Software Applications -->
                     <div class="project-subcategory-title" style="margin-top: 35px;">
                         <span>B. Desktop & Web Software Applications</span>
+                        <button class="row-expand-toggle-btn" aria-label="Toggle Row Details" data-target="software-grid">
+                            <i data-lucide="chevron-down" style="width: 14px; height: 14px;"></i>
+                            <span class="toggle-text">Show More</span>
+                        </button>
                     </div>
-                    <div class="projects-cards-grid">
+                    <div class="projects-cards-grid" id="software-grid">
                         <!-- GG Resto POS Dashboard -->
                         <div class="work-card project-card expandable-card">
                             <div class="card-header-meta">
@@ -710,10 +706,6 @@
                                     <span class="work-tag">POS Systems</span>
                                 </div>
                             </div>
-                            <button class="card-expand-toggle-btn" aria-label="Toggle Details">
-                                <i data-lucide="chevron-down" style="width: 16px; height: 16px;"></i>
-                                <span class="toggle-text">Show More</span>
-                            </button>
                         </div>
 
                         <!-- Xvidia Shop -->
@@ -734,10 +726,6 @@
                                     <span>Read Manual</span>
                                 </a>
                             </div>
-                            <button class="card-expand-toggle-btn" aria-label="Toggle Details">
-                                <i data-lucide="chevron-down" style="width: 16px; height: 16px;"></i>
-                                <span class="toggle-text">Show More</span>
-                            </button>
                         </div>
 
                         <!-- Xvidia Movie Browser -->
@@ -755,10 +743,6 @@
                                     <span class="work-tag">TMDB API</span>
                                 </div>
                             </div>
-                            <button class="card-expand-toggle-btn" aria-label="Toggle Details">
-                                <i data-lucide="chevron-down" style="width: 16px; height: 16px;"></i>
-                                <span class="toggle-text">Show More</span>
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -1010,10 +994,7 @@
         if (savedTheme === 'dark' || (!savedTheme && systemDark)) {
             document.body.classList.add('dark-mode');
             if (themeBtn) {
-                const icon = themeBtn.querySelector('i');
-                if (icon) {
-                    icon.setAttribute('data-lucide', 'moon');
-                }
+                themeBtn.innerHTML = `<i data-lucide="sun" style="width: 20px; height: 20px;"></i>`;
             }
         }
         
@@ -1023,12 +1004,9 @@
                 const isDark = document.body.classList.contains('dark-mode');
                 localStorage.setItem('theme', isDark ? 'dark' : 'light');
                 
-                // Toggle Lucide Icon
-                const icon = themeBtn.querySelector('i');
-                if (icon) {
-                    icon.setAttribute('data-lucide', isDark ? 'moon' : 'sun');
-                    lucide.createIcons();
-                }
+                // Toggle Lucide Icon (Show sun in dark mode, moon in light mode)
+                themeBtn.innerHTML = `<i data-lucide="${isDark ? 'sun' : 'moon'}" style="width: 20px; height: 20px;"></i>`;
+                lucide.createIcons();
             });
         }
 
@@ -1302,12 +1280,49 @@
             });
         }
 
+        // Row-level expand logic for project sections
+        const rowToggleButtons = document.querySelectorAll('.row-expand-toggle-btn');
+        rowToggleButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation(); // Avoid triggering card click
+                const targetId = btn.getAttribute('data-target');
+                const targetGrid = document.getElementById(targetId);
+                if (!targetGrid) return;
+                
+                const cards = targetGrid.querySelectorAll('.project-card');
+                const isAnyExpanded = Array.from(cards).some(card => card.classList.contains('expanded'));
+                
+                // Toggle the expanded class on all project cards inside the grid
+                cards.forEach(card => {
+                    card.classList.toggle('expanded', !isAnyExpanded);
+                });
+                
+                // Update the row button state
+                const isExpanded = !isAnyExpanded;
+                btn.classList.toggle('expanded', isExpanded);
+                const btnText = btn.querySelector('.toggle-text');
+                if (btnText) {
+                    btnText.textContent = isExpanded ? 'Hide More' : 'Show More';
+                }
+            });
+        });
+
         // Expandable Cards Toggle Logic (Education, Work Experience, & Projects)
         const expandableCards = document.querySelectorAll('.expandable-card');
         expandableCards.forEach(card => {
             card.addEventListener('click', (e) => {
-                // Prevent toggle if clicking on links or other action buttons (excluding the toggle button itself)
-                if (e.target.closest('a') || (e.target.closest('button') && !e.target.closest('.card-expand-toggle-btn')) || window.getSelection().toString()) {
+                // Prevent toggle if clicking on links or other action buttons
+                if (e.target.closest('a') || (e.target.closest('button') && !e.target.closest('.card-expand-toggle-btn') && !e.target.closest('.row-expand-toggle-btn')) || window.getSelection().toString()) {
+                    return;
+                }
+                
+                // For project cards, delegate expansion to the row-level toggle button
+                if (card.classList.contains('project-card')) {
+                    const grid = card.closest('.projects-cards-grid');
+                    const btn = grid ? grid.previousElementSibling.querySelector('.row-expand-toggle-btn') : null;
+                    if (btn) {
+                        btn.click();
+                    }
                     return;
                 }
                 
@@ -1318,6 +1333,36 @@
                     btnText.textContent = isExpanded ? 'Hide More' : 'Show More';
                 }
             });
+        });
+
+        // ScrollSpy to highlight active navigation link based on current scroll position
+        const sectionsForScrollSpy = document.querySelectorAll('.section');
+        const navLinksForScrollSpy = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = 'home'; // default to home if at top
+            const scrollPos = window.scrollY + 120; // 90px header + offset threshold
+
+            // Check if user has scrolled to the bottom of the page
+            if ((window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 20) {
+                current = 'contact';
+            } else {
+                sectionsForScrollSpy.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (scrollPos >= sectionTop) {
+                        current = section.getAttribute('id');
+                    }
+                });
+            }
+
+            if (current) {
+                navLinksForScrollSpy.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
         });
 
         // Initialize Lucide Icons on page load

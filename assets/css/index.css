@@ -63,6 +63,11 @@ body.dark-mode {
 /* ==========================================================================
    BASE STYLES / TYPOGRAPHY
    ========================================================================== */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 110px; /* Offset for fixed header + breathing room */
+}
+
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     margin: 0;

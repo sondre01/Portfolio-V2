@@ -54,11 +54,16 @@
     gap: 8px;
 }
 
+.project-subcategory-title span {
+    order: 1;
+}
+
 .project-subcategory-title::after {
     content: "";
     flex-grow: 1;
     height: 1px;
     background-color: #e2e8f0;
+    order: 2;
 }
 
 /* Grids for cards */
@@ -263,4 +268,56 @@
         align-items: flex-start;
     }
 }
+
+/* Row level expand button */
+.row-expand-toggle-btn {
+    background: transparent;
+    border: 1px solid rgba(255, 94, 0, 0.2);
+    color: #ff5e00;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    transition: all 0.2s ease;
+    margin-left: 10px;
+    flex-shrink: 0;
+    order: 3;
+}
+
+.row-expand-toggle-btn:hover {
+    background-color: #ff5e00;
+    color: #ffffff;
+    border-color: #ff5e00;
+}
+
+.row-expand-toggle-btn i,
+.row-expand-toggle-btn svg {
+    transition: transform 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    margin-right: 4px;
+}
+
+.row-expand-toggle-btn.expanded i,
+.row-expand-toggle-btn.expanded svg {
+    transform: rotate(180deg) !important;
+}
+
+/* Dark mode adjustments if needed */
+body.dark-mode .row-expand-toggle-btn {
+    border-color: rgba(255, 94, 0, 0.3);
+}
+
+body.dark-mode .row-expand-toggle-btn:hover {
+    background-color: #ff5e00;
+    color: #ffffff;
+    border-color: #ff5e00;
+}
+
 
