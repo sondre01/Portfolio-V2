@@ -44,6 +44,22 @@
                 </button>
             </div>
         </div>
+
+        <!-- Search Bar Layer (Overlays header contents when active) -->
+        <div class="search-bar-layer" id="search-bar-layer">
+            <div class="search-layer-inner">
+                <div class="search-input-wrapper">
+                    <i data-lucide="search" class="search-bar-icon"></i>
+                    <input type="text" id="global-search-input" placeholder="Search skills, projects, experience, sections..." autocomplete="off">
+                    <span class="search-kbd">ESC</span>
+                </div>
+                <button class="control-btn close-search-btn" id="close-search-btn" aria-label="Close Search">
+                    <i data-lucide="x" style="width: 20px; height: 20px;"></i>
+                </button>
+            </div>
+            <!-- Search Suggestions Dropdown -->
+            <div class="search-suggestions-dropdown" id="search-suggestions"></div>
+        </div>
     </header>
 
     <div class="main-layout">
@@ -557,12 +573,19 @@
                     <div class="experience-cards-grid">
                         <!-- IT Operations & QA Intern Card -->
                         <div class="work-card expandable-card">
-                            <div class="card-header-meta">
-                                <span class="work-duration">January 2026 – June 2026 (Internship)</span>
-                                <span class="work-location">Staff Domain PH</span>
+                            <div class="experience-card-header-layout">
+                                <div class="experience-company-logo">
+                                    <img src="data/logo/experience_companies/Staff-Domain.webp" alt="Staff Domain Logo">
+                                </div>
+                                <div class="experience-card-text">
+                                    <div class="card-header-meta">
+                                        <span class="work-duration">January 2026 – June 2026 (Internship)</span>
+                                        <span class="work-location">Staff Domain PH</span>
+                                    </div>
+                                    <h4 class="work-card-title">IT Operations & QA Intern</h4>
+                                    <p class="work-card-desc">Ensured enterprise system stability, optimized internal processes using scripting, handled centralized system migrations, and managed physical hardware operations for a large workforce.</p>
+                                </div>
                             </div>
-                            <h4 class="work-card-title">IT Operations & QA Intern</h4>
-                            <p class="work-card-desc">Ensured enterprise system stability, optimized internal processes using scripting, handled centralized system migrations, and managed physical hardware operations for a large workforce.</p>
                             
                             <!-- Collapsible Content Wrapper -->
                             <div class="card-details-wrapper">
@@ -1122,9 +1145,31 @@
         // Smart Header scroll behavior (Show on scroll up, Hide on scroll down)
         let lastScrollY = window.scrollY;
         const header = document.querySelector('.header');
+        let isNavClickScrolling = false;
+        let navClickTimeout = null;
+
+        // Prevent navbar from hiding when navigation links are clicked
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                isNavClickScrolling = true;
+                document.body.classList.remove('header-hidden');
+                
+                if (navClickTimeout) clearTimeout(navClickTimeout);
+                navClickTimeout = setTimeout(() => {
+                    isNavClickScrolling = false;
+                }, 1000);
+            });
+        });
 
         if (header) {
             window.addEventListener('scroll', () => {
+                // Keep navbar visible if scroll is triggered by navbar navigation click
+                if (isNavClickScrolling) {
+                    document.body.classList.remove('header-hidden');
+                    lastScrollY = window.scrollY;
+                    return;
+                }
+
                 // Ignore scroll check if at the very top of the page (to prevent glitching)
                 if (window.scrollY < 50) {
                     document.body.classList.remove('header-hidden');
@@ -1347,7 +1392,7 @@
                 // For project cards, delegate expansion to the row-level toggle button
                 if (card.classList.contains('project-card')) {
                     const grid = card.closest('.projects-cards-grid');
-                    const btn = grid ? grid.previousElementSibling.querySelector('.row-expand-toggle-btn') : null;
+                    const btn = grid?.previousElementSibling?.querySelector('.row-expand-toggle-btn') || null;
                     if (btn) {
                         btn.click();
                     }
@@ -1446,6 +1491,390 @@
         if (typewriterSpan) {
             type();
         }
+
+        // ==========================================================================
+        // GLOBAL SEARCH SYSTEM
+        // ==========================================================================
+        
+        let searchIndex = [];
+        let currentSelectedIndex = -1;
+
+        // Build a searchable representation of all static text elements
+        function buildSearchIndex() {
+            searchIndex = [];
+            
+            // 1. Index Sections
+            const sections = [
+                { id: 'home', name: 'Home', desc: 'Welcome page, portfolio intro, key statistics, and resume download.' },
+                { id: 'about', name: 'About Me', desc: 'Background, computer engineering education, career goals, and immediate availability.' },
+                { id: 'skills', name: 'Skills', desc: 'Core proficiencies, languages (Java, Python, C++, JavaScript, C#), tools, systems, and specialized platforms.' },
+                { id: 'education', name: 'Education', desc: 'Rizal Technological University (RTU), Rizal High School academic roadmap and details.' },
+                { id: 'work', name: 'Work Experience & Projects', desc: 'IT Operations & QA Intern, Staff Domain experience, embedded AI, capstone project, POS, and custom software systems.' },
+                { id: 'contact', name: 'Contact', desc: 'Get in touch, email address, locations, social networks, and message dispatch.' }
+            ];
+            
+            sections.forEach(s => {
+                const el = document.getElementById(s.id);
+                if (el) {
+                    searchIndex.push({
+                        type: 'Section',
+                        title: s.name,
+                        subtitle: 'Navigation Section',
+                        text: `${s.name} ${s.desc}`.toLowerCase(),
+                        target: el,
+                        badge: 'Section',
+                        icon: 'compass'
+                    });
+                }
+            });
+
+            // 2. Index Skills
+            const skillCards = document.querySelectorAll('.skills-card');
+            skillCards.forEach(card => {
+                const categoryTitle = card.querySelector('h3')?.textContent || 'Skill';
+                const subcategories = card.querySelectorAll('.skills-subcategory');
+                subcategories.forEach(sub => {
+                    const subTitle = sub.querySelector('h4')?.textContent || '';
+                    const skillItems = sub.querySelectorAll('.skill-item-logo-card');
+                    
+                    skillItems.forEach(item => {
+                        const name = item.querySelector('.skill-name')?.textContent || '';
+                        const tooltip = item.querySelector('.skill-tooltip')?.textContent || '';
+                        
+                        searchIndex.push({
+                            type: 'Skill',
+                            title: name,
+                            subtitle: `${categoryTitle} › ${subTitle}`,
+                            text: `${name} ${tooltip} ${subTitle} ${categoryTitle}`.toLowerCase(),
+                            target: item,
+                            parentSection: '#skills',
+                            badge: 'Skill',
+                            icon: 'code'
+                        });
+                    });
+                });
+            });
+
+            // 3. Index Education
+            const eduCards = document.querySelectorAll('.roadmap-card');
+            eduCards.forEach(card => {
+                const school = card.querySelector('h3')?.textContent || '';
+                const degree = card.querySelector('.roadmap-degree')?.textContent || '';
+                const subtitle = card.querySelector('.roadmap-subtitle')?.textContent || '';
+                const desc = card.querySelector('.roadmap-desc')?.textContent || '';
+                const tag = card.querySelector('.academic-tag')?.textContent || '';
+                
+                searchIndex.push({
+                    type: 'Education',
+                    title: school,
+                    subtitle: degree || subtitle,
+                    text: `${school} ${degree} ${subtitle} ${desc} ${tag}`.toLowerCase(),
+                    target: card,
+                    parentSection: '#education',
+                    badge: 'Education',
+                    icon: 'graduation-cap'
+                });
+            });
+
+            // 4. Index Work Experience
+            const workCards = document.querySelectorAll('.work-card:not(.project-card)');
+            workCards.forEach(card => {
+                const title = card.querySelector('.work-card-title')?.textContent || '';
+                const company = card.querySelector('.experience-company-logo img')?.alt?.replace(' Logo', '') || card.querySelector('.experience-card-text .work-location')?.textContent || '';
+                const desc = card.querySelector('.work-card-desc')?.textContent || '';
+                const duration = card.querySelector('.work-duration')?.textContent || '';
+                
+                let contributionsText = '';
+                card.querySelectorAll('.contribution-item').forEach(item => {
+                    contributionsText += ' ' + item.textContent;
+                });
+
+                searchIndex.push({
+                    type: 'Work Experience',
+                    title: title,
+                    subtitle: `${company} (${duration})`,
+                    text: `${title} ${company} ${desc} ${duration} ${contributionsText}`.toLowerCase(),
+                    target: card,
+                    parentSection: '#work',
+                    badge: 'Work',
+                    icon: 'briefcase'
+                });
+            });
+
+            // 5. Index Projects
+            const projectCards = document.querySelectorAll('.project-card');
+            projectCards.forEach(card => {
+                const title = card.querySelector('.work-card-title')?.textContent || '';
+                const role = card.querySelector('.project-role')?.textContent || '';
+                const desc = card.querySelector('.work-card-desc')?.textContent || '';
+                
+                let tags = [];
+                card.querySelectorAll('.work-tag').forEach(tag => {
+                    tags.push(tag.textContent);
+                });
+                const tagsText = tags.join(' ');
+
+                searchIndex.push({
+                    type: 'Project',
+                    title: title,
+                    subtitle: role,
+                    text: `${title} ${role} ${desc} ${tagsText}`.toLowerCase(),
+                    target: card,
+                    parentSection: '#work',
+                    badge: 'Project',
+                    icon: 'monitor'
+                });
+            });
+        }
+
+        // Highlight matching characters in the suggestions
+        function highlightMatchText(text, query) {
+            if (!query) return text;
+            const escapedQuery = query.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+            const regex = new RegExp(`(${escapedQuery})`, 'gi');
+            return text.replace(regex, '<span class="suggestion-match-highlight">$1</span>');
+        }
+
+        // Smoothly scroll and highlight targeted element
+        function makeTargetVisibleAndHighlight(targetEl) {
+            // Expand project grid rows if necessary
+            if (targetEl.classList.contains('project-card')) {
+                const grid = targetEl.closest('.projects-cards-grid');
+                if (grid) {
+                    const btn = grid.previousElementSibling?.querySelector('.row-expand-toggle-btn') || null;
+                    if (!targetEl.classList.contains('expanded') && btn) {
+                        btn.click();
+                    }
+                }
+            } else if (targetEl.classList.contains('expandable-card')) {
+                if (!targetEl.classList.contains('expanded')) {
+                    targetEl.classList.add('expanded');
+                    const btnText = targetEl.querySelector('.card-expand-toggle-btn span');
+                    if (btnText) {
+                        btnText.textContent = 'Hide More';
+                    }
+                }
+            }
+
+            // Scroll with header offset
+            setTimeout(() => {
+                const headerOffset = 120;
+                const elementPosition = targetEl.getBoundingClientRect().top + window.scrollY;
+                const offsetPosition = elementPosition - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+
+                // Pulse outline glow
+                targetEl.classList.add('search-highlight-pulse');
+                setTimeout(() => {
+                    targetEl.classList.remove('search-highlight-pulse');
+                }, 3000);
+            }, 100);
+        }
+
+        // Search Interface Controls
+        const headerElement = document.querySelector('.header');
+        const searchBtn = document.querySelector('.search-btn');
+        const closeSearchBtn = document.getElementById('close-search-btn');
+        const globalSearchInput = document.getElementById('global-search-input');
+        const suggestionsDropdown = document.getElementById('search-suggestions');
+
+        function openSearch() {
+            if (!headerElement) return;
+            headerElement.classList.add('search-active');
+            setTimeout(() => {
+                globalSearchInput?.focus();
+            }, 100);
+            
+            // Build the search index if not already built or empty
+            if (searchIndex.length === 0) {
+                buildSearchIndex();
+            }
+        }
+
+        function closeSearch() {
+            if (!headerElement) return;
+            headerElement.classList.remove('search-active');
+            if (globalSearchInput) {
+                globalSearchInput.value = '';
+            }
+            if (suggestionsDropdown) {
+                suggestionsDropdown.classList.remove('active');
+                suggestionsDropdown.innerHTML = '';
+            }
+            currentSelectedIndex = -1;
+        }
+
+        // Event Bindings
+        if (searchBtn) {
+            searchBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                openSearch();
+            });
+        }
+
+        if (closeSearchBtn) {
+            closeSearchBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                closeSearch();
+            });
+        }
+
+        // Handle typing queries and updating suggestions
+        if (globalSearchInput) {
+            globalSearchInput.addEventListener('input', () => {
+                const query = globalSearchInput.value.trim().toLowerCase();
+                
+                if (!query) {
+                    suggestionsDropdown.classList.remove('active');
+                    suggestionsDropdown.innerHTML = '';
+                    currentSelectedIndex = -1;
+                    return;
+                }
+
+                // Filter & Rank results
+                const matches = searchIndex.filter(item => item.text.includes(query) || item.title.toLowerCase().includes(query) || item.subtitle.toLowerCase().includes(query));
+                
+                // Group matches by category
+                const groups = {};
+                matches.forEach(match => {
+                    if (!groups[match.type]) {
+                        groups[match.type] = [];
+                    }
+                    groups[match.type].push(match);
+                });
+
+                // Render Suggestion items
+                suggestionsDropdown.innerHTML = '';
+                currentSelectedIndex = -1;
+
+                const categoryOrder = ['Section', 'Skill', 'Project', 'Work Experience', 'Education'];
+                let absoluteIndex = 0;
+
+                categoryOrder.forEach(category => {
+                    const groupItems = groups[category];
+                    if (groupItems && groupItems.length > 0) {
+                        const groupContainer = document.createElement('div');
+                        groupContainer.className = 'search-suggestion-group';
+                        
+                        const titleEl = document.createElement('div');
+                        titleEl.className = 'suggestion-group-title';
+                        titleEl.textContent = category === 'Section' ? 'Quick Links' : category;
+                        groupContainer.appendChild(titleEl);
+
+                        groupItems.forEach(item => {
+                            const suggestionItem = document.createElement('div');
+                            suggestionItem.className = 'suggestion-item';
+                            suggestionItem.setAttribute('data-index', absoluteIndex);
+                            
+                            // Save references to matching objects
+                            suggestionItem.addEventListener('click', () => {
+                                closeSearch();
+                                makeTargetVisibleAndHighlight(item.target);
+                            });
+
+                            const iconWrapper = document.createElement('div');
+                            iconWrapper.className = 'suggestion-item-icon';
+                            iconWrapper.innerHTML = `<i data-lucide="${item.icon}" style="width: 18px; height: 18px;"></i>`;
+                            
+                            const infoWrapper = document.createElement('div');
+                            infoWrapper.className = 'suggestion-item-info';
+
+                            const titleText = document.createElement('div');
+                            titleText.className = 'suggestion-item-title';
+                            titleText.innerHTML = highlightMatchText(item.title, query);
+
+                            const descText = document.createElement('div');
+                            descText.className = 'suggestion-item-description';
+                            descText.innerHTML = highlightMatchText(item.subtitle, query);
+
+                            infoWrapper.appendChild(titleText);
+                            infoWrapper.appendChild(descText);
+
+                            suggestionItem.appendChild(iconWrapper);
+                            suggestionItem.appendChild(infoWrapper);
+                            groupContainer.appendChild(suggestionItem);
+
+                            // Store reference on item element for keyboard selections
+                            suggestionItem._targetObject = item.target;
+
+                            absoluteIndex++;
+                        });
+
+                        suggestionsDropdown.appendChild(groupContainer);
+                    }
+                });
+
+                if (absoluteIndex === 0) {
+                    suggestionsDropdown.innerHTML = `
+                        <div class="search-empty-state">
+                            <i data-lucide="search" style="width: 32px; height: 32px;"></i>
+                            <p>No results found for "${globalSearchInput.value}"</p>
+                            <span>Try searching for another skill, project name, or technology.</span>
+                        </div>
+                    `;
+                }
+
+                suggestionsDropdown.classList.add('active');
+                lucide.createIcons(); // Render lucide icons dynamically inside suggestions
+            });
+
+            // Keyboard navigation controls inside input
+            globalSearchInput.addEventListener('keydown', (e) => {
+                const items = suggestionsDropdown.querySelectorAll('.suggestion-item');
+                
+                if (e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    if (items.length === 0) return;
+                    
+                    if (currentSelectedIndex >= 0) {
+                        items[currentSelectedIndex].classList.remove('selected');
+                    }
+                    currentSelectedIndex = (currentSelectedIndex + 1) % items.length;
+                    items[currentSelectedIndex].classList.add('selected');
+                    items[currentSelectedIndex].scrollIntoView({ block: 'nearest' });
+                } else if (e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    if (items.length === 0) return;
+                    
+                    if (currentSelectedIndex >= 0) {
+                        items[currentSelectedIndex].classList.remove('selected');
+                    }
+                    currentSelectedIndex = (currentSelectedIndex - 1 + items.length) % items.length;
+                    items[currentSelectedIndex].classList.add('selected');
+                    items[currentSelectedIndex].scrollIntoView({ block: 'nearest' });
+                } else if (e.key === 'Enter') {
+                    e.preventDefault();
+                    if (currentSelectedIndex >= 0 && items[currentSelectedIndex]) {
+                        items[currentSelectedIndex].click();
+                    } else if (items.length > 0) {
+                        items[0].click(); // click first item by default on enter
+                    }
+                }
+            });
+        }
+
+        // Global Keydown Events (ESC to close, Ctrl+K or Ctrl+/ to search)
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeSearch();
+            } else if ((e.ctrlKey && e.key === 'k') || (e.ctrlKey && e.key === '/')) {
+                e.preventDefault();
+                openSearch();
+            }
+        });
+
+        // Close search clicking outside
+        document.addEventListener('click', (e) => {
+            if (headerElement && headerElement.classList.contains('search-active')) {
+                if (!e.target.closest('.search-bar-layer') && !e.target.closest('.search-btn')) {
+                    closeSearch();
+                }
+            }
+        });
 
         // Initialize Lucide Icons on page load
         lucide.createIcons();
