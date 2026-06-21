@@ -1,0 +1,75 @@
+/* ==========================================================================
+   FOOTER SECTION STYLES
+   ========================================================================== */
+.footer {
+    width: 100%;
+    margin-top: 60px;
+    padding: 30px 0;
+    border-top: 1px solid var(--border-color);
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+}
+
+.footer-copyright {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.footer-motto {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-socials {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer-socials a {
+    color: var(--text-secondary);
+    transition: color 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 50%;
+    background-color: var(--badge-bg);
+    text-decoration: none;
+}
+
+.footer-socials a:hover {
+    color: var(--accent);
+    transform: translateY(-3px);
+    background-color: var(--accent-rgba);
+}
+
+.footer-socials svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+}
