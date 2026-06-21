@@ -70,14 +70,41 @@
 .about-img-wrapper {
     width: 100%;
     height: 100%;
+    position: relative;
 }
 
 .about-photo {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity 0.5s ease-in-out, transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.about-photo.photo-light {
+    opacity: 1;
+    z-index: 2;
+}
+
+.about-photo.photo-dark {
+    opacity: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+body.dark-mode .about-photo.photo-light {
+    opacity: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+body.dark-mode .about-photo.photo-dark {
+    opacity: 1;
+    z-index: 2;
+    pointer-events: auto;
 }
 
 .about-combined-card:hover .about-photo {
