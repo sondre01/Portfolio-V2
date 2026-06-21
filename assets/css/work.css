@@ -92,7 +92,7 @@
 .work-card {
     background-color: #ffffff;
     border: 1px solid #e2e8f0;
-    border-radius: 0; /* Sharp corners matching theme */
+    border-radius: 16px; /* Rounded corners for a modern, smooth aesthetic */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
     padding: 25px 30px;
     display: flex;
@@ -233,6 +233,7 @@
     font-weight: 600;
     text-decoration: none;
     margin-top: 10px;
+    border-radius: 8px; /* Rounded corners for buttons */
     transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 

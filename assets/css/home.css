@@ -64,7 +64,7 @@
     overflow: hidden;
     background: #ffffff;
     border: 1px solid #e2e8f0;
-    border-radius: 0; /* Sharp corners */
+    border-radius: 16px; /* Rounded corners for a modern, smooth aesthetic */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     padding: 0 0 24px 0; /* Flush image at top/left/right, padding at the bottom */
     width: 100%;
@@ -455,7 +455,7 @@
 .stat-item {
     background-color: transparent;
     border: 1px solid #e2e8f0;
-    border-radius: 0; /* Sharp corners */
+    border-radius: 8px; /* Rounded corners */
     padding: 12px 18px;
     display: flex;
     flex-direction: column;
@@ -494,7 +494,7 @@
 .feedback-card {
     background: #ffffff;
     border: 1px solid #e2e8f0;
-    border-radius: 0; /* Sharp corners matching theme */
+    border-radius: 16px; /* Rounded corners for a modern, smooth aesthetic */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
     padding: 16px 20px;
     margin-top: 15px;
