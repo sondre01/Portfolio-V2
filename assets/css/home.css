@@ -124,12 +124,13 @@
 }
 
 .card-name {
-    font-size: 1.8rem;
+    font-size: 1.45rem;
     font-weight: 800;
     color: #000000;
     margin: 0;
     letter-spacing: -0.5px;
     line-height: 1.2;
+    white-space: nowrap;
 }
 
 .card-description {
