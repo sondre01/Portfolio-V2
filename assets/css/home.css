@@ -169,7 +169,7 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background-color: #ff5e00;
+    background-color: var(--accent);
     color: #ffffff;
     border: none;
     padding: 12px 24px;
@@ -184,7 +184,7 @@
 }
 
 .resume-btn:hover {
-    background-color: #e05300;
+    background-color: var(--accent-hover);
     transform: translateY(-2px);
     box-shadow: 0 6px 16px rgba(255, 94, 0, 0.35);
 }
@@ -344,13 +344,13 @@
     font-family: 'Poppins', sans-serif;
     font-size: 1.2rem;
     font-weight: 700;
-    color: #1a1a1a;
+    color: var(--text-primary);
     margin: 0;
 }
 
 .preview-title {
     font-size: 0.8rem;
-    color: #ff5e00;
+    color: var(--accent);
     font-weight: 600;
     margin: 2px 0 0 0;
     text-transform: uppercase;
@@ -364,7 +364,7 @@
     font-family: 'Poppins', sans-serif;
     font-size: 0.85rem;
     font-weight: 700;
-    color: #333333;
+    color: var(--text-primary);
     margin: 0 0 6px 0;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -377,19 +377,19 @@
 .preview-item-title {
     font-size: 0.8rem;
     font-weight: 600;
-    color: #1a1a1a;
+    color: var(--text-primary);
     margin: 0;
 }
 
 .preview-item-sub {
     font-size: 0.75rem;
-    color: #666666;
+    color: var(--text-secondary);
     margin: 1px 0;
 }
 
 .preview-line {
     height: 6px;
-    background-color: #e0e0e0;
+    background-color: var(--badge-bg);
     border-radius: 3px;
     margin-bottom: 4px;
 }

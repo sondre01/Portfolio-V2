@@ -70,7 +70,7 @@ html {
 }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: var(--bg-page);
@@ -84,7 +84,9 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.03em;
     color: var(--text-primary);
 }
 
@@ -359,12 +361,14 @@ body.dark-mode .resume-tab.active {
 }
 
 body.dark-mode .action-btn.secondary {
-    background-color: var(--border-color) !important;
+    background-color: var(--bg-card) !important;
     color: var(--text-primary) !important;
+    border: 1px solid var(--border-color) !important;
 }
 
 body.dark-mode .action-btn.secondary:hover {
-    background-color: var(--border-focus) !important;
+    background-color: var(--border-color) !important;
+    color: var(--bg-page) !important;
 }
 
 body.dark-mode .infra-badge img[alt="Vercel Logo"] {
@@ -400,7 +404,9 @@ body.dark-mode .resume-preview-container::-webkit-scrollbar-thumb {
    DARK MODE POLISH & SPECIFIC COMPONENT OVERRIDES
    ========================================================================== */
 body.dark-mode button span,
-body.dark-mode a span {
+body.dark-mode a span,
+body.dark-mode button span:not(.stat-number):not(.roadmap-time):not(.work-duration):not(.project-role):not(.badge-dot):not(.work-tag),
+body.dark-mode a span:not(.stat-number):not(.roadmap-time):not(.work-duration):not(.project-role):not(.badge-dot):not(.work-tag) {
     color: inherit !important;
 }
 
@@ -531,3 +537,314 @@ body.dark-mode .form-status.error {
 .expandable-card.expanded .card-expand-toggle-btn i {
     transform: rotate(180deg);
 }
+
+/* ==========================================================================
+   AWWWARDS TYPOGRAPHY OVERRIDES (CLEAN CORPORATE TECH STACK)
+   ========================================================================== */
+
+/* 1. Headings & Displays (Heavy Geometric Inter with Helvetica/Arial fallbacks) */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.logo-myname p,
+.card-name,
+.about-modal-title,
+.contact-card-title,
+.timeline-title,
+.footer-title,
+.feedback-card h4,
+.preview-name,
+.preview-section-title,
+.stat-number,
+.work-card-title,
+.roadmap-content h3 {
+    font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.03em !important;
+}
+
+/* 2. Body UI Elements & Action Items (previously bound to Poppins) */
+.nav-link,
+.about-more-btn,
+.submit-btn,
+.resume-btn,
+.resume-tab,
+.contact-info-label,
+.contact-badge-title,
+.form-group label,
+.card-expand-toggle-btn,
+.preview-title,
+.preview-item-title,
+.academic-tag,
+.work-tag,
+.roadmap-time,
+.roadmap-degree,
+.footer-motto,
+.doc-link-btn,
+.row-expand-toggle-btn,
+.feedback-submit-btn {
+    font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+}
+
+/* ==========================================================================
+   AWWWARDS PILL-SHAPED BUTTON SYSTEM & SMOOTH INTERACTIONS
+   ========================================================================== */
+
+/* 1. Reset all shadows and enforce pill shape */
+.resume-btn,
+.submit-btn,
+.feedback-submit-btn,
+.about-more-btn,
+.action-btn,
+.doc-link-btn {
+    border-radius: 9999px !important;
+    box-shadow: none !important;
+    font-weight: 600 !important;
+    transition: background-color 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+                color 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+                border-color 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+                transform 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+/* 2. Primary Buttons (Light Mode: Deep Black / Dark Mode: Mint Green) */
+.resume-btn,
+.submit-btn,
+.feedback-submit-btn,
+.action-btn.primary {
+    background-color: #111111 !important;
+    color: #ffffff !important;
+    border: 1px solid #111111 !important;
+}
+
+.resume-btn:hover,
+.submit-btn:hover,
+.feedback-submit-btn:hover,
+.action-btn.primary:hover {
+    background-color: #d4f9d6 !important; /* Mint green pop on hover in light mode */
+    color: #0d2314 !important;
+    border-color: #d4f9d6 !important;
+    transform: translateY(-1px);
+}
+
+/* Dark Mode Overrides for Primary Buttons */
+body.dark-mode .resume-btn,
+body.dark-mode .submit-btn,
+body.dark-mode .feedback-submit-btn,
+body.dark-mode .action-btn.primary {
+    background-color: #d4f9d6 !important;
+    color: #0d2314 !important;
+    border: 1px solid #d4f9d6 !important;
+}
+
+body.dark-mode .resume-btn:hover,
+body.dark-mode .submit-btn:hover,
+body.dark-mode .feedback-submit-btn:hover,
+body.dark-mode .action-btn.primary:hover {
+    background-color: #ffffff !important;
+    color: #111111 !important;
+    border-color: #ffffff !important;
+    transform: translateY(-1px);
+}
+
+/* 3. Secondary & Outline Buttons (Light Mode: Outlined Black / Dark Mode: Outlined Muted) */
+.about-more-btn,
+.action-btn.secondary,
+.doc-link-btn {
+    background-color: transparent !important;
+    color: #111111 !important;
+    border: 1.5px solid #111111 !important;
+    padding: 10px 24px !important;
+}
+
+.about-more-btn:hover,
+.action-btn.secondary:hover,
+.doc-link-btn:hover {
+    background-color: #111111 !important;
+    color: #ffffff !important;
+    transform: translateY(-1px);
+}
+
+/* Dark Mode Overrides for Secondary Buttons */
+body.dark-mode .about-more-btn,
+body.dark-mode .action-btn.secondary,
+body.dark-mode .doc-link-btn {
+    background-color: transparent !important;
+    color: #e0e0e0 !important;
+    border: 1.5px solid #e0e0e0 !important;
+}
+
+body.dark-mode .about-more-btn:hover,
+body.dark-mode .action-btn.secondary:hover,
+body.dark-mode .doc-link-btn:hover {
+    background-color: #d4f9d6 !important; /* Mint green pop on hover */
+    color: #0d2314 !important;
+    border-color: #d4f9d6 !important;
+    transform: translateY(-1px);
+}
+
+/* 4. Cohesive Card Expand Buttons Overrides */
+.card-expand-toggle-btn {
+    color: #111111 !important;
+    transition: color 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+                background-color 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+                padding 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+.card-expand-toggle-btn:hover {
+    color: #0d2314 !important;
+    background-color: rgba(212, 249, 214, 0.4) !important;
+}
+
+body.dark-mode .card-expand-toggle-btn {
+    color: #d4f9d6 !important;
+}
+
+body.dark-mode .card-expand-toggle-btn:hover {
+    color: #0d2314 !important;
+    background-color: #d4f9d6 !important;
+}
+
+.row-expand-toggle-btn {
+    color: #111111 !important;
+    border-color: rgba(17, 17, 17, 0.2) !important;
+    transition: background-color 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+                color 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+                border-color 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+.row-expand-toggle-btn:hover {
+    background-color: #111111 !important;
+    color: #ffffff !important;
+    border-color: #111111 !important;
+}
+
+body.dark-mode .row-expand-toggle-btn {
+    color: #d4f9d6 !important;
+    border-color: rgba(212, 249, 214, 0.3) !important;
+}
+
+body.dark-mode .row-expand-toggle-btn:hover {
+    background-color: #d4f9d6 !important;
+    color: #0d2314 !important;
+    border-color: #d4f9d6 !important;
+}
+
+/* ==========================================================================
+   AWWWARDS BRANDING & CREATOR BADGES
+   ========================================================================== */
+
+/* Main Header Logo */
+.logo-myname {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.awwwards-logo-box {
+    width: 32px;
+    height: 32px;
+    background-color: #111111;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+body.dark-mode .awwwards-logo-box {
+    background-color: #ffffff;
+}
+
+.awwwards-logo-w {
+    font-family: 'Georgia', 'Times New Roman', serif !important;
+    font-weight: 800 !important;
+    font-size: 20px !important;
+    color: #ffffff !important;
+    line-height: 1 !important;
+    margin-bottom: 2px;
+}
+
+body.dark-mode .awwwards-logo-w {
+    color: #111111 !important;
+}
+
+.awwwards-wordmark {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 1.15rem !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.04em !important;
+    color: var(--text-primary) !important;
+    text-transform: lowercase !important;
+}
+
+/* Avatar Curator Badge Overlay */
+.creator-badge-overlay {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    background-color: #111111;
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    z-index: 3;
+}
+
+body.dark-mode .creator-badge-overlay {
+    background-color: #ffffff;
+    border-color: rgba(17, 17, 17, 0.2);
+}
+
+.creator-badge-overlay .badge-w {
+    font-family: 'Georgia', serif !important;
+    font-weight: bold !important;
+    font-size: 18px !important;
+    color: #ffffff !important;
+    margin-bottom: 2px;
+}
+
+body.dark-mode .creator-badge-overlay .badge-w {
+    color: #111111 !important;
+}
+
+/* Project Card Creator Tag */
+.creator-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: var(--badge-bg);
+    padding: 3px 8px;
+    border-radius: 9999px;
+    border: 1px solid var(--border-color);
+}
+
+.creator-avatar-mini {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.creator-avatar-mini img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.creator-w-badge {
+    font-family: 'Georgia', serif !important;
+    font-weight: 800 !important;
+    font-size: 11px !important;
+    color: var(--text-secondary) !important;
+}
+
