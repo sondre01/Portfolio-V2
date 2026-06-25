@@ -20,7 +20,7 @@
     <!----------------- Header / Navigation --------------------->
     <header class="header section">
         <div class="header-inner">
-            <div class="logo-myname">
+            <div class="logo-myname" data-tooltip="Sondre • Personal Brand Logo" data-tooltip-pos="bottom">
                 <img src="./data/logo/logo-box (1).png" alt="Sondre">
                 <p>Khin Andrei</p>
             </div>
@@ -1035,7 +1035,78 @@
         </div>
     </div>
 
+    <!----------------- Mobile Floating Navigation Dock --------------------->
+    <nav class="mobile-nav-dock">
+        <a href="#home" class="nav-link active" aria-label="Home">
+            <i data-lucide="home"></i>
+            <span class="mobile-nav-label">Home</span>
+        </a>
+        <a href="#about" class="nav-link" aria-label="About">
+            <i data-lucide="user"></i>
+            <span class="mobile-nav-label">About</span>
+        </a>
+        <a href="#skills" class="nav-link" aria-label="Skills">
+            <i data-lucide="cpu"></i>
+            <span class="mobile-nav-label">Skills</span>
+        </a>
+        <a href="#education" class="nav-link" aria-label="Education">
+            <i data-lucide="graduation-cap"></i>
+            <span class="mobile-nav-label">Education</span>
+        </a>
+        <a href="#work" class="nav-link" aria-label="Work">
+            <i data-lucide="briefcase"></i>
+            <span class="mobile-nav-label">Work</span>
+        </a>
+        <a href="#contact" class="nav-link" aria-label="Contact">
+            <i data-lucide="mail"></i>
+            <span class="mobile-nav-label">Contact</span>
+        </a>
+    </nav>
+
     <script>
+        // Mobile Navigation Dock Auto-Hide and Interaction
+        const mobileDock = document.querySelector('.mobile-nav-dock');
+        let lastDockScrollY = window.scrollY;
+        let isDockNavClickScrolling = false;
+        let dockNavTimeout = null;
+
+        if (mobileDock) {
+            mobileDock.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    isDockNavClickScrolling = true;
+                    mobileDock.classList.remove('dock-hidden');
+                    if (dockNavTimeout) clearTimeout(dockNavTimeout);
+                    dockNavTimeout = setTimeout(() => {
+                        isDockNavClickScrolling = false;
+                    }, 1000);
+                });
+            });
+        }
+
+        window.addEventListener('scroll', () => {
+            if (!mobileDock) return;
+
+            // Keep dock visible if scrolling was triggered by clicking a link
+            if (isDockNavClickScrolling) {
+                mobileDock.classList.remove('dock-hidden');
+                lastDockScrollY = window.scrollY;
+                return;
+            }
+
+            const threshold = 100;
+            const isNearTop = window.scrollY < threshold;
+            const isNearBottom = (window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - threshold);
+
+            if (isNearTop || isNearBottom) {
+                mobileDock.classList.remove('dock-hidden');
+            } else if (window.scrollY > lastDockScrollY) {
+                mobileDock.classList.add('dock-hidden');
+            } else {
+                mobileDock.classList.remove('dock-hidden');
+            }
+            lastDockScrollY = window.scrollY;
+        });
+
         // Theme Toggling Logic (Dark Mode / Light Mode)
         const themeBtn = document.querySelector('.theme-toggle-btn');
         const savedTheme = localStorage.getItem('theme');
