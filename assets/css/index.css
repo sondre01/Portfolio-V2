@@ -126,6 +126,15 @@ body.header-hidden .sidebar-column {
 /* ==========================================================================
    HEADER CONFIGURATION
    ========================================================================== */
+.header,
+.header-inner,
+.header-controls,
+.control-btn,
+.search-bar-layer,
+.search-layer-inner {
+    box-sizing: border-box;
+}
+
 .header {
     width: 100%;
     height: 90px;
@@ -1179,6 +1188,7 @@ body.dark-mode .row-expand-toggle-btn:hover {
         opacity: 1 !important;
         visibility: visible !important;
         margin-top: 10px;
+        margin-bottom: 100px; /* Safe space to prevent overlapping with fixed mobile nav dock */
     }
     
     .header-inner {
@@ -1203,6 +1213,7 @@ body.dark-mode .row-expand-toggle-btn:hover {
     .logo-myname p {
         font-size: 0.9rem;
     }
+
     
     .locator-buttons {
         display: none !important; /* Hide desktop top links */
@@ -1403,7 +1414,7 @@ body.dark-mode .row-expand-toggle-btn:hover {
     }
 }
 
-/* Extra small devices support (e.g. 320px screens) */
+/* Extra small devices support (e.g. 360px screens) */
 @media (max-width: 360px) {
     .mobile-nav-dock {
         gap: 4px;
@@ -1434,6 +1445,24 @@ body.dark-mode .row-expand-toggle-btn:hover {
         max-width: 55px;
         font-size: 0.72rem;
         margin-left: 4px;
+    }
+}
+
+/* Ultra small devices support (e.g. 320px screens like iPhone SE) */
+@media (max-width: 320px) {
+    .mobile-nav-dock {
+        gap: 2px;
+        padding: 0 4px;
+    }
+    
+    .mobile-nav-dock .nav-link {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .mobile-nav-dock .nav-link.active {
+        width: 80px;
+        padding: 0 6px;
     }
 }
 
