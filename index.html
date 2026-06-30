@@ -159,9 +159,7 @@
                     <h2>Home</h2>
                     <h2>What's up! I'm Andrei!</h2>
                     <h2>Aspiring <span id="typewriter-text" style="color: var(--accent);"></span><span class="typewriter-cursor">|</span></h2>
-                    <p class="intro-description">I build clean, user-focused, and highly performant web applications.
-                        With a solid foundation in both IT infrastructure and modern web technologies, I love turning
-                        complex problems into smooth, elegant digital solutions.</p>
+                    <p class="intro-description">I specialize in designing and building systems for aggregating, storing, and analyzing data at scale. By creating robust data pipelines and automated workflows, I transform raw data into ready to use datasets, bridging the gap between complex infrastructure and actionable analytics to power predictive modeling and support strategic decisions.</p>
                     <button id="view-resume-btn" class="resume-btn">
                         <i data-lucide="file-text" style="width: 18px; height: 18px;"></i>
                         <span>View Resume</span>
@@ -191,7 +189,7 @@
                     <!-- Left side: Description -->
                     <div class="about-desc-content">
                         <h2>About Me</h2>
-                        <p>As a final-year Computer Engineering student and aspiring Data Engineer, I specialize in the architecture, optimization, and scalability of data systems. Backed by a strong engineering discipline and a passion for managing complex data flows, I focus on transforming raw data into reliable, production-ready ecosystems. I excel at designing clean data pipelines, optimizing database architectures, and automating workflows to help forward-thinking teams build the foundational infrastructure that powers impactful machine learning and analytics.</p>
+                        <p>As a final-year Computer Engineering student and aspiring Data Engineer, I focus on the architecture, optimization, and scalability of large-scale data systems. Driven by a strong engineering discipline, I am passionate about designing robust data pipelines and workflows that successfully aggregate, store, and transform raw data into ready-to-use datasets. My goal is to bridge the gap between complex data infrastructure and actionable analytics, turning unstructured data into clean, reliable ecosystems that power predictive modeling and support strategic business decisions.</p>
                         <button id="about-read-more-btn" class="about-more-btn">
                             <span>Read More</span>
                             <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
@@ -212,8 +210,83 @@
             <section class="section skills-section scroll-reveal" id="skills">
                 <h2>Skills</h2>
                 <div class="skills-grid">
-                    <!-- Column 1: Software Engineer Skills -->
-                    <div class="skills-column">
+                    <!-- Column 1: Data Engineer (Primary Focus, Row 1) -->
+                    <div class="skills-column" style="grid-column: 1 / -1; grid-row: 1;">
+                        <div class="skills-card featured-skills-card">
+                            <div class="skills-card-header">
+                                <i data-lucide="database" style="width: 22px; height: 22px;"></i>
+                                <h3>Data Engineer</h3>
+                            </div>
+                            <div class="skills-card-body featured-card-body">
+                                <div class="skills-subcategory">
+                                    <h4>Core Languages</h4>
+                                    <div class="skills-grid-logos">
+                                        <!-- Python -->
+                                        <div class="skill-item-logo-card">
+                                            <div class="skill-logo-wrapper">
+                                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" class="skill-logo-img">
+                                                <span class="skill-tooltip">Pandas, NumPy & Automation</span>
+                                            </div>
+                                            <span class="skill-name">Python</span>
+                                        </div>
+                                        <!-- PostgreSQL -->
+                                        <div class="skill-item-logo-card">
+                                            <div class="skill-logo-wrapper">
+                                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" class="skill-logo-img">
+                                                <span class="skill-tooltip">Relational Warehousing / SQL</span>
+                                            </div>
+                                            <span class="skill-name">PostgreSQL</span>
+                                        </div>
+                                        <!-- MySQL -->
+                                        <div class="skill-item-logo-card">
+                                            <div class="skill-logo-wrapper">
+                                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="MySQL" class="skill-logo-img">
+                                                <span class="skill-tooltip">Structured Queries & Relational DB</span>
+                                            </div>
+                                            <span class="skill-name">MySQL</span>
+                                        </div>
+                                        <!-- Java -->
+                                        <div class="skill-item-logo-card">
+                                            <div class="skill-logo-wrapper">
+                                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="Java" class="skill-logo-img">
+                                                <span class="skill-tooltip">Object-Oriented Data Pipelines</span>
+                                            </div>
+                                            <span class="skill-name">Java</span>
+                                        </div>
+                                        <!-- C++ -->
+                                        <div class="skill-item-logo-card">
+                                            <div class="skill-logo-wrapper">
+                                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" alt="C++" class="skill-logo-img">
+                                                <span class="skill-tooltip">High-Performance Computations</span>
+                                            </div>
+                                            <span class="skill-name">C++</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="skills-subcategory">
+                                    <h4>Pipelines & Orchestration</h4>
+                                    <ul class="skills-list">
+                                        <li><strong>ETL / ELT Systems</strong> <span class="skill-detail">designing clean, automated ingest pipelines</span></li>
+                                        <li><strong>Apache Airflow</strong> <span class="skill-detail">basics of workflow orchestration & DAG management</span></li>
+                                        <li><strong>PowerShell & Bash Scripting</strong> <span class="skill-detail">for systems & pipeline scheduling automation</span></li>
+                                        <li><strong>Pandas & NumPy</strong> <span class="skill-detail">for scientific computations and data sanitization</span></li>
+                                    </ul>
+                                </div>
+                                <div class="skills-subcategory">
+                                    <h4>Storage & Modeling</h4>
+                                    <ul class="skills-list">
+                                        <li><strong>Relational DB Schemas</strong> <span class="skill-detail">designing structured Star & Snowflake schemas</span></li>
+                                        <li><strong>Database Migrations</strong> <span class="skill-detail">migrating relational data formats smoothly</span></li>
+                                        <li><strong>Docker Containerization</strong> <span class="skill-detail">for isolated data environment deployments</span></li>
+                                        <li><strong>Git & GitHub</strong> <span class="skill-detail">for version control and collab in pipeline development</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Column 2: Software Engineer Skills (Row 2, Column 1) -->
+                    <div class="skills-column" style="grid-column: 1 / 2; grid-row: 2;">
                         <div class="skills-card">
                             <div class="skills-card-header">
                                 <i data-lucide="code" style="width: 22px; height: 22px;"></i>
@@ -337,16 +410,25 @@
                                                 <img src="https://cdn.brandfetch.io/resend.com" alt="Resend" class="skill-logo-img">
                                                 <span class="skill-tooltip">Transactional Email Delivery</span>
                                             </div>
-                                            <span class="skill-name">Resend</span>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="skills-subcategory">
+                                    <h4>Development & Practices</h4>
+                                    <ul class="skills-list">
+                                        <li><strong>Full-Stack Web Dev</strong> <span class="skill-detail">designing responsive frontends & RESTful backend APIs</span></li>
+                                        <li><strong>Desktop Applications</strong> <span class="skill-detail">building standalone GUI utilities with OOP principles</span></li>
+                                        <li><strong>Embedded Systems / IoT</strong> <span class="skill-detail">programming Arduino & ESP32 microcontrollers</span></li>
+                                        <li><strong>Systems Automation</strong> <span class="skill-detail">writing automation scripts & Discord integration bots</span></li>
+                                        <li><strong>Collaborative Workflows</strong> <span class="skill-detail">managing code versioning & CI/CD environments</span></li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Column 2: IT Specialist Skills -->
-                    <div class="skills-column">
+                    <!-- Column 3: IT Specialist Skills (Row 2, Column 2) -->
+                    <div class="skills-column" style="grid-column: 2 / 3; grid-row: 2;">
                         <div class="skills-card">
                             <div class="skills-card-header">
                                 <i data-lucide="monitor" style="width: 22px; height: 22px;"></i>
@@ -1019,7 +1101,7 @@
             <div class="about-modal-content">
                 <h3 class="about-modal-title">About Me</h3>
                 <div class="about-modal-body">
-                    <p>As a final-year Computer Engineering student and aspiring Data Engineer, I specialize in the architecture, optimization, and scalability of data systems. Backed by a strong engineering discipline and a passion for managing complex data flows, I focus on transforming raw data into reliable, production-ready ecosystems. I excel at designing clean data pipelines, optimizing database architectures, and automating workflows to help forward-thinking teams build the foundational infrastructure that powers impactful machine learning and analytics.</p>
+                    <p>As a final-year Computer Engineering student and aspiring Data Engineer, I focus on the architecture, optimization, and scalability of large-scale data systems. Driven by a strong engineering discipline, I am passionate about designing robust data pipelines and workflows that successfully aggregate, store, and transform raw data into ready-to-use datasets. My goal is to bridge the gap between complex data infrastructure and actionable analytics, turning unstructured data into clean, reliable ecosystems that power predictive modeling and support strategic business decisions.</p>
                     <p>Driven by a passion for automation and system efficiency, I am actively expanding my expertise
                         into the DevOps industry. I have successfully delivered diverse technical projects, including
                         building portfolio platforms, developing full-featured restaurant and computer shop dashboards
@@ -1524,7 +1606,7 @@
         }
 
         // Typewriter Effect (react-simple-typewriter clone in vanilla JS)
-        const words = ["Data Engineer", "Software Engineer"];
+        const words = ["Data Engineer", "Data Analyst", "Data Scientist"];
         let wordIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
@@ -1596,7 +1678,7 @@
             });
 
             // 2. Index Skills
-            const skillCards = document.querySelectorAll('.skills-card');
+            const skillCards = document.querySelectorAll('.skills-card, .featured-skills-card');
             skillCards.forEach(card => {
                 const categoryTitle = card.querySelector('h3')?.textContent || 'Skill';
                 const subcategories = card.querySelectorAll('.skills-subcategory');

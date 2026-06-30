@@ -17,18 +17,18 @@
     letter-spacing: -0.5px;
 }
 
-/* Skills Grid Layout (2 columns) */
+/* Skills Grid Layout (2 columns for desktop) */
 .skills-grid {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 30px;
     width: 100%;
     align-items: stretch;
 }
 
 .skills-column {
-    flex: 1 1 0;
-    min-width: 0; /* Prevents overflow inside flex containers */
     display: flex;
+    width: 100%;
 }
 
 /* Card Container Styling with Sharp Corners */
@@ -37,7 +37,7 @@
     border: 1px solid #e2e8f0;
     border-radius: 16px; /* Rounded corners for a modern, smooth aesthetic */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-    padding: 35px 30px;
+    padding: 35px 25px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -51,6 +51,17 @@
     transform: translateY(-6px);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
     border-color: #ff5e00; /* Orange accent on hover */
+}
+
+/* Featured Skills Card Highlight (Data Engineer) */
+.featured-skills-card {
+    border: 2.5px solid #ff5e00; /* Prominent accent border */
+    box-shadow: 0 12px 35px rgba(255, 94, 0, 0.06);
+    background: linear-gradient(180deg, #ffffff 0%, rgba(255, 94, 0, 0.01) 100%);
+}
+
+.featured-skills-card:hover {
+    box-shadow: 0 18px 45px rgba(255, 94, 0, 0.12);
 }
 
 /* Header style for each skill card */
@@ -81,6 +92,14 @@
     display: flex;
     flex-direction: column;
     gap: 25px;
+}
+
+/* Horizontal alignment grid inside the Featured Data Engineer card */
+.featured-card-body {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    width: 100%;
 }
 
 /* Subcategories */
@@ -146,7 +165,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px 25px;
+    gap: 16px 20px;
     padding: 10px 0;
 }
 
@@ -155,7 +174,7 @@
     flex-direction: column;
     align-items: center;
     gap: 8px;
-    width: 85px;
+    width: 80px;
     position: relative;
     text-align: center;
 }
@@ -230,18 +249,47 @@
     transform: translateX(-50%) translateY(0);
 }
 
+/* Dark mode overrides */
+body.dark-mode .skills-card {
+    background-color: var(--bg-card);
+    border-color: var(--border-color);
+    box-shadow: var(--card-shadow);
+    background: var(--bg-card);
+}
 
+body.dark-mode .featured-skills-card {
+    border-color: var(--accent);
+    background: linear-gradient(180deg, var(--bg-card) 0%, rgba(255, 94, 0, 0.02) 100%);
+}
 
-.skills-column:first-child .skills-subcategory h4 {
-    text-align: center;
-    border-left: none;
-    padding-left: 0;
+body.dark-mode .skills-card:hover {
+    box-shadow: var(--card-shadow-hover);
+    border-color: var(--accent);
+}
+
+body.dark-mode .skills-card-header h3,
+body.dark-mode .skills-list li,
+body.dark-mode .skill-name {
+    color: var(--text-primary);
+}
+
+body.dark-mode .skills-subcategory h4,
+body.dark-mode .skill-detail {
+    color: var(--text-secondary);
+}
+
+body.dark-mode .skills-subcategory h4 {
+    border-color: var(--accent);
 }
 
 /* Responsive adjustments */
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
     .skills-grid {
-        flex-direction: column; /* Stack columns on tablet/mobile screens */
+        grid-template-columns: 1fr; /* Stack columns on tablet/mobile */
+        gap: 20px;
+    }
+    .featured-card-body {
+        grid-template-columns: 1fr; /* Stack Data Engineer subcategories vertically */
         gap: 20px;
     }
 }

@@ -127,8 +127,6 @@
 
 .work-duration {
     color: #ff5e00;
-    background-color: rgba(255, 94, 0, 0.08);
-    padding: 4px 8px;
 }
 
 .work-location {
@@ -137,8 +135,6 @@
 
 .project-role {
     color: #ff5e00;
-    background-color: rgba(255, 94, 0, 0.08);
-    padding: 4px 8px;
 }
 
 /* Title & Description */
