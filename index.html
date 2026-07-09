@@ -29,6 +29,7 @@
                 <a href="#home" class="nav-link active">Home</a>
                 <a href="#about" class="nav-link">About</a>
                 <a href="#skills" class="nav-link">Skills</a>
+                <a href="#certifications" class="nav-link">Certificates</a>
                 <a href="#education" class="nav-link">Education</a>
                 <a href="#work" class="nav-link">Work</a>
                 <a href="#contact" class="nav-link">Contact</a>
@@ -416,6 +417,72 @@
                                         <li><strong>Asset & Inventory Reporting</strong> <span class="skill-detail">data validation for 5,000+ internal assets</span></li>
                                     </ul>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!----------------- Certifications & Licenses --------------------->
+            <section class="section certifications-section scroll-reveal" id="certifications">
+                <h2>Certifications & Licenses</h2>
+                <div class="certifications-grid">
+                    <!-- Card 1: DataCamp -->
+                    <div class="cert-card">
+                        <div class="cert-icon-wrapper">
+                            <i data-lucide="award" style="width: 24px; height: 24px;"></i>
+                        </div>
+                        <div class="cert-content">
+                            <span class="cert-issuer">DataCamp</span>
+                            <h3 class="cert-title">Associate Data Engineering</h3>
+                            <span class="cert-date">Issued Month Year &bull; No Expiration</span>
+                            <p class="cert-desc">Verified technical skills in SQL database design, ETL data pipelines, coding, data ingestion, database cleaning, and warehouse optimization.</p>
+                            <div class="cert-footer">
+                                <span class="cert-id">Credential ID: <span class="mono-text">DE-ASSOC-XXXXXX</span></span>
+                                <a href="#" target="_blank" rel="noopener noreferrer" class="cert-link">
+                                    <span>Verify</span>
+                                    <i data-lucide="external-link" style="width: 14px; height: 14px;"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Cisco -->
+                    <div class="cert-card">
+                        <div class="cert-icon-wrapper">
+                            <i data-lucide="scroll" style="width: 24px; height: 24px;"></i>
+                        </div>
+                        <div class="cert-content">
+                            <span class="cert-issuer">Cisco Academy</span>
+                            <h3 class="cert-title">Python Essential 1</h3>
+                            <span class="cert-date">Issued Month Year &bull; No Expiration</span>
+                            <p class="cert-desc">Foundational programming in Python, covering modules, packages, OOP concepts, control structures, list operations, and exception handling.</p>
+                            <div class="cert-footer">
+                                <span class="cert-id">Credential ID: <span class="mono-text">CS-PY1-XXXXXX</span></span>
+                                <a href="#" target="_blank" rel="noopener noreferrer" class="cert-link">
+                                    <span>Verify</span>
+                                    <i data-lucide="external-link" style="width: 14px; height: 14px;"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: IBM & TESDA -->
+                    <div class="cert-card">
+                        <div class="cert-icon-wrapper">
+                            <i data-lucide="shield-check" style="width: 24px; height: 24px;"></i>
+                        </div>
+                        <div class="cert-content">
+                            <span class="cert-issuer">IBM SkillsBuild &bull; TESDA</span>
+                            <h3 class="cert-title">Data Fundamentals</h3>
+                            <span class="cert-date">Issued Month Year &bull; No Expiration</span>
+                            <p class="cert-desc">Core data architecture concepts, relational database systems, introductory analytics workflows, and structured query language fundamentals.</p>
+                            <div class="cert-footer">
+                                <span class="cert-id">Credential ID: <span class="mono-text">IBM-DF-XXXXXX</span></span>
+                                <a href="#" target="_blank" rel="noopener noreferrer" class="cert-link">
+                                    <span>Verify</span>
+                                    <i data-lucide="external-link" style="width: 14px; height: 14px;"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -1038,6 +1105,10 @@
         <a href="#skills" class="nav-link" aria-label="Skills">
             <i data-lucide="cpu"></i>
             <span class="mobile-nav-label">Skills</span>
+        </a>
+        <a href="#certifications" class="nav-link" aria-label="Certifications">
+            <i data-lucide="award"></i>
+            <span class="mobile-nav-label">Certificates</span>
         </a>
         <a href="#education" class="nav-link" aria-label="Education">
             <i data-lucide="graduation-cap"></i>
@@ -1662,6 +1733,7 @@
                 { id: 'home', name: 'Home', desc: 'Welcome page, portfolio intro, key statistics, and resume download.' },
                 { id: 'about', name: 'About Me', desc: 'Background, computer engineering education, career goals, and immediate availability.' },
                 { id: 'skills', name: 'Skills', desc: 'Core proficiencies, languages (Java, Python, C++, JavaScript, C#), tools, systems, and specialized platforms.' },
+                { id: 'certifications', name: 'Certifications', desc: 'DataCamp Associate Data Engineering, Cisco Python Essential, IBM SkillsBuild Data Fundamentals.' },
                 { id: 'education', name: 'Education', desc: 'Rizal Technological University (RTU), Rizal High School academic roadmap and details.' },
                 { id: 'work', name: 'Work Experience & Projects', desc: 'IT Operations & QA Intern, Staff Domain experience, embedded AI, capstone project, POS, and custom software systems.' },
                 { id: 'contact', name: 'Contact', desc: 'Get in touch, email address, locations, social networks, and message dispatch.' }
@@ -1777,6 +1849,27 @@
                     parentSection: '#work',
                     badge: 'Project',
                     icon: 'monitor'
+                });
+            });
+
+            // 6. Index Certifications
+            const certCards = document.querySelectorAll('.cert-card');
+            certCards.forEach(card => {
+                const title = card.querySelector('.cert-title')?.textContent || '';
+                const issuer = card.querySelector('.cert-issuer')?.textContent || '';
+                const desc = card.querySelector('.cert-desc')?.textContent || '';
+                const date = card.querySelector('.cert-date')?.textContent || '';
+                const certId = card.querySelector('.cert-id')?.textContent || '';
+                
+                searchIndex.push({
+                    type: 'Certification',
+                    title: title,
+                    subtitle: `${issuer} (${date})`,
+                    text: `${title} ${issuer} ${desc} ${date} ${certId}`.toLowerCase(),
+                    target: card,
+                    parentSection: '#certifications',
+                    badge: 'Certificate',
+                    icon: 'award'
                 });
             });
         }
