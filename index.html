@@ -82,7 +82,7 @@
                     <p class="card-description">Aspiring Data Engineer & Computer Engineering Student. Awaiting graduation and actively seeking OJT and immediate work opportunities.</p>
                     <div class="card-socials">
                         <a href="https://github.com/sondre01" target="_blank" rel="noopener noreferrer" class="social-link"
-                            aria-label="GitHub">
+                            aria-label="GitHub" title="GitHub">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round" class="feather feather-github">
@@ -92,7 +92,7 @@
                             </svg>
                         </a>
                         <a href="https://www.linkedin.com/in/khinandreigamboa" target="_blank" rel="noopener noreferrer" class="social-link"
-                            aria-label="LinkedIn">
+                            aria-label="LinkedIn" title="LinkedIn">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round" class="feather feather-linkedin">
@@ -104,7 +104,7 @@
                             </svg>
                         </a>
                         <a href="https://www.facebook.com/khinandrei.gmb" target="_blank" rel="noopener noreferrer" class="social-link"
-                            aria-label="Facebook">
+                            aria-label="Facebook" title="Facebook">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round" class="feather feather-facebook">
@@ -112,7 +112,7 @@
                             </svg>
                         </a>
                         <a href="https://www.instagram.com/khinandrei.gmb/" target="_blank" rel="noopener noreferrer" class="social-link"
-                            aria-label="Instagram">
+                            aria-label="Instagram" title="Instagram">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round" class="feather feather-instagram">
@@ -121,7 +121,7 @@
                                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                             </svg>
                         </a>
-                        <a href="#contact" class="social-link" aria-label="Email">
+                        <a href="#contact" class="social-link" aria-label="Email" title="Email">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round" class="feather feather-mail">
@@ -168,15 +168,15 @@
                     <!-- Minimal Statistics Row -->
                     <div class="intro-stats">
                         <div class="stat-item">
-                            <span class="stat-number">1</span>
-                            <span class="stat-label">Work Job</span>
+                            <span class="stat-number">0</span>
+                            <span class="stat-label">Professional Experience</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-number">5</span>
+                            <span class="stat-number">0</span>
                             <span class="stat-label">Completed Projects</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-number" id="views-count">--</span>
+                            <span class="stat-number" id="portfolio-visits-element">0</span>
                             <span class="stat-label">Portfolio Visits</span>
                         </div>
                     </div>
@@ -209,9 +209,26 @@
             <!----------------- Skills --------------------->
             <section class="section skills-section scroll-reveal" id="skills">
                 <h2>Skills</h2>
-                <div class="skills-grid">
-                    <!-- Column 1: Data Engineer (Primary Focus, Row 1) -->
-                    <div class="skills-column" style="grid-column: 1 / -1; grid-row: 1;">
+                
+                <!-- Skills Interactive Tabs Toggle -->
+                <div class="skills-tabs">
+                    <button class="skills-tab active" data-skill-target="data-engineer">
+                        <i data-lucide="database" style="width: 18px; height: 18px;"></i>
+                        <span>Data Engineer</span>
+                    </button>
+                    <button class="skills-tab" data-skill-target="data-scientist">
+                        <i data-lucide="brain" style="width: 18px; height: 18px;"></i>
+                        <span>Data Scientist</span>
+                    </button>
+                    <button class="skills-tab" data-skill-target="data-analyst">
+                        <i data-lucide="trending-up" style="width: 18px; height: 18px;"></i>
+                        <span>Data Analyst</span>
+                    </button>
+                </div>
+
+                <div class="skills-tabs-content">
+                    <!-- Tab Pane 1: Data Engineer (Active by Default) -->
+                    <div id="skill-content-data-engineer" class="skills-content-pane active">
                         <div class="skills-card featured-skills-card">
                             <div class="skills-card-header">
                                 <i data-lucide="database" style="width: 22px; height: 22px;"></i>
@@ -285,197 +302,118 @@
                         </div>
                     </div>
 
-                    <!-- Column 2: Software Engineer Skills (Row 2, Column 1) -->
-                    <div class="skills-column" style="grid-column: 1 / 2; grid-row: 2;">
+                    <!-- Tab Pane 2: Data Scientist -->
+                    <div id="skill-content-data-scientist" class="skills-content-pane">
                         <div class="skills-card">
                             <div class="skills-card-header">
-                                <i data-lucide="code" style="width: 22px; height: 22px;"></i>
-                                <h3>Software Engineer</h3>
+                                <i data-lucide="brain" style="width: 22px; height: 22px;"></i>
+                                <h3>Data Scientist</h3>
                             </div>
-                            <div class="skills-card-body">
+                            <div class="skills-card-body skills-card-body-tabbed">
                                 <div class="skills-subcategory">
-                                    <h4>Programming Languages</h4>
+                                    <h4>Modeling & Analytics</h4>
                                     <div class="skills-grid-logos">
-                                        <!-- Java -->
-                                        <div class="skill-item-logo-card">
-                                            <div class="skill-logo-wrapper">
-                                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="Java" class="skill-logo-img">
-                                                <span class="skill-tooltip">Desktop Apps / Swing</span>
-                                            </div>
-                                            <span class="skill-name">Java</span>
-                                        </div>
                                         <!-- Python -->
                                         <div class="skill-item-logo-card">
                                             <div class="skill-logo-wrapper">
                                                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" class="skill-logo-img">
-                                                <span class="skill-tooltip">Machine Learning / Discord Bots</span>
+                                                <span class="skill-tooltip">Predictive Algorithms & Modeling</span>
                                             </div>
                                             <span class="skill-name">Python</span>
                                         </div>
-                                        <!-- C++ -->
+                                        <!-- Jupyter/Anaconda -->
                                         <div class="skill-item-logo-card">
                                             <div class="skill-logo-wrapper">
-                                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" alt="C++" class="skill-logo-img">
-                                                <span class="skill-tooltip">IoT / Arduino / ESP32</span>
+                                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/anaconda/anaconda-original.svg" alt="Anaconda" class="skill-logo-img">
+                                                <span class="skill-tooltip">Exploratory Data Analysis (EDA)</span>
                                             </div>
-                                            <span class="skill-name">C++</span>
+                                            <span class="skill-name">Anaconda</span>
                                         </div>
-                                        <!-- JavaScript -->
+                                        <!-- PyTorch -->
                                         <div class="skill-item-logo-card">
                                             <div class="skill-logo-wrapper">
-                                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript" class="skill-logo-img">
-                                                <span class="skill-tooltip">Web Dev / React.js</span>
+                                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg" alt="PyTorch" class="skill-logo-img">
+                                                <span class="skill-tooltip">Model Training & Deployment</span>
                                             </div>
-                                            <span class="skill-name">JavaScript</span>
-                                        </div>
-                                        <!-- C# -->
-                                        <div class="skill-item-logo-card">
-                                            <div class="skill-logo-wrapper">
-                                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg" alt="C#" class="skill-logo-img">
-                                                <span class="skill-tooltip">Backend / .NET / Unity</span>
-                                            </div>
-                                            <span class="skill-name">C#</span>
-                                        </div>
-                                        <!-- PHP -->
-                                        <div class="skill-item-logo-card">
-                                            <div class="skill-logo-wrapper">
-                                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" alt="PHP" class="skill-logo-img">
-                                                <span class="skill-tooltip">Backend / Laravel / APIs</span>
-                                            </div>
-                                            <span class="skill-name">PHP</span>
-                                        </div>
-                                        <!-- HTML5 & CSS3 -->
-                                        <div class="skill-item-logo-card">
-                                            <div class="skill-logo-wrapper">
-                                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML5" class="skill-logo-img">
-                                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS3" class="skill-logo-img">
-                                                <span class="skill-tooltip">Frontend Structure & Styling</span>
-                                            </div>
-                                            <span class="skill-name">HTML5 & CSS3</span>
+                                            <span class="skill-name">PyTorch</span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="skills-subcategory">
-                                    <h4>Databases</h4>
-                                    <div class="skills-grid-logos">
-                                        <!-- MySQL -->
-                                        <div class="skill-item-logo-card">
-                                            <div class="skill-logo-wrapper">
-                                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="MySQL" class="skill-logo-img">
-                                                <span class="skill-tooltip">Relational Database / SQL</span>
-                                            </div>
-                                            <span class="skill-name">MySQL</span>
-                                        </div>
-                                        <!-- SQLite -->
-                                        <div class="skill-item-logo-card">
-                                            <div class="skill-logo-wrapper">
-                                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sqlite/sqlite-original.svg" alt="SQLite" class="skill-logo-img">
-                                                <span class="skill-tooltip">Embedded / Lightweight SQL</span>
-                                            </div>
-                                            <span class="skill-name">SQLite</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="skills-subcategory">
-                                    <h4>Tools, DevOps & Platforms</h4>
-                                    <div class="skills-grid-logos">
-                                        <!-- Git & GitHub -->
-                                        <div class="skill-item-logo-card">
-                                            <div class="skill-logo-wrapper">
-                                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git" class="skill-logo-img">
-                                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub" class="skill-logo-img" style="filter: var(--vercel-logo-filter);">
-                                                <span class="skill-tooltip">Version control & collaboration</span>
-                                            </div>
-                                            <span class="skill-name">Git & GitHub</span>
-                                        </div>
-                                        <!-- DevOps basics -->
-                                        <div class="skill-item-logo-card">
-                                            <div class="skill-logo-wrapper">
-                                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" alt="DevOps" class="skill-logo-img">
-                                                <span class="skill-tooltip">Deployment pipelines</span>
-                                            </div>
-                                            <span class="skill-name">DevOps basics</span>
-                                        </div>
-                                        <!-- Vercel -->
-                                        <div class="skill-item-logo-card">
-                                            <div class="skill-logo-wrapper">
-                                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vercel/vercel-original.svg" alt="Vercel" class="skill-logo-img" style="filter: var(--vercel-logo-filter);">
-                                                <span class="skill-tooltip">Cloud Hosting & Deployments</span>
-                                            </div>
-                                            <span class="skill-name">Vercel</span>
-                                        </div>
-                                        <!-- Resend -->
-                                        <div class="skill-item-logo-card">
-                                            <div class="skill-logo-wrapper">
-                                                <img src="https://cdn.brandfetch.io/resend.com" alt="Resend" class="skill-logo-img">
-                                                <span class="skill-tooltip">Transactional Email Delivery</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="skills-subcategory">
-                                    <h4>Development & Practices</h4>
+                                    <h4>Data Science Proficiencies</h4>
                                     <ul class="skills-list">
-                                        <li><strong>Full-Stack Web Dev</strong> <span class="skill-detail">designing responsive frontends & RESTful backend APIs</span></li>
-                                        <li><strong>Desktop Applications</strong> <span class="skill-detail">building standalone GUI utilities with OOP principles</span></li>
-                                        <li><strong>Embedded Systems / IoT</strong> <span class="skill-detail">programming Arduino & ESP32 microcontrollers</span></li>
-                                        <li><strong>Systems Automation</strong> <span class="skill-detail">writing automation scripts & Discord integration bots</span></li>
-                                        <li><strong>Collaborative Workflows</strong> <span class="skill-detail">managing code versioning & CI/CD environments</span></li>
+                                        <li><strong>Predictive AI Algorithms</strong> <span class="skill-detail">integrating and deploying custom predictive models</span></li>
+                                        <li><strong>Exploratory Data Analysis (EDA)</strong> <span class="skill-detail">discovering patterns and trends in raw datasets</span></li>
+                                        <li><strong>Statistical Data Analysis</strong> <span class="skill-detail">applying statistical modeling and regression</span></li>
+                                        <li><strong>Medical Anomaly Detection</strong> <span class="skill-detail">specialized experience with health telemetry analytics</span></li>
+                                        <li><strong>Sensor Data Fusion</strong> <span class="skill-detail">merging real-time video feeds with load cell metrics</span></li>
+                                    </ul>
+                                </div>
+                                <div class="skills-subcategory">
+                                    <h4>Tools & Platforms</h4>
+                                    <ul class="skills-list">
+                                        <li><strong>IBM Watson Studio</strong> <span class="skill-detail">for visual dashboards and data cleansing</span></li>
+                                        <li><strong>YOLO & Roboflow</strong> <span class="skill-detail">for object detection and vision classification telemetry</span></li>
+                                        <li><strong>Git & GitHub</strong> <span class="skill-detail">for model versioning and collaborative workflows</span></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Column 3: IT Specialist Skills (Row 2, Column 2) -->
-                    <div class="skills-column" style="grid-column: 2 / 3; grid-row: 2;">
+                    <!-- Tab Pane 3: Data Analyst -->
+                    <div id="skill-content-data-analyst" class="skills-content-pane">
                         <div class="skills-card">
                             <div class="skills-card-header">
-                                <i data-lucide="monitor" style="width: 22px; height: 22px;"></i>
-                                <h3>IT Specialist</h3>
+                                <i data-lucide="trending-up" style="width: 22px; height: 22px;"></i>
+                                <h3>Data Analyst</h3>
                             </div>
-                            <div class="skills-card-body">
+                            <div class="skills-card-body skills-card-body-tabbed">
                                 <div class="skills-subcategory">
-                                    <h4>Systems & Command Tools</h4>
+                                    <h4>Querying & Visualization</h4>
+                                    <div class="skills-grid-logos">
+                                        <!-- SQL (PostgreSQL) -->
+                                        <div class="skill-item-logo-card">
+                                            <div class="skill-logo-wrapper">
+                                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" class="skill-logo-img">
+                                                <span class="skill-tooltip">Advanced SQL transformations</span>
+                                            </div>
+                                            <span class="skill-name">PostgreSQL</span>
+                                        </div>
+                                        <!-- MySQL -->
+                                        <div class="skill-item-logo-card">
+                                            <div class="skill-logo-wrapper">
+                                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="MySQL" class="skill-logo-img">
+                                                <span class="skill-tooltip">Relational queries & database schemas</span>
+                                            </div>
+                                            <span class="skill-name">MySQL</span>
+                                        </div>
+                                        <!-- Pandas -->
+                                        <div class="skill-item-logo-card">
+                                            <div class="skill-logo-wrapper">
+                                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" alt="Pandas" class="skill-logo-img">
+                                                <span class="skill-tooltip">Data analysis and cleaning</span>
+                                            </div>
+                                            <span class="skill-name">Pandas</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="skills-subcategory">
+                                    <h4>Analytical Proficiencies</h4>
                                     <ul class="skills-list">
-                                        <li><strong>PowerShell & CMD Scripting</strong> <span class="skill-detail">for process automation</span></li>
-                                        <li><strong>OS Management</strong> <span class="skill-detail">(installation, reformatting, reimaging, and reprofiling)</span></li>
-                                        <li><strong>Device Configuration</strong> <span class="skill-detail">and joining machines to domain environments</span></li>
+                                        <li><strong>Advanced SQL Querying</strong> <span class="skill-detail">multi-table joins, CTEs, and intermediate transformations</span></li>
+                                        <li><strong>Data Cleansing & Sanitization</strong> <span class="skill-detail">refining unstructured inputs into clean structured outputs</span></li>
+                                        <li><strong>Structured Visual Dashboards</strong> <span class="skill-detail">transforming datasets into stakeholder visualizations</span></li>
+                                        <li><strong>Excel to DB Transitions</strong> <span class="skill-detail">migrating legacy trackers into relational database engines</span></li>
+                                        <li><strong>Performance & Queue Analytics</strong> <span class="skill-detail">auditing service queue metrics and tracking logs</span></li>
                                     </ul>
                                 </div>
                                 <div class="skills-subcategory">
-                                    <h4>Network & Infrastructure Support</h4>
+                                    <h4>Governance & Lifecycles</h4>
                                     <ul class="skills-list">
-                                        <li><strong>Basic Networking</strong> <span class="skill-detail">(domain environments, VPN setup, TCP/IP connectivity checks)</span></li>
-                                        <li><strong>Network Troubleshooting</strong> <span class="skill-detail">for connectivity disruptions</span></li>
-                                    </ul>
-                                </div>
-                                <div class="skills-subcategory">
-                                    <h4>Technical Support & Troubleshooting</h4>
-                                    <ul class="skills-list">
-                                        <li><strong>System Diagnostics</strong> <span class="skill-detail">resolving hardware, software, and OS disruptions</span></li>
-                                        <li><strong>PC Hardware Repair</strong> <span class="skill-detail">diagnosing failures and component upgrades</span></li>
-                                    </ul>
-                                </div>
-                                <div class="skills-subcategory">
-                                    <h4>QA & Systems Testing</h4>
-                                    <ul class="skills-list">
-                                        <li><strong>Functional QA Testing</strong> <span class="skill-detail">and issue tracking for IT management systems</span></li>
-                                        <li><strong>DevOps Collaboration</strong> <span class="skill-detail">to validate system stability</span></li>
-                                    </ul>
-                                </div>
-                                <div class="skills-subcategory">
-                                    <h4>Asset & Operations Management</h4>
-                                    <ul class="skills-list">
-                                        <li><strong>Inventory Tracking</strong> <span class="skill-detail">and lifecycle management for 5,000+ IT assets</span></li>
-                                        <li><strong>Database Transitions</strong> <span class="skill-detail">for legacy Excel tracking logs</span></li>
-                                        <li><strong>Procurement Documentation</strong> <span class="skill-detail">maintaining asset accountability</span></li>
-                                    </ul>
-                                </div>
-                                <div class="skills-subcategory">
-                                    <h4>Physical Setup</h4>
-                                    <ul class="skills-list">
-                                        <li><strong>Physical Workspace Deployment</strong> <span class="skill-detail">and workstation cable management</span></li>
+                                        <li><strong>Data Lifecycle Methodologies</strong> <span class="skill-detail">standard data analysis frameworks</span></li>
+                                        <li><strong>Enterprise Data Governance</strong> <span class="skill-detail">mastery of modern data landscape compliance</span></li>
+                                        <li><strong>Asset & Inventory Reporting</strong> <span class="skill-detail">data validation for 5,000+ internal assets</span></li>
                                     </ul>
                                 </div>
                             </div>
@@ -664,7 +602,7 @@
                                         <span class="work-location">Staff Domain PH</span>
                                     </div>
                                     <h4 class="work-card-title">IT Operations & QA Intern</h4>
-                                    <p class="work-card-desc">Ensured enterprise system stability, optimized internal processes using scripting, handled centralized system migrations, and managed physical hardware operations for a large workforce.</p>
+                                    <p class="work-card-desc">Spearheaded legacy data transitions, built automated data routines, and conducted functional quality assurance and asset analytics for a centralized IT Management System (ITMS).</p>
                                 </div>
                             </div>
                             
@@ -673,38 +611,25 @@
                                 <!-- Detailed Contributions -->
                                 <div class="work-contributions">
                                     <div class="contribution-item">
-                                        <span class="contribution-title">Quality Assurance & Bug Tracking:</span>
-                                        Performed functional QA testing and logging of defects for the company's internal, centralized IT Management System (ITMS). Collaborated with DevOps teams to validate system stability.
+                                        <span class="contribution-title">Data Migration & Validation:</span>
+                                        Spearheaded the technical transition of company tracking logs from legacy Excel frameworks into a centralized database system, significantly improving data transparency, sanitization, and structured validation.
                                     </div>
                                     <div class="contribution-item">
-                                        <span class="contribution-title">Process Automation & Scripting:</span>
-                                        Utilized PowerShell and Windows Command Prompt to automate environment setup routines, local diagnostic scripts, and software configurations.
+                                        <span class="contribution-title">Process Automation:</span>
+                                        Leveraged PowerShell and Command Prompt scripting to build automated data routines and environment configurations, accelerating remote diagnostics.
                                     </div>
                                     <div class="contribution-item">
-                                        <span class="contribution-title">Data Migration:</span>
-                                        Spearheaded transitioning historical hardware tracking spreadsheets (Excel) into a relational database model within the centralized ITMS, improving audit trails and data integrity.
-                                    </div>
-                                    <div class="contribution-item">
-                                        <span class="contribution-title">Enterprise IT Support & Networking:</span>
-                                        Supported physical and remote employees with OS configuration, business software provisioning, VPN networking setup, and hardware troubleshooting.
-                                    </div>
-                                    <div class="contribution-item">
-                                        <span class="contribution-title">IT Asset Management (ITMS):</span>
-                                        Facilitated active inventory tracking of 5,000+ client/internal devices. Cut down device configuration and onboarding time by approximately 80%.
-                                    </div>
-                                    <div class="contribution-item">
-                                        <span class="contribution-title">Device Provisioning & Onboarding:</span>
-                                        Assembled, imaged, configured, and domain-joined workstations to ensure new-hire day-one productivity.
+                                        <span class="contribution-title">System QA & Analytics:</span>
+                                        Conducted functional QA testing and issue tracking for a centralized IT Management System (ITMS) managing 5,000+ assets, validating data accuracy and system behavior alongside core engineering teams.
                                     </div>
                                 </div>
 
                                 <div class="work-tags">
-                                    <span class="work-tag">PowerShell</span>
+                                    <span class="work-tag">Data Migration</span>
+                                    <span class="work-tag">PowerShell & CMD</span>
                                     <span class="work-tag">QA Testing</span>
-                                    <span class="work-tag">ITMS</span>
                                     <span class="work-tag">SQL Database</span>
-                                    <span class="work-tag">Active Directory</span>
-                                    <span class="work-tag">VPN Support</span>
+                                    <span class="work-tag">Systems Analytics</span>
                                 </div>
                             </div>
 
@@ -733,7 +658,7 @@
                         <!-- FOVB-AIOT -->
                         <div class="work-card project-card expandable-card">
                             <div class="card-header-meta">
-                                <span class="project-role">Lead System Integrator</span>
+                                <span class="project-role">Data & Database Architect</span>
                             </div>
                             <h4 class="work-card-title">FOVB-AIOT (Capstone)</h4>
                             <div class="card-details-wrapper">
@@ -757,7 +682,7 @@
                         <!-- AI Kilo Bot -->
                         <div class="work-card project-card expandable-card">
                             <div class="card-header-meta">
-                                <span class="project-role">Embedded AI Engineer</span>
+                                <span class="project-role">Data Scientist & IoT Engineer</span>
                             </div>
                             <h4 class="work-card-title">AI Kilo Bot</h4>
                             <div class="card-details-wrapper">
@@ -776,7 +701,7 @@
                         <!-- RFID Tollgate System -->
                         <div class="work-card project-card expandable-card">
                             <div class="card-header-meta">
-                                <span class="project-role">IoT Prototyper</span>
+                                <span class="project-role">Database & Systems Prototyper</span>
                             </div>
                             <h4 class="work-card-title">RFID Tollgate System</h4>
                             <div class="card-details-wrapper">
@@ -805,7 +730,7 @@
                         <!-- GG Resto POS Dashboard -->
                         <div class="work-card project-card expandable-card">
                             <div class="card-header-meta">
-                                <span class="project-role">Desktop Software Engineer</span>
+                                <span class="project-role">Database Developer</span>
                             </div>
                             <h4 class="work-card-title">GG Resto POS Dashboard</h4>
                             <div class="card-details-wrapper">
@@ -824,7 +749,7 @@
                         <!-- Xvidia Shop -->
                         <div class="work-card project-card expandable-card">
                             <div class="card-header-meta">
-                                <span class="project-role">Software Engineer</span>
+                                <span class="project-role">Data Analyst & DB Developer</span>
                             </div>
                             <h4 class="work-card-title">Xvidia Shop</h4>
                             <div class="card-details-wrapper">
@@ -844,7 +769,7 @@
                         <!-- Web-Based Ticketing System -->
                         <div class="work-card project-card expandable-card">
                             <div class="card-header-meta">
-                                <span class="project-role">Upcoming Project</span>
+                                <span class="project-role">Data & Queue Analytics Project</span>
                             </div>
                             <h4 class="work-card-title">Web-Based Ticketing System</h4>
                             <div class="card-details-wrapper">
@@ -934,14 +859,18 @@
                             </div>
                             
                             <form id="contact-form" class="contact-form">
+                                <div class="form-group">
+                                    <label for="contact-name">Full Name</label>
+                                    <input type="text" id="contact-name" name="name" class="form-control" placeholder="Your Name" required>
+                                </div>
                                 <div class="form-group-row">
                                     <div class="form-group">
-                                        <label for="contact-name">Name</label>
-                                        <input type="text" id="contact-name" name="name" class="form-control" placeholder="Your Name" required>
+                                        <label for="contact-email">Email Address</label>
+                                        <input type="email" id="contact-email" name="email" class="form-control" placeholder="Your Email Address" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="contact-email">Email</label>
-                                        <input type="email" id="contact-email" name="email" class="form-control" placeholder="Your Email Address" required>
+                                        <label for="contact-phone">Contact No.</label>
+                                        <input type="tel" id="contact-phone" name="phone" class="form-control" placeholder="Numbers only (e.g. 09123456789)" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -997,102 +926,80 @@
                 <i data-lucide="x" style="width: 24px; height: 24px;"></i>
             </button>
 
-            <!-- Role Selector Tabs -->
-            <div class="resume-tabs">
-                <button class="resume-tab active" data-role="web">Software Engineer</button>
-                <button class="resume-tab" data-role="it">IT Specialist</button>
-            </div>
-
             <div class="resume-preview-container">
-                <!-- Software Engineer Preview -->
-                <div id="preview-content-web" class="preview-role-content active">
+                <!-- Unified Data Roles Resume Preview -->
+                <div class="preview-role-content active">
                     <div class="preview-header">
                         <div class="preview-name">Khin Andrei Gamboa</div>
-                        <div class="preview-title">Software Engineer</div>
+                        <div class="preview-title">Data Analyst / Scientist / Engineer</div>
                     </div>
 
                     <div class="preview-section">
                         <div class="preview-section-title">Education</div>
                         <div class="preview-item">
-                            <div class="preview-item-title">BS in Computer Engineering (BSCpE)</div>
-                            <div class="preview-item-sub">Rizal Technological University • 2022 - Present</div>
+                            <div class="preview-item-title">Bachelor of Science in Computer Engineering (BSCpE)</div>
+                            <div class="preview-item-sub">Rizal Technological University • Pasig City • Expected Graduation: July 2026</div>
+                        </div>
+                    </div>
+
+                    <div class="preview-section">
+                        <div class="preview-section-title">Technical Skills</div>
+                        <div class="preview-item">
+                            <p class="preview-item-description"><strong>Data Engineering & Architecture:</strong> Relational DB Design, Schema Architecture, ETL/ELT Pipeline Optimization, Data Migration & Validation.</p>
+                            <p class="preview-item-description"><strong>Data Analytics & Modeling:</strong> Statistical Data Analysis, Predictive Modeling, Exploratory Data Analysis (EDA), Data Cleansing.</p>
+                            <p class="preview-item-description"><strong>Languages & Scripting:</strong> SQL, Python, Java, C#, Node.js, JavaScript.</p>
+                            <p class="preview-item-description"><strong>Databases & Tools:</strong> MySQL Workbench, Git/GitHub, REST APIs, Bash, Vercel.</p>
                         </div>
                     </div>
 
                     <div class="preview-section">
                         <div class="preview-section-title">Experience</div>
                         <div class="preview-item">
-                            <div class="preview-item-title">IT Operations & QA Intern (Software & QA focus)</div>
-                            <div class="preview-item-sub">Staff Domain PH • Jan 2026 – Jun 2026</div>
-                            <p class="preview-item-description">Created internal QA test logs for systems verification, built automated PowerShell setup configurations, and led database migrations to optimized relational formats.</p>
+                            <div class="preview-item-title">IT Operations & QA Intern</div>
+                            <div class="preview-item-sub">Staff Domain PH • January 2026 – June 2026</div>
+                            <p class="preview-item-description"><strong>Data Migration & Validation:</strong> Spearheaded the technical transition of company tracking logs from legacy Excel frameworks into a centralized database system, significantly improving data transparency, sanitization, and structured validation.</p>
+                            <p class="preview-item-description"><strong>Process Automation:</strong> Leveraged PowerShell and Command Prompt scripting to build automated data routines and environment configurations, accelerating remote diagnostics.</p>
+                            <p class="preview-item-description"><strong>System QA & Analytics:</strong> Conducted functional QA testing and issue tracking for a centralized IT Management System (ITMS) managing 5,000+ assets, validating data accuracy and system behavior alongside core engineering teams.</p>
                         </div>
                     </div>
 
                     <div class="preview-section">
-                        <div class="preview-section-title">Key Projects</div>
+                        <div class="preview-section-title">Projects</div>
                         <div class="preview-item">
-                            <div class="preview-item-title">FOVB-AIOT (Smart Health Kiosk Capstone)</div>
-                            <p class="preview-item-description">Flask telemetry portal with integrated SQL database management, data ingestion pipelines, LiDAR, load cell weight systems, and computer vision BP logs.</p>
-                        </div>
-                        <div class="preview-item">
-                            <div class="preview-item-title">AI Kilo Bot (Intelligent Raspberry Pi Scale)</div>
-                            <p class="preview-item-description">Scale blending real-time YOLO vision classification with weight sensor data fusion pipelines for billing analytics.</p>
-                        </div>
-                        <div class="preview-item">
-                            <div class="preview-item-title">Web-Based Ticketing System</div>
-                            <p class="preview-item-description">Modular web application designed to track service ticket queues and generate real-time queue performance analytics.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- IT Specialist Preview -->
-                <div id="preview-content-it" class="preview-role-content">
-                    <div class="preview-header">
-                        <div class="preview-name">Khin Andrei Gamboa</div>
-                        <div class="preview-title">IT Specialist</div>
-                    </div>
-
-                    <div class="preview-section">
-                        <div class="preview-section-title">Education</div>
-                        <div class="preview-item">
-                            <div class="preview-item-title">BS in Computer Engineering (BSCpE)</div>
-                            <div class="preview-item-sub">Rizal Technological University • 2022 - Present</div>
+                            <div class="preview-item-title">Four-in-One Vital Sign Sensor Kiosk with AI & IoT (Thesis) • 2025 – 2026</div>
+                            <p class="preview-item-description"><strong>Database & AI Deployment:</strong> Designed and optimized the backend relational database architecture to securely store and process real-time telemetry data streams from 4 embedded sensors, ensuring minimal data latency during peak application usage.</p>
+                            <p class="preview-item-description"><strong>Data Science / Modeling:</strong> Integrated, trained, and deployed predictive AI algorithms specialized in medical anomaly detection and complex health risk data analysis.</p>
+                            <p class="preview-item-description"><strong>Data Flow Architecture:</strong> Authored end-to-end software flowcharts and data pipeline architectures to ensure flawless data communication between hardware edge nodes and the centralized web interface.</p>
                         </div>
                     </div>
 
                     <div class="preview-section">
-                        <div class="preview-section-title">Experience</div>
+                        <div class="preview-section-title">Certifications</div>
                         <div class="preview-item">
-                            <div class="preview-item-title">IT Operations & QA Intern (IT Operations focus)</div>
-                            <div class="preview-item-sub">Staff Domain PH • Jan 2026 – Jun 2026</div>
-                            <p class="preview-item-description">Provisioned VPNs, domain setups, Active Directory credentials, and managed workstation inventory for 5,000+ client/internal devices.</p>
-                        </div>
-                    </div>
-
-                    <div class="preview-section">
-                        <div class="preview-section-title">Key Projects</div>
-                        <div class="preview-item">
-                            <div class="preview-item-title">RFID Tollgate Barrier System</div>
-                            <p class="preview-item-description">Arduino toll gateway terminal with servo motor validation and C# transaction logs.</p>
+                            <div class="preview-item-title">Associate Data Engineer in SQL</div>
+                            <div class="preview-item-sub">Data Camp</div>
+                            <p class="preview-item-description">Mastered relational database design, data warehousing concepts, and cloud-based systems using Snowflake SQL and PostgreSQL to engineer scalable data infrastructures. Gained deep proficiency in multi-table joins, intermediate transformations, and visualization pipelines (validated through projects on student mental health and London transit networks).</p>
                         </div>
                         <div class="preview-item">
-                            <div class="preview-item-title">GG Resto POS (Java Swing Billing System)</div>
-                            <p class="preview-item-description">Point of Sale dashboard with localized MySQL tracking, manager controls, and inventory logs.</p>
+                            <div class="preview-item-title">Data Fundamentals</div>
+                            <div class="preview-item-sub">IBM SkillBuild partnership with TESDA</div>
+                            <p class="preview-item-description">Mastered foundational data science methodologies, core analytics concepts, and enterprise data governance trends. Gained hands-on experience utilizing IBM Watson Studio tools and languages to efficiently clean, refine, and transform raw datasets into structured visual dashboards.</p>
                         </div>
                         <div class="preview-item">
-                            <div class="preview-item-title">Xvidia Shop (C# WinForms Repair Ledger)</div>
-                            <p class="preview-item-description">Service ticketing tracker auditing active diagnostic repairs and system inventory logs.</p>
+                            <div class="preview-item-title">Python Essential 1</div>
+                            <div class="preview-item-sub">Cisco</div>
+                            <p class="preview-item-description">Mastered fundamental Python programming mechanics, including data types, variables, input/output operations, and complex conditional execution using loops and Boolean logic. Developed proficiency in utilizing advanced data structures to automate data routines.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="modal-actions">
-                <a href="./data/documents/Khin_Andrei_Gamboa_Resume_Web.pdf" target="_blank" class="action-btn secondary" id="view-pdf-btn">
+                <a href="./data/documents/Khin_Andrei_Gamboa_Resume_Data.pdf" target="_blank" class="action-btn secondary" id="view-pdf-btn">
                     <i data-lucide="external-link" style="width: 16px; height: 16px;"></i>
                     <span>View PDF</span>
                 </a>
-                <a href="./data/documents/Khin_Andrei_Gamboa_Resume_Web.pdf" download class="action-btn primary" id="download-pdf-btn">
+                <a href="./data/documents/Khin_Andrei_Gamboa_Resume_Data.pdf" download class="action-btn primary" id="download-pdf-btn">
                     <i data-lucide="download" style="width: 16px; height: 16px;"></i>
                     <span>Download</span>
                 </a>
@@ -1111,11 +1018,7 @@
                 <h3 class="about-modal-title">About Me</h3>
                 <div class="about-modal-body">
                     <p>As a final-year Computer Engineering student and aspiring Data Engineer, I focus on the architecture, optimization, and scalability of large-scale data systems. Driven by a strong engineering discipline, I am passionate about designing robust data pipelines and workflows that successfully aggregate, store, and transform raw data into ready-to-use datasets. My goal is to bridge the gap between complex data infrastructure and actionable analytics, turning unstructured data into clean, reliable ecosystems that power predictive modeling and support strategic business decisions.</p>
-                    <p>Driven by a passion for automation and system efficiency, I am actively expanding my expertise
-                        into the DevOps industry. I have successfully delivered diverse technical projects, including
-                        building portfolio platforms, developing full-featured restaurant and computer shop dashboards
-                        with integrated inventory systems, and implementing AI-driven camera detection interfaces with
-                        custom training and integration.</p>
+                    <p>Driven by a passion for data systems and analytics, I focus on transforming raw, unstructured information into highly optimized, queryable datasets. My technical background includes building intelligent sensor fusion pipelines, training and deploying predictive machine learning algorithms, and migrating legacy datasets into centralized database architectures.</p>
                     <p>Awaiting my graduation in July 2026, I am actively seeking On-the-Job Training (OJT) and immediate career opportunities where I can apply my growing technical toolkit in database architectures and data systems to contribute to robust, scalable data infrastructure and modern data pipelines.</p>
                 </div>
             </div>
@@ -1241,39 +1144,14 @@
                 }
             });
 
-            // Tab switching logic inside the resume modal
-            const tabs = modal.querySelectorAll('.resume-tab');
-            const webPreview = document.getElementById('preview-content-web');
-            const itPreview = document.getElementById('preview-content-it');
+            // Set correct PDF path for the resume buttons
             const viewPdfBtn = document.getElementById('view-pdf-btn');
             const downloadPdfBtn = document.getElementById('download-pdf-btn');
+            const dataPath = './data/documents/Khin_Andrei_Gamboa_Resume_Data.pdf';
 
-            tabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    // Remove active class from all tabs
-                    tabs.forEach(t => t.classList.remove('active'));
-                    // Add active class to clicked tab
-                    tab.classList.add('active');
-
-                    // Switch active content and update buttons based on selected role
-                    const role = tab.getAttribute('data-role');
-                    if (role === 'web') {
-                        webPreview.classList.add('active');
-                        itPreview.classList.remove('active');
-                        
-                        const webPath = './data/documents/Khin_Andrei_Gamboa_Resume_Web.pdf';
-                        viewPdfBtn.setAttribute('href', webPath);
-                        downloadPdfBtn.setAttribute('href', webPath);
-                    } else if (role === 'it') {
-                        itPreview.classList.add('active');
-                        webPreview.classList.remove('active');
-
-                        const itPath = './data/documents/Khin_Andrei_Gamboa_Resume_IT.pdf';
-                        viewPdfBtn.setAttribute('href', itPath);
-                        downloadPdfBtn.setAttribute('href', itPath);
-                    }
-                });
-            });
+            // Ensure buttons point to the correct PDF
+            if (viewPdfBtn) viewPdfBtn.setAttribute('href', dataPath);
+            if (downloadPdfBtn) downloadPdfBtn.setAttribute('href', dataPath);
         }
 
         // About Me Modal logic
@@ -1299,6 +1177,34 @@
                 }
             });
         }
+
+        // Skills Tabs Switching logic
+        const skillsTabs = document.querySelectorAll('.skills-tab');
+        const skillsContentPanes = document.querySelectorAll('.skills-content-pane');
+
+        skillsTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                skillsTabs.forEach(t => t.classList.remove('active'));
+                // Add active class to clicked tab
+                tab.classList.add('active');
+
+                // Switch active pane content
+                const targetRole = tab.getAttribute('data-skill-target');
+                skillsContentPanes.forEach(pane => {
+                    if (pane.id === `skill-content-${targetRole}`) {
+                        pane.classList.add('active');
+                    } else {
+                        pane.classList.remove('active');
+                    }
+                });
+                
+                // Re-create lucide icons for newly shown tab pane if any icons exist
+                if (window.lucide) {
+                    window.lucide.createIcons();
+                }
+            });
+        });
 
         // Smart Header scroll behavior (Show on scroll up, Hide on scroll down)
         let lastScrollY = window.scrollY;
@@ -1443,6 +1349,19 @@
         const submitBtn = document.getElementById('contact-submit-btn');
         const statusBox = document.getElementById('contact-status');
 
+        // Restrict Contact No. input to numbers only
+        const phoneInput = document.getElementById('contact-phone');
+        if (phoneInput) {
+            phoneInput.addEventListener('input', (e) => {
+                e.target.value = e.target.value.replace(/[^0-9]/g, '');
+            });
+            phoneInput.addEventListener('keypress', (e) => {
+                if (!/[0-9]/.test(e.key)) {
+                    e.preventDefault();
+                }
+            });
+        }
+
         if (submissionForm && submitBtn && statusBox) {
             submissionForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
@@ -1456,16 +1375,22 @@
                 statusBox.className = 'form-status';
                 statusBox.style.display = 'none';
 
-                const formData = new FormData(submissionForm);
+                const name = document.getElementById('contact-name').value.trim();
+                const email = document.getElementById('contact-email').value.trim();
+                const phone = document.getElementById('contact-phone').value.trim();
+                const subject = document.getElementById('contact-subject').value.trim();
+                const message = document.getElementById('contact-message').value.trim();
+
                 const payload = {
-                    name: formData.get('name'),
-                    email: formData.get('email'),
-                    subject: formData.get('subject'),
-                    message: formData.get('message')
+                    name,
+                    email,
+                    phone,
+                    subject,
+                    message
                 };
 
                 try {
-                    const response = await fetch('/api/send-email', {
+                    const response = await fetch('/api/submit-message', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
@@ -1596,23 +1521,94 @@
             }
         });
 
-        // Dynamic views counter via public Count API
-        const viewsCountSpan = document.getElementById('views-count');
-        if (viewsCountSpan) {
-            fetch('https://api.counterapi.dev/v1/portfolio-v2-khinandrei/page-views/up')
-                .then(res => res.json())
-                .then(data => {
-                    if (data && typeof data.count !== 'undefined') {
-                        viewsCountSpan.textContent = data.count;
+        // 1. Dynamically pull the Supabase client library from CDN
+        const supabaseScript = document.createElement('script');
+        supabaseScript.src = "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2";
+        document.head.appendChild(supabaseScript);
+
+        supabaseScript.onload = () => {
+            // 2. Initializing client with your verified project credentials
+            const SUPABASE_URL = 'https://ljtbqadymticlgsenjpo.supabase.co';
+            const SUPABASE_ANON_KEY = 'sb_publishable_QYoHIwTZYDczxMpucXaw9g_bBY6Obu7';
+            const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+            // Easing function: Ease Out Quad for smooth counting
+            function animateValue(obj, start, end, duration, suffix = "") {
+                let startTimestamp = null;
+                const step = (timestamp) => {
+                    if (!startTimestamp) startTimestamp = timestamp;
+                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                    const easeProgress = progress * (2 - progress); // Ease out quad
+                    const currentVal = Math.floor(easeProgress * (end - start) + start);
+                    
+                    obj.textContent = currentVal + suffix;
+                    
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
                     } else {
-                        viewsCountSpan.textContent = '1';
+                        obj.textContent = end + suffix; // Ensure exact final value with suffix
                     }
-                })
-                .catch(err => {
-                    console.error('Views counter fetch failed:', err);
-                    viewsCountSpan.textContent = '1';
-                });
-        }
+                };
+                window.requestAnimationFrame(step);
+            }
+
+            async function handleLiveCounter() {
+                try {
+                    // 3. Increment the tracking row count using your secure database routine
+                    await supabase.rpc('increment_views');
+
+                    // 4. Retrieve the updated value from your PostgreSQL table
+                    const { data, error } = await supabase
+                        .from('page_views')
+                        .select('count')
+                        .eq('id', 1)
+                        .single();
+
+                    if (error) throw error;
+
+                    // 5. Target the HTML counter text block and update it with count-up animation
+                    const element = document.getElementById('portfolio-visits-element');
+                    if (element) {
+                        animateValue(element, 0, data.count, 1200);
+                    }
+                    
+                } catch (err) {
+                    console.error('Counter sync error:', err);
+                    // Graceful fallback display if the client blocks the script
+                    const element = document.getElementById('portfolio-visits-element');
+                    if (element) {
+                        animateValue(element, 0, 214, 1200, "+");
+                    }
+                }
+            }
+
+            // Setup Intersection Observer to animate metrics when they enter the viewport
+            const statsSection = document.querySelector('.intro-stats');
+            const jobCounter = document.querySelector('.stat-item:nth-child(1) .stat-number');
+            const projectCounter = document.querySelector('.stat-item:nth-child(2) .stat-number');
+
+            if (statsSection) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            // Start Job and Projects counters
+                            if (jobCounter) animateValue(jobCounter, 0, 1, 1000);
+                            if (projectCounter) animateValue(projectCounter, 0, 5, 1200);
+                            
+                            // Start Supabase live views counter animation
+                            handleLiveCounter();
+                            
+                            observer.disconnect(); // Only animate once
+                        }
+                    });
+                }, { threshold: 0.15 });
+
+                observer.observe(statsSection);
+            } else {
+                // Fallback direct invocation if layout element is not found
+                handleLiveCounter();
+            }
+        };
 
         // Typewriter Effect (react-simple-typewriter clone in vanilla JS)
         const words = ["Data Engineer", "Data Analyst", "Data Scientist"];

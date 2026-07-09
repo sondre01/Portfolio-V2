@@ -288,8 +288,167 @@ body.dark-mode .skills-subcategory h4 {
         grid-template-columns: 1fr; /* Stack columns on tablet/mobile */
         gap: 20px;
     }
-    .featured-card-body {
-        grid-template-columns: 1fr; /* Stack Data Engineer subcategories vertically */
+    .featured-card-body,
+    .skills-card-body-tabbed {
+        grid-template-columns: 1fr; /* Stack subcategories vertically */
+        gap: 20px;
+    }
+}
+
+/* Skills Tabs Segmented Control */
+.skills-tabs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    background-color: #f1f5f9; /* Subtle light background track */
+    border-radius: 9999px; /* Pill-shaped track */
+    padding: 6px;
+    margin: 0 auto 35px auto;
+    width: max-content;
+    max-width: 100%;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.skills-tab {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 10px 22px;
+    border-radius: 9999px; /* Pill-shaped active tab */
+    border: none;
+    background-color: transparent; /* Invisible by default */
+    color: #475569; /* Slate text */
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    white-space: nowrap;
+}
+
+.skills-tab svg {
+    color: #475569;
+    transition: color 0.3s ease;
+}
+
+.skills-tab:hover {
+    color: #0f172a;
+}
+
+.skills-tab:hover svg {
+    color: #0f172a;
+}
+
+.skills-tab.active {
+    background-color: #ff5722; /* Active background orange */
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(255, 87, 34, 0.2);
+}
+
+.skills-tab.active svg {
+    color: #ffffff;
+}
+
+/* Skills Content Switcher */
+.skills-content-pane {
+    display: none;
+    width: 100%;
+}
+
+.skills-content-pane.active {
+    display: block;
+    animation: slideUpFade 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Tab Content Layout adjustments */
+.skills-content-pane .skills-card {
+    border: 2px solid #ff5e00;
+    background: linear-gradient(180deg, #ffffff 0%, rgba(255, 94, 0, 0.01) 100%);
+}
+
+body.dark-mode .skills-content-pane .skills-card {
+    background: linear-gradient(180deg, var(--bg-card) 0%, rgba(255, 94, 0, 0.02) 100%);
+    border-color: var(--accent);
+}
+
+.skills-card-body-tabbed {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 35px;
+    width: 100%;
+}
+
+/* Dark Mode Overrides for Skills Tabs */
+body.dark-mode .skills-tabs {
+    background-color: #1e1e2e; /* Dark track background */
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .skills-tab {
+    color: #94a3b8;
+}
+
+body.dark-mode .skills-tab svg {
+    color: #94a3b8;
+}
+
+body.dark-mode .skills-tab:hover {
+    color: #f8fafc;
+}
+
+body.dark-mode .skills-tab:hover svg {
+    color: #f8fafc;
+}
+
+body.dark-mode .skills-tab.active {
+    background-color: #ff5722; /* Active orange pill */
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(255, 87, 34, 0.3);
+}
+
+body.dark-mode .skills-tab.active svg {
+    color: #ffffff;
+}
+
+/* Responsive adjustments for tabs */
+@media (max-width: 768px) {
+    .skills-tabs {
+        display: flex;
+        width: 100%;
+        max-width: 100%;
+        justify-content: flex-start;
+        overflow-x: auto;
+        white-space: nowrap;
+        border-radius: 20px;
+        padding: 6px;
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+    }
+    
+    .skills-tabs::-webkit-scrollbar {
+        display: none; /* Safari and Chrome */
+    }
+    
+    .skills-tab {
+        flex: 1 0 auto;
+        justify-content: center;
+        padding: 10px 16px;
+    }
+    
+    .skills-card-body-tabbed {
+        grid-template-columns: 1fr;
         gap: 20px;
     }
 }

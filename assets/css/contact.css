@@ -194,12 +194,12 @@ a.contact-info-value:hover {
 .contact-form {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 24px;
 }
 
 .form-group-row {
     display: flex;
-    gap: 16px;
+    gap: 24px;
 }
 
 .form-group-row .form-group {
@@ -209,21 +209,21 @@ a.contact-info-value:hover {
 .form-group {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 8px;
 }
 
 .form-group label {
     font-family: 'Poppins', sans-serif;
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: #444444;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #64748b; /* Soft slate gray */
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
 .form-control {
     width: 100%;
-    padding: 12px 14px;
+    padding: 14px 18px; /* Plush padding */
     font-family: 'Inter', sans-serif;
     font-size: 0.95rem;
     color: #333333;
@@ -388,4 +388,14 @@ textarea.form-control {
     .contact-card {
         padding: 25px 20px;
     }
+}
+
+/* Dark Mode Select Option styling support */
+body.dark-mode select.form-control option {
+    background-color: var(--bg-card) !important;
+    color: var(--text-primary) !important;
+}
+
+#contact-email-custom {
+    transition: all 0.3s ease;
 }

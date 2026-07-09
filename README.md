@@ -51,7 +51,7 @@ Portfolio V2/
 │   │   └── contact.css         # Contact card & form submission styles
 │   └── js/                     # [Reserved] Future client scripts
 ├── data/
-│   ├── documents/              # PDF Resumes (Web and IT versions)
+│   ├── documents/              # PDF Resumes (Data Analyst, Science, and Engineer version)
 │   ├── image/                  # Profile pictures and assets
 │   └── logo/                   # Brand and school logos
 ├── index.html                  # Main page template (structure & JS logic)
