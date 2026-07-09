@@ -1,14 +1,23 @@
 import pg from 'pg';
 const { Pool } = pg;
 
-// Initialize connection pool
-// Reads connection strings (POSTGRES_URL or DATABASE_URL) from environment variables on Vercel
-const pool = new Pool({
-    connectionString: process.env.POSTGRES_URL || process.env.DATABASE_URL,
-    ssl: {
-        rejectUnauthorized: false // Required for secure cloud DB hosts (like Vercel Postgres or Supabase)
+// Helper to initialize connection pool dynamically
+let pool;
+function getPool() {
+    if (!pool) {
+        const connectionString = process.env.POSTGRES_URL || process.env.DATABASE_URL;
+        if (!connectionString) {
+            throw new Error("Database connection string (DATABASE_URL or POSTGRES_URL) is missing.");
+        }
+        pool = new Pool({
+            connectionString: connectionString,
+            ssl: {
+                rejectUnauthorized: false // Required for secure cloud DB hosts (like Vercel Postgres or Supabase)
+            }
+        });
     }
-});
+    return pool;
+}
 
 export default async function handler(req, res) {
     // Enable CORS
@@ -37,15 +46,26 @@ export default async function handler(req, res) {
         return res.status(400).json({ error: 'Missing required fields: Name, Email, and Message are required.' });
     }
 
+    // Check database config
+    const connectionString = process.env.POSTGRES_URL || process.env.DATABASE_URL;
+    if (!connectionString) {
+        console.error("Database connection string is missing in environment variables.");
+        return res.status(500).json({ 
+            error: 'Database configuration missing. Please add the DATABASE_URL environment variable in your Vercel settings.' 
+        });
+    }
+
     try {
+        const db = getPool();
+
         // 1. Log the inquiry into the PostgreSQL database table
         const queryText = `
-            INSERT INTO portfolio_messages (full_name, email_address, contact_number, subject, message)
+            INSERT INTO public.portfolio_messages (full_name, email_address, contact_number, subject, message)
             VALUES ($1, $2, $3, $4, $5)
             RETURNING id;
         `;
         const queryValues = [name, email, phone || null, subject || null, message];
-        await pool.query(queryText, queryValues);
+        await db.query(queryText, queryValues);
 
         // 2. Dispatch Email Alert via Resend if credentials exist
         const resendApiKey = process.env.RESEND_API_KEY;
@@ -133,6 +153,8 @@ export default async function handler(req, res) {
         return res.status(200).json({ success: true });
     } catch (error) {
         console.error("Serverless Function DB insert failed:", error);
-        return res.status(500).json({ error: 'Internal server error occurred while saving message.' });
+        return res.status(500).json({ 
+            error: `Internal server error: ${error.message || 'Could not save message to database.'}` 
+        });
     }
 }
