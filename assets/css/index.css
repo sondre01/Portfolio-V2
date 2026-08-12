@@ -17,29 +17,29 @@
     --accent-hover: #e05300;
     --accent-rgba: rgba(255, 94, 0, 0.08);
 
-    /* Light Theme Tokens */
-    --bg-page: #f8fafc;
-    --bg-card: #ffffff;
-    --bg-header: rgba(255, 255, 255, 0.85);
-    --border-color: #e2e8f0;
-    --border-focus: #cbd5e1;
+    /* Permanent Dark Theme Tokens */
+    --bg-page: #121212;             /* Dark Gray/Charcoal background */
+    --bg-card: #1e1e1e;             /* Charcoal card background */
+    --bg-header: rgba(30, 30, 30, 0.85);
+    --border-color: #9e9e9e;        /* Muted Medium Gray border */
+    --border-focus: #ff5e00;
     
-    --text-primary: #1a1a1a;
-    --text-secondary: #555555;
-    --text-muted: #888888;
+    --text-primary: #e0e0e0;        /* Off-white primary text */
+    --text-secondary: #b0b0b0;      /* Muted medium gray secondary text */
+    --text-muted: #9e9e9e;          /* Muted text */
     
-    --modal-overlay: rgba(0, 0, 0, 0.6);
-    --vercel-logo-filter: none;
+    --modal-overlay: rgba(0, 0, 0, 0.8);
+    --vercel-logo-filter: invert(1);
     
-    --stat-bg: #ffffff;
-    --input-bg: #ffffff;
-    --badge-bg: #f1f5f9;
+    --stat-bg: #1e1e1e;
+    --input-bg: #121212;
+    --badge-bg: #2d2d2d;
     
-    --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-    --card-shadow-hover: 0 15px 35px rgba(0, 0, 0, 0.08);
+    --card-shadow: none;
+    --card-shadow-hover: 0 6px 18px rgba(0, 0, 0, 0.2);
 }
 
-body.dark-mode {
+body, body.dark-mode {
     /* Dark Theme Tokens (Ideal Dark Mode Formula) */
     --bg-page: #121212;             /* Dark Gray/Charcoal background */
     --bg-card: #1e1e1e;             /* Charcoal card background */
@@ -58,16 +58,17 @@ body.dark-mode {
     --input-bg: #121212;
     --badge-bg: #2d2d2d;
     
-    --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-    --card-shadow-hover: 0 15px 35px rgba(0, 0, 0, 0.35);
+    --card-shadow: none;
+    --card-shadow-hover: 0 6px 18px rgba(0, 0, 0, 0.2);
 }
 
 /* ==========================================================================
    BASE STYLES / TYPOGRAPHY
    ========================================================================== */
 html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 110px; /* Offset for fixed header + breathing room */
+    scroll-behavior: auto;
+    scroll-snap-type: none;
+    scroll-padding-top: 60px; /* Offset for thin minimalist fixed header */
 }
 
 body {
@@ -92,24 +93,29 @@ h6 {
 }
 
 /* ==========================================================================
-   MAIN SPLIT LAYOUT
+   MAIN LAYOUT & SECTIONS
    ========================================================================== */
 .main-layout {
     display: flex;
-    justify-content: space-evenly; /* Even spacing on left side, middle gap, and right side */
+    justify-content: space-between;
+    align-items: flex-start;
     width: 100%;
     max-width: 1400px;
-    margin: 105px auto 0 auto; /* Top margin of 105px offsets the fixed rectangular header + 15px gap */
-    padding: 0 40px;
+    margin: 0 auto;
+    padding: 60px 40px 0 40px;
+    box-sizing: border-box;
 }
 
 .sidebar-column {
-    flex: 0 0 25%; /* Takes exactly 1/4 of content split */
+    flex: 0 0 28%; /* Maximized prominent profile column width */
     position: sticky;
-    top: 105px; /* Sticks nicely aligned with content, leaving space for the 90px header + 15px gap */
+    top: 105px;
     height: fit-content;
     z-index: 100;
-    transition: top 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth transition synced with header autohide */
+    margin-top: 0;
+    padding-top: 0;
+    box-sizing: border-box;
+    transition: top 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Sidebar sticks closer to the top when the header is hidden */
@@ -118,9 +124,45 @@ body.header-hidden .sidebar-column {
 }
 
 .content-column {
-    flex: 0 0 65%; /* Takes 65% of split layout, leaving 10% space to split into three equal gaps of 3.3% */
+    flex: 0 0 68%;
     display: flex;
     flex-direction: column;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+/* Standard Plain Scroll Sections */
+.content-column > section {
+    min-height: auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 0;
+    padding: 60px 0;
+}
+
+/* Strictly Align First Section (About Me) with Sidebar Column Top Baseline */
+.content-column > section:first-child,
+.content-column > section#about {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
+
+/* Global Flat Seamless Design System: Remove Card Frames & Border Boxes */
+.intro-card,
+.home-hero-card,
+.about-combined-card,
+.skills-card,
+.featured-skills-card,
+.cert-card,
+.roadmap-card,
+.work-card,
+.contact-card {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
 }
 
 
@@ -138,19 +180,31 @@ body.header-hidden .sidebar-column {
 
 .header {
     width: 100%;
-    height: 90px;
+    height: 60px;
     
-    /* Fixed Full-Width Smart Header configuration */
+    /* Fixed Full-Width Transparent Header configuration */
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1000;
-    background-color: var(--bg-header);
-    backdrop-filter: blur(10px); /* Premium glassmorphism blur effect */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* Modern soft drop shadow */
-    border-bottom: 1px solid var(--border-color);
-    border-radius: 0; /* Sharp corners, no rounded edges */
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 0;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition: opacity 0.6s ease-out, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.6s ease-out;
+    will-change: opacity, transform, visibility;
+}
+
+/* Initial Load Hidden State: Completely hidden on initial page load */
+.header.header-load-hidden {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transform: translateY(-20px) !important;
 }
 
 /* Aligns the header items inside the 1400px split layout frame */
@@ -177,35 +231,43 @@ body.header-hidden .header {
     gap: 40px;
 }
 
-/* Individual navigation link styling */
+/* Individual navigation link styling — Solid Black in Light Mode */
 .nav-link {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', 'Inter', sans-serif;
     font-size: 0.95rem;
-    font-weight: 500;
-    color: var(--text-secondary);
+    font-weight: 600;
+    color: #000000;
+    opacity: 1;
     text-decoration: none;
     position: relative;
     padding: 6px 0;
-    transition: color 0.25s ease;
+    display: inline-block;
+    transition: color 0.25s cubic-bezier(0.4, 0, 0.2, 1), transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-link:hover,
 .nav-link.active {
-    color: var(--accent); /* Brand orange color */
+    color: #000000;
+    opacity: 1;
 }
 
-/* Sliding/Expanding bottom underline transition */
+.nav-link:active {
+    transform: scale(0.95); /* Tactile press feedback */
+}
+
+/* Sliding/Expanding bottom underline indicator */
 .nav-link::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 2px;
+    height: 3px;
+    border-radius: 2px;
     background-color: var(--accent);
     transform: scaleX(0);
     transform-origin: right;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .nav-link:hover::after,
@@ -214,6 +276,17 @@ body.header-hidden .header {
     transform-origin: left;
 }
 
+/* Dynamic Dark Mode Navigation Links — Crisp Solid White */
+body.dark-mode .nav-link {
+    color: #ffffff;
+    opacity: 1;
+}
+
+body.dark-mode .nav-link:hover,
+body.dark-mode .nav-link.active {
+    color: #ffffff;
+    opacity: 1;
+}
 
 /* Logo / Name wrapper */
 .logo-myname {
@@ -224,9 +297,9 @@ body.header-hidden .header {
 
 /* Logo picture size & transition */
 .logo-myname img {
-    width: 50px;
+    width: 36px;
     height: auto;
-    border-radius: 12px;
+    border-radius: 10px;
     border: 1px solid var(--border-color);
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
                 border-color 0.3s ease, 
@@ -234,11 +307,16 @@ body.header-hidden .header {
 }
 
 .logo-myname p {
-    color: var(--text-primary);
-    font-weight: 600;
+    color: #000000;
+    opacity: 1;
+    font-weight: 700;
     font-family: 'Poppins', sans-serif;
     margin: 0;
     transition: color 0.3s ease;
+}
+
+body.dark-mode .logo-myname p {
+    color: #ffffff;
 }
 
 /* Logo interactive hover effects */
@@ -256,53 +334,59 @@ body.header-hidden .header {
     color: var(--accent);
 }
 
-/* Header Controls (Search & Theme Toggle) */
+/* Header Controls (Resume Download) */
 .header-controls {
     display: flex;
     align-items: center;
     gap: 15px;
 }
 
-.control-btn {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 8px;
-    border-radius: 50%;
-    color: var(--text-primary);
-    display: flex;
+/* Simplified Curvy Thin Borderline Resume Download Button */
+.nav-resume-btn {
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
+    gap: 7px;
+    padding: 6px 14px;
+    font-family: 'Inter', 'Poppins', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-decoration: none;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 9999px; /* Curvy thin pill borderline */
+    transition: color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+    box-sizing: border-box;
+    cursor: pointer;
 }
 
-.control-btn:hover {
-    background-color: rgba(0, 0, 0, 0.05);
-    transform: scale(1.05);
+.nav-resume-btn:hover {
+    color: #ffffff;
+    background-color: var(--accent-rgba);
+    border-color: var(--accent);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(255, 94, 0, 0.2);
 }
 
-body.dark-mode .control-btn:hover {
-    background-color: rgba(255, 255, 255, 0.08);
-}
-
-.control-btn svg {
-    display: block;
+.nav-resume-btn:active {
+    transform: translateY(0) scale(0.97);
 }
 
 /* ==========================================================================
    SCROLL REVEAL (FADE-IN & SLIDE-UP ANIMATIONS)
    ========================================================================== */
+/* Plain Scroll Display (Lightweight & Instant) */
 .scroll-reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 1.0s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 1.0s cubic-bezier(0.16, 1, 0.3, 1);
-    will-change: transform, opacity;
+    opacity: 1;
+    transform: none;
+    transition: none;
 }
 
 .scroll-reveal.reveal-active {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
 }
 
 /* ==========================================================================
@@ -310,27 +394,34 @@ body.dark-mode .control-btn:hover {
    ========================================================================== */
 body.dark-mode .intro-card,
 body.dark-mode .modal-box,
-body.dark-mode .about-combined-card,
 body.dark-mode .skills-card,
 body.dark-mode .roadmap-card,
 body.dark-mode .work-card,
 body.dark-mode .contact-card,
-body.dark-mode .about-modal-box,
-body.dark-mode .feedback-card {
+body.dark-mode .about-modal-box {
     background-color: var(--bg-card) !important;
     border-color: var(--border-color) !important;
     box-shadow: var(--card-shadow) !important;
 }
 
+body.dark-mode .about-combined-card {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
 body.dark-mode .intro-card:hover,
-body.dark-mode .about-combined-card:hover,
 body.dark-mode .skills-card:hover,
 body.dark-mode .roadmap-card:hover,
 body.dark-mode .work-card:hover,
-body.dark-mode .contact-card:hover,
-body.dark-mode .feedback-card:hover {
+body.dark-mode .contact-card:hover {
     box-shadow: var(--card-shadow-hover) !important;
     border-color: var(--accent) !important;
+}
+
+body.dark-mode .about-combined-card:hover {
+    box-shadow: none !important;
+    border-color: transparent !important;
 }
 
 body.dark-mode h1,
@@ -361,9 +452,7 @@ body.dark-mode .roadmap-subtitle,
 body.dark-mode .roadmap-desc,
 body.dark-mode .work-card-desc,
 body.dark-mode .contact-intro,
-body.dark-mode .form-group label,
-body.dark-mode .feedback-card h4,
-body.dark-mode .feedback-success-visible span {
+body.dark-mode .form-group label {
     color: var(--text-secondary) !important;
 }
 
@@ -371,8 +460,7 @@ body.dark-mode .stat-item,
 body.dark-mode .resume-preview-container,
 body.dark-mode .roadmap-logo,
 body.dark-mode .infra-badge,
-body.dark-mode .form-control,
-body.dark-mode .feedback-card input[type="text"] {
+body.dark-mode .form-control {
     background-color: var(--input-bg) !important;
     border-color: var(--border-color) !important;
     color: var(--text-primary) !important;
@@ -585,7 +673,6 @@ h6,
 .contact-card-title,
 .timeline-title,
 .footer-title,
-.feedback-card h4,
 .preview-name,
 .preview-section-title,
 .stat-number,
@@ -852,7 +939,7 @@ body.dark-mode .row-expand-toggle-btn:hover {
     top: 0;
     left: 0;
     width: 100%;
-    height: 90px;
+    height: 60px;
     background-color: var(--bg-header);
     backdrop-filter: blur(15px);
     z-index: 1005;
@@ -958,14 +1045,14 @@ body.dark-mode .row-expand-toggle-btn:hover {
 /* Suggestions Dropdown Container */
 .search-suggestions-dropdown {
     position: absolute;
-    top: 90px;
+    top: 60px;
     left: 50%;
     transform: translateX(-50%) translateY(10px);
     width: calc(100% - 80px);
     max-width: 800px;
     background-color: var(--bg-card);
     border: 1px solid var(--border-color);
-    border-radius: 0 0 16px 16px;
+    border-radius: 0 0 8px 8px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
     max-height: 480px;
     overflow-y: auto;
@@ -1183,15 +1270,6 @@ body.dark-mode .row-expand-toggle-btn:hover {
         order: 1; /* Profile sits at the top */
     }
     
-    .feedback-card {
-        order: 3; /* Feedback sits at the bottom */
-        transform: none !important; /* Override desktop autohide translation */
-        opacity: 1 !important;
-        visibility: visible !important;
-        margin-top: 10px;
-        margin-bottom: 100px; /* Safe space to prevent overlapping with fixed mobile nav dock */
-    }
-    
     .header-inner {
         padding: 0 24px;
     }
@@ -1200,7 +1278,7 @@ body.dark-mode .row-expand-toggle-btn:hover {
 /* Mobile Devices */
 @media (max-width: 768px) {
     .header {
-        height: 70px;
+        height: 52px;
     }
     
     .header-inner {
@@ -1208,11 +1286,11 @@ body.dark-mode .row-expand-toggle-btn:hover {
     }
     
     .logo-myname img {
-        width: 38px;
+        width: 32px;
     }
     
     .logo-myname p {
-        font-size: 0.9rem;
+        font-size: 0.88rem;
     }
 
     
@@ -1223,35 +1301,25 @@ body.dark-mode .row-expand-toggle-btn:hover {
     .header-controls {
         gap: 10px;
     }
+
+    .nav-resume-btn {
+        padding: 5px 11px;
+        font-size: 0.75rem;
+    }
     
     html {
-        scroll-padding-top: 85px; /* Adjust header offset for ScrollSpy alignment */
+        scroll-padding-top: 52px; /* Adjust header offset for ScrollSpy alignment */
     }
     
     .main-layout {
-        margin-top: 85px;
+        margin-top: 52px;
         padding: 0 16px;
         gap: 24px;
     }
     
     /* Typography scale-down for home landing text on mobile */
-    .Intro-Text h2:nth-child(2) {
+    .hero-line {
         font-size: 1.85rem !important;
-    }
-    
-    .Intro-Text h2:nth-child(3) {
-        font-size: 1.15rem !important;
-    }
-    
-    .Intro-Text .intro-description {
-        font-size: 0.95rem !important;
-        line-height: 1.5 !important;
-    }
-
-    .intro-stats {
-        margin-top: 25px !important;
-        padding-top: 20px !important;
-        gap: 12px !important;
     }
 
     .stat-item {
@@ -1270,7 +1338,7 @@ body.dark-mode .row-expand-toggle-btn:hover {
     }
     
     .card-img-container {
-        height: 240px;
+        height: auto !important;
     }
     
     .card-content {
@@ -1286,7 +1354,7 @@ body.dark-mode .row-expand-toggle-btn:hover {
     /* Search overlay mobile refinements */
     .search-layer-inner {
         padding: 0 20px;
-        height: 70px;
+        height: 52px;
     }
     
     .search-suggestions-dropdown {
@@ -1299,7 +1367,7 @@ body.dark-mode .row-expand-toggle-btn:hover {
     }
     
     .search-bar-layer {
-        height: 70px;
+        height: 52px;
     }
 }
 

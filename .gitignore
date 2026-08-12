@@ -10,3 +10,6 @@ Thumbs.db
 *.njsproj
 *.sln
 *.sw?
+
+# Reference videos
+video_ref/

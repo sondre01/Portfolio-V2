@@ -4,8 +4,6 @@
 
 .skills-section {
     width: 100%;
-    margin-bottom: 40px;
-    padding: 30px 0;
 }
 
 .skills-section h2 {
@@ -33,35 +31,33 @@
 
 /* Card Container Styling with Sharp Corners */
 .skills-card {
-    background-color: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 16px; /* Rounded corners for a modern, smooth aesthetic */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-    padding: 35px 25px;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 25px 0;
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 25px;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
-                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
-                border-color 0.3s ease;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .skills-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-    border-color: #ff5e00; /* Orange accent on hover */
+    transform: translateY(-2px);
+    box-shadow: none;
+    border-color: transparent;
 }
 
-/* Featured Skills Card Highlight (Data Engineer) */
 .featured-skills-card {
-    border: 2.5px solid #ff5e00; /* Prominent accent border */
-    box-shadow: 0 12px 35px rgba(255, 94, 0, 0.06);
-    background: linear-gradient(180deg, #ffffff 0%, rgba(255, 94, 0, 0.01) 100%);
+    border: none;
+    box-shadow: none;
+    background: transparent;
 }
 
 .featured-skills-card:hover {
-    box-shadow: 0 18px 45px rgba(255, 94, 0, 0.12);
+    border-color: transparent;
+    box-shadow: none;
 }
 
 /* Header style for each skill card */
@@ -70,7 +66,7 @@
     align-items: center;
     justify-content: center;
     gap: 12px;
-    border-bottom: 2px solid #ff5e00;
+    border-bottom: 1px solid rgba(255, 94, 0, 0.4);
     padding-bottom: 15px;
 }
 
@@ -116,7 +112,7 @@
     text-transform: uppercase;
     letter-spacing: 1.5px;
     margin: 0;
-    border-left: 3px solid #ff5e00;
+    border-left: 2px solid #ff5e00;
     padding-left: 10px;
     line-height: 1;
 }
@@ -258,7 +254,7 @@ body.dark-mode .skills-card {
 }
 
 body.dark-mode .featured-skills-card {
-    border-color: var(--accent);
+    border-color: var(--border-color);
     background: linear-gradient(180deg, var(--bg-card) 0%, rgba(255, 94, 0, 0.02) 100%);
 }
 
@@ -374,13 +370,13 @@ body.dark-mode .skills-subcategory h4 {
 
 /* Tab Content Layout adjustments */
 .skills-content-pane .skills-card {
-    border: 2px solid #ff5e00;
+    border: 1px solid #e2e8f0;
     background: linear-gradient(180deg, #ffffff 0%, rgba(255, 94, 0, 0.01) 100%);
 }
 
 body.dark-mode .skills-content-pane .skills-card {
     background: linear-gradient(180deg, var(--bg-card) 0%, rgba(255, 94, 0, 0.02) 100%);
-    border-color: var(--accent);
+    border-color: var(--border-color);
 }
 
 .skills-card-body-tabbed {

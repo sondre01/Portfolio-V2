@@ -4,60 +4,61 @@
 
 .about-section {
     width: 100%;
-    margin-bottom: 40px;
-    padding: 30px 0;
 }
 
 .about-section h2 {
     font-size: 2.2rem;
     font-weight: 800;
-    color: #1a1a1a;
+    color: #ffffff !important;
     margin-top: 0;
-    margin-bottom: 30px;
+    margin-bottom: 24px;
     letter-spacing: -0.5px;
 }
 
-/* Combined Card Styling with Sharp Corners */
+/* Combined Card Styling — Unified with Website Background */
 .about-combined-card {
-    background-color: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 16px; /* Rounded corners for a modern, smooth aesthetic */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    background-color: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
     display: flex;
-    align-items: stretch;
+    align-items: flex-start;
     width: 100%;
-    overflow: hidden; /* Crops image cleanly to card border */
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
-                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
-                border-color 0.3s ease;
+    margin-top: 0;
+    padding: 0;
+    overflow: visible;
 }
 
 .about-combined-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-    border-color: #ff5e00; /* Subtle orange highlight matching stats/brand accent */
+    transform: none !important;
+    box-shadow: none !important;
+    border-color: transparent !important;
 }
 
-/* Description Content - Left Side (60% width) */
+/* Description Content - Full Width */
 .about-desc-content {
-    flex: 3 1 0; /* 60% proportional width allocation */
-    padding: 40px 35px;
+    width: 100%;
+    flex: 1 1 100%;
+    padding: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: 20px;
+    justify-content: flex-start;
+    gap: 16px;
 }
 
 .about-desc-content h2 {
-    margin-bottom: 5px;
+    margin-top: 0;
+    margin-bottom: 12px;
+    color: #ffffff !important;
 }
 
 .about-desc-content p {
     font-family: 'Inter', sans-serif;
-    font-size: 0.98rem;
-    line-height: 1.7;
-    color: #444444;
+    font-size: 1.06rem;
+    line-height: 1.75;
+    color: #ffffff !important;
     margin: 0;
+    font-weight: 400;
 }
 
 /* Image Content - Right Side (40% width) */
@@ -69,8 +70,11 @@
 
 .about-img-wrapper {
     width: 100%;
-    height: 100%;
+    height: 380px;
     position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
 }
 
 .about-photo {
@@ -81,24 +85,27 @@
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: opacity 0.5s ease-in-out, transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .about-photo.photo-light {
-    opacity: 1;
-    z-index: 2;
-}
-
-.about-photo.photo-dark {
     opacity: 0;
     z-index: 1;
     pointer-events: none;
+    display: none;
+}
+
+.about-photo.photo-dark {
+    opacity: 1;
+    z-index: 2;
+    pointer-events: auto;
 }
 
 body.dark-mode .about-photo.photo-light {
     opacity: 0;
     z-index: 1;
     pointer-events: none;
+    display: none;
 }
 
 body.dark-mode .about-photo.photo-dark {
@@ -109,6 +116,66 @@ body.dark-mode .about-photo.photo-dark {
 
 .about-combined-card:hover .about-photo {
     transform: scale(1.04); /* Smooth micro-zoom premium transition */
+}
+
+/* 2x2 About Stats Grid */
+.about-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 24px;
+    width: 100%;
+}
+
+.about-stat-card {
+    background-color: #151515;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 12px;
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    box-sizing: border-box;
+}
+
+.about-stat-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent, #ff5e00);
+    box-shadow: 0 8px 24px rgba(255, 94, 0, 0.12);
+}
+
+.about-stat-number {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #ffffff !important;
+    line-height: 1.1;
+}
+
+.about-stat-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #ffffff !important;
+    margin: 0;
+    letter-spacing: -0.2px;
+}
+
+.about-stat-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 400;
+    color: #ffffff !important;
+    margin: 0;
+    line-height: 1.45;
+}
+
+@media (max-width: 600px) {
+    .about-stats-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
 }
 
 /* Responsive Layout */
@@ -145,7 +212,7 @@ body.dark-mode .about-photo.photo-dark {
     gap: 8px;
     background: transparent;
     color: #ff5e00;
-    border: 2px solid #ff5e00;
+    border: 1px solid #ff5e00;
     padding: 10px 20px;
     border-radius: 30px;
     font-family: 'Poppins', sans-serif;
@@ -197,7 +264,7 @@ body.dark-mode .about-photo.photo-dark {
 /* About Modal Box */
 .about-modal-box {
     background: #ffffff;
-    border-radius: 16px;
+    border-radius: 8px;
     width: 90%;
     max-width: 600px;
     padding: 35px 30px;
@@ -249,7 +316,7 @@ body.dark-mode .about-photo.photo-dark {
     color: #1a1a1a;
     margin: 0;
     letter-spacing: -0.5px;
-    border-bottom: 2px solid #ff5e00;
+    border-bottom: 1px solid rgba(255, 94, 0, 0.4);
     padding-bottom: 10px;
 }
 
