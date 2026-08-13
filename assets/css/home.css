@@ -298,9 +298,8 @@ body.dark-mode .scroll-explore {
     height: 100%;
     overflow: hidden;
     position: relative;
-    /* Soft vertical mask fade at the top & bottom of full homepage height */
-    mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
+    mask-image: none;
+    -webkit-mask-image: none;
 }
 
 .hero-skills-track {
