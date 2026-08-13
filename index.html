@@ -29,7 +29,6 @@
             <div class="locator-buttons">
                 <a href="#home" class="nav-link active">Home</a>
                 <a href="#about" class="nav-link">About</a>
-                <a href="#skills" class="nav-link">Skills</a>
                 <a href="#certifications" class="nav-link">Certificates</a>
                 <a href="#education" class="nav-link">Education</a>
                 <a href="#work" class="nav-link">Work</a>
@@ -63,11 +62,6 @@
                     ASPIRING <span id="typewriter-text">DATA ENGINEER</span>
                 </h2>
                 <h3 class="hero-line hero-fade-item hero-line-3">BASED IN THE PHILIPPINES</h3>
-                
-                <div class="scroll-explore">
-                    <span>SCROLL TO EXPLORE</span>
-                    <i data-lucide="chevron-down" style="width: 14px; height: 14px;"></i>
-                </div>
             </div>
 
             <!-- Right-Aligned Minimal Skills List (Vertical Infinite Marquee Loop) -->
@@ -390,302 +384,481 @@
                 </div>
             </section>
 
-            <!----------------- Skills --------------------->
-            <section class="section skills-section scroll-reveal" id="skills">
-                <h2>Skills</h2>
-                
-                <!-- Skills Interactive Tabs Toggle -->
-                <div class="skills-tabs">
-                    <button class="skills-tab active" data-skill-target="data-engineer">
-                        <i data-lucide="database" style="width: 18px; height: 18px;"></i>
-                        <span>Data Engineer</span>
-                    </button>
-                    <button class="skills-tab" data-skill-target="data-scientist">
-                        <i data-lucide="brain" style="width: 18px; height: 18px;"></i>
-                        <span>Data Scientist</span>
-                    </button>
-                    <button class="skills-tab" data-skill-target="data-analyst">
-                        <i data-lucide="trending-up" style="width: 18px; height: 18px;"></i>
-                        <span>Data Analyst</span>
-                    </button>
-                </div>
 
-                <div class="skills-tabs-content">
-                    <!-- Tab Pane 1: Data Engineer (Active by Default) -->
-                    <div id="skill-content-data-engineer" class="skills-content-pane active">
-                        <div class="skills-card featured-skills-card">
-                            <div class="skills-card-header">
-                                <i data-lucide="database" style="width: 22px; height: 22px;"></i>
-                                <h3>Data Engineer</h3>
-                            </div>
-                            <div class="skills-card-body featured-card-body">
-                                <div class="skills-subcategory">
-                                    <h4>Core Languages</h4>
-                                    <div class="skills-grid-logos">
-                                        <!-- Python -->
-                                        <div class="skill-item-logo-card">
-                                            <div class="skill-logo-wrapper">
-                                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" class="skill-logo-img">
-                                                <span class="skill-tooltip">Pandas, NumPy & Automation</span>
-                                            </div>
-                                            <span class="skill-name">Python</span>
-                                        </div>
-                                        <!-- PostgreSQL -->
-                                        <div class="skill-item-logo-card">
-                                            <div class="skill-logo-wrapper">
-                                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" class="skill-logo-img">
-                                                <span class="skill-tooltip">Relational Warehousing / SQL</span>
-                                            </div>
-                                            <span class="skill-name">PostgreSQL</span>
-                                        </div>
-                                        <!-- MySQL -->
-                                        <div class="skill-item-logo-card">
-                                            <div class="skill-logo-wrapper">
-                                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="MySQL" class="skill-logo-img">
-                                                <span class="skill-tooltip">Structured Queries & Relational DB</span>
-                                            </div>
-                                            <span class="skill-name">MySQL</span>
-                                        </div>
-                                        <!-- Java -->
-                                        <div class="skill-item-logo-card">
-                                            <div class="skill-logo-wrapper">
-                                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="Java" class="skill-logo-img">
-                                                <span class="skill-tooltip">Object-Oriented Data Pipelines</span>
-                                            </div>
-                                            <span class="skill-name">Java</span>
-                                        </div>
-                                        <!-- C++ -->
-                                        <div class="skill-item-logo-card">
-                                            <div class="skill-logo-wrapper">
-                                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" alt="C++" class="skill-logo-img">
-                                                <span class="skill-tooltip">High-Performance Computations</span>
-                                            </div>
-                                            <span class="skill-name">C++</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="skills-subcategory">
-                                    <h4>Pipelines & Orchestration</h4>
-                                    <ul class="skills-list">
-                                        <li><strong>ETL / ELT Systems</strong> <span class="skill-detail">designing clean, automated ingest pipelines</span></li>
-                                        <li><strong>Apache Airflow</strong> <span class="skill-detail">basics of workflow orchestration & DAG management</span></li>
-                                        <li><strong>PowerShell & Bash Scripting</strong> <span class="skill-detail">for systems & pipeline scheduling automation</span></li>
-                                        <li><strong>Pandas & NumPy</strong> <span class="skill-detail">for scientific computations and data sanitization</span></li>
-                                    </ul>
-                                </div>
-                                <div class="skills-subcategory">
-                                    <h4>Storage & Modeling</h4>
-                                    <ul class="skills-list">
-                                        <li><strong>Relational DB Schemas</strong> <span class="skill-detail">designing structured Star & Snowflake schemas</span></li>
-                                        <li><strong>Database Migrations</strong> <span class="skill-detail">migrating relational data formats smoothly</span></li>
-                                        <li><strong>Docker Containerization</strong> <span class="skill-detail">for isolated data environment deployments</span></li>
-                                        <li><strong>Git & GitHub</strong> <span class="skill-detail">for version control and collab in pipeline development</span></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <!-- Tab Pane 2: Data Scientist -->
-                    <div id="skill-content-data-scientist" class="skills-content-pane">
-                        <div class="skills-card">
-                            <div class="skills-card-header">
-                                <i data-lucide="brain" style="width: 22px; height: 22px;"></i>
-                                <h3>Data Scientist</h3>
-                            </div>
-                            <div class="skills-card-body skills-card-body-tabbed">
-                                <div class="skills-subcategory">
-                                    <h4>Modeling & Analytics</h4>
-                                    <div class="skills-grid-logos">
-                                        <!-- Python -->
-                                        <div class="skill-item-logo-card">
-                                            <div class="skill-logo-wrapper">
-                                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" class="skill-logo-img">
-                                                <span class="skill-tooltip">Predictive Algorithms & Modeling</span>
-                                            </div>
-                                            <span class="skill-name">Python</span>
-                                        </div>
-                                        <!-- Jupyter/Anaconda -->
-                                        <div class="skill-item-logo-card">
-                                            <div class="skill-logo-wrapper">
-                                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/anaconda/anaconda-original.svg" alt="Anaconda" class="skill-logo-img">
-                                                <span class="skill-tooltip">Exploratory Data Analysis (EDA)</span>
-                                            </div>
-                                            <span class="skill-name">Anaconda</span>
-                                        </div>
-                                        <!-- PyTorch -->
-                                        <div class="skill-item-logo-card">
-                                            <div class="skill-logo-wrapper">
-                                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg" alt="PyTorch" class="skill-logo-img">
-                                                <span class="skill-tooltip">Model Training & Deployment</span>
-                                            </div>
-                                            <span class="skill-name">PyTorch</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="skills-subcategory">
-                                    <h4>Data Science Proficiencies</h4>
-                                    <ul class="skills-list">
-                                        <li><strong>Predictive AI Algorithms</strong> <span class="skill-detail">integrating and deploying custom predictive models</span></li>
-                                        <li><strong>Exploratory Data Analysis (EDA)</strong> <span class="skill-detail">discovering patterns and trends in raw datasets</span></li>
-                                        <li><strong>Statistical Data Analysis</strong> <span class="skill-detail">applying statistical modeling and regression</span></li>
-                                        <li><strong>Medical Anomaly Detection</strong> <span class="skill-detail">specialized experience with health telemetry analytics</span></li>
-                                        <li><strong>Sensor Data Fusion</strong> <span class="skill-detail">merging real-time video feeds with load cell metrics</span></li>
-                                    </ul>
-                                </div>
-                                <div class="skills-subcategory">
-                                    <h4>Tools & Platforms</h4>
-                                    <ul class="skills-list">
-                                        <li><strong>IBM Watson Studio</strong> <span class="skill-detail">for visual dashboards and data cleansing</span></li>
-                                        <li><strong>YOLO & Roboflow</strong> <span class="skill-detail">for object detection and vision classification telemetry</span></li>
-                                        <li><strong>Git & GitHub</strong> <span class="skill-detail">for model versioning and collaborative workflows</span></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Tab Pane 3: Data Analyst -->
-                    <div id="skill-content-data-analyst" class="skills-content-pane">
-                        <div class="skills-card">
-                            <div class="skills-card-header">
-                                <i data-lucide="trending-up" style="width: 22px; height: 22px;"></i>
-                                <h3>Data Analyst</h3>
-                            </div>
-                            <div class="skills-card-body skills-card-body-tabbed">
-                                <div class="skills-subcategory">
-                                    <h4>Querying & Visualization</h4>
-                                    <div class="skills-grid-logos">
-                                        <!-- SQL (PostgreSQL) -->
-                                        <div class="skill-item-logo-card">
-                                            <div class="skill-logo-wrapper">
-                                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" class="skill-logo-img">
-                                                <span class="skill-tooltip">Advanced SQL transformations</span>
-                                            </div>
-                                            <span class="skill-name">PostgreSQL</span>
-                                        </div>
-                                        <!-- MySQL -->
-                                        <div class="skill-item-logo-card">
-                                            <div class="skill-logo-wrapper">
-                                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="MySQL" class="skill-logo-img">
-                                                <span class="skill-tooltip">Relational queries & database schemas</span>
-                                            </div>
-                                            <span class="skill-name">MySQL</span>
-                                        </div>
-                                        <!-- Pandas -->
-                                        <div class="skill-item-logo-card">
-                                            <div class="skill-logo-wrapper">
-                                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" alt="Pandas" class="skill-logo-img">
-                                                <span class="skill-tooltip">Data analysis and cleaning</span>
-                                            </div>
-                                            <span class="skill-name">Pandas</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="skills-subcategory">
-                                    <h4>Analytical Proficiencies</h4>
-                                    <ul class="skills-list">
-                                        <li><strong>Advanced SQL Querying</strong> <span class="skill-detail">multi-table joins, CTEs, and intermediate transformations</span></li>
-                                        <li><strong>Data Cleansing & Sanitization</strong> <span class="skill-detail">refining unstructured inputs into clean structured outputs</span></li>
-                                        <li><strong>Structured Visual Dashboards</strong> <span class="skill-detail">transforming datasets into stakeholder visualizations</span></li>
-                                        <li><strong>Excel to DB Transitions</strong> <span class="skill-detail">migrating legacy trackers into relational database engines</span></li>
-                                        <li><strong>Performance & Queue Analytics</strong> <span class="skill-detail">auditing service queue metrics and tracking logs</span></li>
-                                    </ul>
-                                </div>
-                                <div class="skills-subcategory">
-                                    <h4>Governance & Lifecycles</h4>
-                                    <ul class="skills-list">
-                                        <li><strong>Data Lifecycle Methodologies</strong> <span class="skill-detail">standard data analysis frameworks</span></li>
-                                        <li><strong>Enterprise Data Governance</strong> <span class="skill-detail">mastery of modern data landscape compliance</span></li>
-                                        <li><strong>Asset & Inventory Reporting</strong> <span class="skill-detail">data validation for 5,000+ internal assets</span></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!----------------- Certifications & Licenses --------------------->
+            <!----------------- Professional Qualifications --------------------->
             <section class="section certifications-section scroll-reveal" id="certifications">
-                <h2>Certifications & Licenses</h2>
-                <div class="certifications-grid">
-                    <!-- Card 1: DataCamp Associate Data Engineer in SQL -->
-                    <div class="cert-card">
-                        <div class="cert-icon-wrapper">
-                            <i data-lucide="award" style="width: 24px; height: 24px;"></i>
-                        </div>
-                        <div class="cert-content">
-                            <span class="cert-issuer">DataCamp</span>
-                            <h3 class="cert-title">Associate Data Engineer in SQL</h3>
-                            <span class="cert-date">Issued Month Year &bull; No Expiration</span>
-                            <p class="cert-desc">Verified technical skills in SQL database design, ETL/ELT data pipelines, data ingestion, database cleaning, and data warehouse optimization.</p>
-                            <div class="cert-footer">
-                                <span class="cert-id">Credential ID: <span class="mono-text">DE-ASSOC-XXXXXX</span></span>
-                                <a href="#" target="_blank" rel="noopener noreferrer" class="cert-link">
-                                    <span>Verify</span>
-                                    <i data-lucide="external-link" style="width: 14px; height: 14px;"></i>
-                                </a>
+                <h2>Professional Qualifications</h2>
+                <div class="certifications-marquee-container">
+                    <div class="certifications-marquee-track">
+                        <!-- Card 1: DataCamp Associate Data Engineer in SQL -->
+                        <div class="cert-card" data-cert-title="DataCamp &bull; Associate Data Engineer in SQL">
+                            <div class="cert-card-inner">
+                                <!-- FRONT FACE -->
+                                <div class="cert-card-front">
+                                    <div class="cert-img-wrapper" data-full-img="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" title="Click to view full certificate">
+                                        <span class="cert-badge-tag">Verified</span>
+                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="Associate Data Engineer in SQL" class="cert-img">
+                                        <div class="cert-img-zoom-overlay">
+                                            <i data-lucide="zoom-in" style="width: 20px; height: 20px;"></i>
+                                            <span>View Certificate</span>
+                                        </div>
+                                    </div>
+                                    <div class="cert-content">
+                                        <div>
+                                            <span class="cert-issuer">DataCamp</span>
+                                            <h3 class="cert-title">Associate Data Engineer in SQL</h3>
+                                            <span class="cert-date">Issued 2024 &bull; No Expiration</span>
+                                            <p class="cert-desc">Verified technical skills in SQL database design, ETL/ELT data pipelines, data ingestion, database cleaning, and data warehouse optimization.</p>
+                                        </div>
+                                        <div class="cert-footer">
+                                            <span class="cert-flip-hint">
+                                                <i data-lucide="rotate-cw" style="width: 12px; height: 12px;"></i>
+                                                <span>Tap card to flip</span>
+                                            </span>
+                                            <a href="#" target="_blank" rel="noopener noreferrer" class="cert-link" onclick="event.stopPropagation();">
+                                                <span>Verify</span>
+                                                <i data-lucide="external-link" style="width: 14px; height: 14px;"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- BACK FACE -->
+                                <div class="cert-card-back">
+                                    <div class="cert-back-header">
+                                        <h4 class="cert-back-title">
+                                            <i data-lucide="award" style="width: 16px; height: 16px;"></i>
+                                            <span>Data Engineering Breakdown</span>
+                                        </h4>
+                                        <span class="cert-flip-hint">
+                                            <i data-lucide="rotate-ccw" style="width: 12px; height: 12px;"></i>
+                                            <span>Tap to flip back</span>
+                                        </span>
+                                    </div>
+                                    <div class="cert-back-body">
+                                        <p class="cert-back-about"><strong>What it's about:</strong> Comprehensive practical certification covering end-to-end data pipeline architecture, relational database management, data cleaning, schema design, and production data warehousing using SQL.</p>
+                                        <div class="cert-skills-heading">Verified Technical Skills:</div>
+                                        <div class="cert-skills-tags">
+                                            <span class="skill-pill">SQL & PostgreSQL</span>
+                                            <span class="skill-pill">ETL/ELT Pipelines</span>
+                                            <span class="skill-pill">Data Warehousing</span>
+                                            <span class="skill-pill">Schema Normalization</span>
+                                            <span class="skill-pill">Data Ingestion</span>
+                                            <span class="skill-pill">Query Tuning</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Card 2: DataCamp Associate Data Analyst in SQL -->
-                    <div class="cert-card">
-                        <div class="cert-icon-wrapper">
-                            <i data-lucide="trending-up" style="width: 24px; height: 24px;"></i>
-                        </div>
-                        <div class="cert-content">
-                            <span class="cert-issuer">DataCamp</span>
-                            <h3 class="cert-title">Associate Data Analyst in SQL</h3>
-                            <span class="cert-date">Issued Month Year &bull; No Expiration</span>
-                            <p class="cert-desc">Demonstrated proficiency in SQL data querying, exploratory data analysis, complex aggregations, key metric extraction, and business reporting.</p>
-                            <div class="cert-footer">
-                                <span class="cert-id">Credential ID: <span class="mono-text">DA-ASSOC-XXXXXX</span></span>
-                                <a href="#" target="_blank" rel="noopener noreferrer" class="cert-link">
-                                    <span>Verify</span>
-                                    <i data-lucide="external-link" style="width: 14px; height: 14px;"></i>
-                                </a>
+                        <!-- Card 2: DataCamp Associate Data Analyst in SQL -->
+                        <div class="cert-card" data-cert-title="DataCamp &bull; Associate Data Analyst in SQL">
+                            <div class="cert-card-inner">
+                                <!-- FRONT FACE -->
+                                <div class="cert-card-front">
+                                    <div class="cert-img-wrapper" data-full-img="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" title="Click to view full certificate">
+                                        <span class="cert-badge-tag">Verified</span>
+                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" alt="Associate Data Analyst in SQL" class="cert-img">
+                                        <div class="cert-img-zoom-overlay">
+                                            <i data-lucide="zoom-in" style="width: 20px; height: 20px;"></i>
+                                            <span>View Certificate</span>
+                                        </div>
+                                    </div>
+                                    <div class="cert-content">
+                                        <div>
+                                            <span class="cert-issuer">DataCamp</span>
+                                            <h3 class="cert-title">Associate Data Analyst in SQL</h3>
+                                            <span class="cert-date">Issued 2024 &bull; No Expiration</span>
+                                            <p class="cert-desc">Demonstrated proficiency in SQL data querying, exploratory data analysis, complex aggregations, key metric extraction, and business reporting.</p>
+                                        </div>
+                                        <div class="cert-footer">
+                                            <span class="cert-flip-hint">
+                                                <i data-lucide="rotate-cw" style="width: 12px; height: 12px;"></i>
+                                                <span>Tap card to flip</span>
+                                            </span>
+                                            <a href="#" target="_blank" rel="noopener noreferrer" class="cert-link" onclick="event.stopPropagation();">
+                                                <span>Verify</span>
+                                                <i data-lucide="external-link" style="width: 14px; height: 14px;"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- BACK FACE -->
+                                <div class="cert-card-back">
+                                    <div class="cert-back-header">
+                                        <h4 class="cert-back-title">
+                                            <i data-lucide="trending-up" style="width: 16px; height: 16px;"></i>
+                                            <span>Data Analytics Breakdown</span>
+                                        </h4>
+                                        <span class="cert-flip-hint">
+                                            <i data-lucide="rotate-ccw" style="width: 12px; height: 12px;"></i>
+                                            <span>Tap to flip back</span>
+                                        </span>
+                                    </div>
+                                    <div class="cert-back-body">
+                                        <p class="cert-back-about"><strong>What it's about:</strong> Rigorous data analysis credential focused on querying complex databases, performing exploratory data analysis (EDA), generating actionable business metrics, joining multi-table datasets, and communicating data-driven insights.</p>
+                                        <div class="cert-skills-heading">Verified Technical Skills:</div>
+                                        <div class="cert-skills-tags">
+                                            <span class="skill-pill">Exploratory Data Analysis</span>
+                                            <span class="skill-pill">Complex SQL Aggregations</span>
+                                            <span class="skill-pill">Data Transformation</span>
+                                            <span class="skill-pill">Business Metrics</span>
+                                            <span class="skill-pill">Reporting</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Card 3: Cisco -->
-                    <div class="cert-card">
-                        <div class="cert-icon-wrapper">
-                            <i data-lucide="scroll" style="width: 24px; height: 24px;"></i>
-                        </div>
-                        <div class="cert-content">
-                            <span class="cert-issuer">Cisco Academy</span>
-                            <h3 class="cert-title">Python Essential 1</h3>
-                            <span class="cert-date">Issued Month Year &bull; No Expiration</span>
-                            <p class="cert-desc">Foundational programming in Python, covering modules, packages, OOP concepts, control structures, list operations, and exception handling.</p>
-                            <div class="cert-footer">
-                                <span class="cert-id">Credential ID: <span class="mono-text">CS-PY1-XXXXXX</span></span>
-                                <a href="#" target="_blank" rel="noopener noreferrer" class="cert-link">
-                                    <span>Verify</span>
-                                    <i data-lucide="external-link" style="width: 14px; height: 14px;"></i>
-                                </a>
+                        <!-- Card 3: Cisco Python Essential 1 -->
+                        <div class="cert-card" data-cert-title="Cisco Academy &bull; Python Essential 1 Certificate">
+                            <div class="cert-card-inner">
+                                <!-- FRONT FACE -->
+                                <div class="cert-card-front">
+                                    <div class="cert-img-wrapper" data-full-img="data/documents/certificates/python-essentials-1.jpg" title="Click to view full certificate">
+                                        <span class="cert-badge-tag">Verified</span>
+                                        <img src="data/documents/certificates/python-essentials-1.jpg" alt="Python Essential 1 Certificate" class="cert-img">
+                                        <div class="cert-img-zoom-overlay">
+                                            <i data-lucide="zoom-in" style="width: 20px; height: 20px;"></i>
+                                            <span>View Certificate</span>
+                                        </div>
+                                    </div>
+                                    <div class="cert-content">
+                                        <div>
+                                            <span class="cert-issuer">Cisco Academy</span>
+                                            <h3 class="cert-title">Python Essential 1</h3>
+                                            <span class="cert-date">Issued 2024 &bull; No Expiration</span>
+                                            <p class="cert-desc">Foundational programming in Python, covering modules, packages, OOP concepts, control structures, list operations, and exception handling.</p>
+                                        </div>
+                                        <div class="cert-footer">
+                                            <span class="cert-flip-hint">
+                                                <i data-lucide="rotate-cw" style="width: 12px; height: 12px;"></i>
+                                                <span>Tap card to flip</span>
+                                            </span>
+                                            <a href="#" target="_blank" rel="noopener noreferrer" class="cert-link" onclick="event.stopPropagation();">
+                                                <span>Verify</span>
+                                                <i data-lucide="external-link" style="width: 14px; height: 14px;"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- BACK FACE -->
+                                <div class="cert-card-back">
+                                    <div class="cert-back-header">
+                                        <h4 class="cert-back-title">
+                                            <i data-lucide="code" style="width: 16px; height: 16px;"></i>
+                                            <span>Python Course Breakdown</span>
+                                        </h4>
+                                        <span class="cert-flip-hint">
+                                            <i data-lucide="rotate-ccw" style="width: 12px; height: 12px;"></i>
+                                            <span>Tap to flip back</span>
+                                        </span>
+                                    </div>
+                                    <div class="cert-back-body">
+                                        <p class="cert-back-about"><strong>What it's about:</strong> Official Cisco Networking Academy certification mastering foundational Python 3 programming, logic control flow, modular software development, memory data structures, object-oriented concepts, and robust exception handling.</p>
+                                        <div class="cert-skills-heading">Verified Technical Skills:</div>
+                                        <div class="cert-skills-tags">
+                                            <span class="skill-pill">Python 3 Core</span>
+                                            <span class="skill-pill">OOP Architecture</span>
+                                            <span class="skill-pill">Data Structures</span>
+                                            <span class="skill-pill">Modules & Packages</span>
+                                            <span class="skill-pill">Exception Handling</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Card 4: IBM & TESDA -->
-                    <div class="cert-card">
-                        <div class="cert-icon-wrapper">
-                            <i data-lucide="shield-check" style="width: 24px; height: 24px;"></i>
+                        <!-- Card 4: IBM & TESDA Data Fundamentals -->
+                        <div class="cert-card" data-cert-title="IBM SkillsBuild & TESDA &bull; Data Fundamentals Certificate">
+                            <div class="cert-card-inner">
+                                <!-- FRONT FACE -->
+                                <div class="cert-card-front">
+                                    <div class="cert-img-wrapper" data-full-img="data/documents/certificates/data-fundamentals.jpg" title="Click to view full certificate">
+                                        <span class="cert-badge-tag">Verified</span>
+                                        <img src="data/documents/certificates/data-fundamentals.jpg" alt="Data Fundamentals Certificate" class="cert-img">
+                                        <div class="cert-img-zoom-overlay">
+                                            <i data-lucide="zoom-in" style="width: 20px; height: 20px;"></i>
+                                            <span>View Certificate</span>
+                                        </div>
+                                    </div>
+                                    <div class="cert-content">
+                                        <div>
+                                            <span class="cert-issuer">IBM SkillsBuild &bull; TESDA</span>
+                                            <h3 class="cert-title">Data Fundamentals</h3>
+                                            <span class="cert-date">Issued 2024 &bull; No Expiration</span>
+                                            <p class="cert-desc">Core data architecture concepts, relational database systems, introductory analytics workflows, and structured query language fundamentals.</p>
+                                        </div>
+                                        <div class="cert-footer">
+                                            <span class="cert-flip-hint">
+                                                <i data-lucide="rotate-cw" style="width: 12px; height: 12px;"></i>
+                                                <span>Tap card to flip</span>
+                                            </span>
+                                            <a href="#" target="_blank" rel="noopener noreferrer" class="cert-link" onclick="event.stopPropagation();">
+                                                <span>Verify</span>
+                                                <i data-lucide="external-link" style="width: 14px; height: 14px;"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- BACK FACE -->
+                                <div class="cert-card-back">
+                                    <div class="cert-back-header">
+                                        <h4 class="cert-back-title">
+                                            <i data-lucide="shield-check" style="width: 16px; height: 16px;"></i>
+                                            <span>Data Fundamentals Breakdown</span>
+                                        </h4>
+                                        <span class="cert-flip-hint">
+                                            <i data-lucide="rotate-ccw" style="width: 12px; height: 12px;"></i>
+                                            <span>Tap to flip back</span>
+                                        </span>
+                                    </div>
+                                    <div class="cert-back-body">
+                                        <p class="cert-back-about"><strong>What it's about:</strong> Foundational enterprise data qualification by IBM SkillsBuild and TESDA covering data governance, cloud data architecture, relational database systems, analytical lifecycles, and core big data principles.</p>
+                                        <div class="cert-skills-heading">Verified Technical Skills:</div>
+                                        <div class="cert-skills-tags">
+                                            <span class="skill-pill">Data Architecture</span>
+                                            <span class="skill-pill">Relational Databases</span>
+                                            <span class="skill-pill">Data Analytics</span>
+                                            <span class="skill-pill">Cloud Data</span>
+                                            <span class="skill-pill">SQL Querying</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="cert-content">
-                            <span class="cert-issuer">IBM SkillsBuild &bull; TESDA</span>
-                            <h3 class="cert-title">Data Fundamentals</h3>
-                            <span class="cert-date">Issued Month Year &bull; No Expiration</span>
-                            <p class="cert-desc">Core data architecture concepts, relational database systems, introductory analytics workflows, and structured query language fundamentals.</p>
-                            <div class="cert-footer">
-                                <span class="cert-id">Credential ID: <span class="mono-text">IBM-DF-XXXXXX</span></span>
-                                <a href="#" target="_blank" rel="noopener noreferrer" class="cert-link">
-                                    <span>Verify</span>
-                                    <i data-lucide="external-link" style="width: 14px; height: 14px;"></i>
-                                </a>
+
+                        <!-- DUPLICATE SET FOR SEAMLESS INFINITE LOOP -->
+                        <!-- Card 1 Duplicate -->
+                        <div class="cert-card" data-cert-title="DataCamp &bull; Associate Data Engineer in SQL">
+                            <div class="cert-card-inner">
+                                <div class="cert-card-front">
+                                    <div class="cert-img-wrapper" data-full-img="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" title="Click to view full certificate">
+                                        <span class="cert-badge-tag">Verified</span>
+                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="Associate Data Engineer in SQL" class="cert-img">
+                                        <div class="cert-img-zoom-overlay">
+                                            <i data-lucide="zoom-in" style="width: 20px; height: 20px;"></i>
+                                            <span>View Certificate</span>
+                                        </div>
+                                    </div>
+                                    <div class="cert-content">
+                                        <div>
+                                            <span class="cert-issuer">DataCamp</span>
+                                            <h3 class="cert-title">Associate Data Engineer in SQL</h3>
+                                            <span class="cert-date">Issued 2024 &bull; No Expiration</span>
+                                            <p class="cert-desc">Verified technical skills in SQL database design, ETL/ELT data pipelines, data ingestion, database cleaning, and data warehouse optimization.</p>
+                                        </div>
+                                        <div class="cert-footer">
+                                            <span class="cert-flip-hint">
+                                                <i data-lucide="rotate-cw" style="width: 12px; height: 12px;"></i>
+                                                <span>Tap card to flip</span>
+                                            </span>
+                                            <a href="#" target="_blank" rel="noopener noreferrer" class="cert-link" onclick="event.stopPropagation();">
+                                                <span>Verify</span>
+                                                <i data-lucide="external-link" style="width: 14px; height: 14px;"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cert-card-back">
+                                    <div class="cert-back-header">
+                                        <h4 class="cert-back-title">
+                                            <i data-lucide="award" style="width: 16px; height: 16px;"></i>
+                                            <span>Data Engineering Breakdown</span>
+                                        </h4>
+                                        <span class="cert-flip-hint">
+                                            <i data-lucide="rotate-ccw" style="width: 12px; height: 12px;"></i>
+                                            <span>Tap to flip back</span>
+                                        </span>
+                                    </div>
+                                    <div class="cert-back-body">
+                                        <p class="cert-back-about"><strong>What it's about:</strong> Comprehensive practical certification covering end-to-end data pipeline architecture, relational database management, data cleaning, schema design, and production data warehousing using SQL.</p>
+                                        <div class="cert-skills-heading">Verified Technical Skills:</div>
+                                        <div class="cert-skills-tags">
+                                            <span class="skill-pill">SQL & PostgreSQL</span>
+                                            <span class="skill-pill">ETL/ELT Pipelines</span>
+                                            <span class="skill-pill">Data Warehousing</span>
+                                            <span class="skill-pill">Schema Normalization</span>
+                                            <span class="skill-pill">Data Ingestion</span>
+                                            <span class="skill-pill">Query Tuning</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 2 Duplicate -->
+                        <div class="cert-card" data-cert-title="DataCamp &bull; Associate Data Analyst in SQL">
+                            <div class="cert-card-inner">
+                                <div class="cert-card-front">
+                                    <div class="cert-img-wrapper" data-full-img="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" title="Click to view full certificate">
+                                        <span class="cert-badge-tag">Verified</span>
+                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" alt="Associate Data Analyst in SQL" class="cert-img">
+                                        <div class="cert-img-zoom-overlay">
+                                            <i data-lucide="zoom-in" style="width: 20px; height: 20px;"></i>
+                                            <span>View Certificate</span>
+                                        </div>
+                                    </div>
+                                    <div class="cert-content">
+                                        <div>
+                                            <span class="cert-issuer">DataCamp</span>
+                                            <h3 class="cert-title">Associate Data Analyst in SQL</h3>
+                                            <span class="cert-date">Issued 2024 &bull; No Expiration</span>
+                                            <p class="cert-desc">Demonstrated proficiency in SQL data querying, exploratory data analysis, complex aggregations, key metric extraction, and business reporting.</p>
+                                        </div>
+                                        <div class="cert-footer">
+                                            <span class="cert-flip-hint">
+                                                <i data-lucide="rotate-cw" style="width: 12px; height: 12px;"></i>
+                                                <span>Tap card to flip</span>
+                                            </span>
+                                            <a href="#" target="_blank" rel="noopener noreferrer" class="cert-link" onclick="event.stopPropagation();">
+                                                <span>Verify</span>
+                                                <i data-lucide="external-link" style="width: 14px; height: 14px;"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cert-card-back">
+                                    <div class="cert-back-header">
+                                        <h4 class="cert-back-title">
+                                            <i data-lucide="trending-up" style="width: 16px; height: 16px;"></i>
+                                            <span>Data Analytics Breakdown</span>
+                                        </h4>
+                                        <span class="cert-flip-hint">
+                                            <i data-lucide="rotate-ccw" style="width: 12px; height: 12px;"></i>
+                                            <span>Tap to flip back</span>
+                                        </span>
+                                    </div>
+                                    <div class="cert-back-body">
+                                        <p class="cert-back-about"><strong>What it's about:</strong> Rigorous data analysis credential focused on querying complex databases, performing exploratory data analysis (EDA), generating actionable business metrics, joining multi-table datasets, and communicating data-driven insights.</p>
+                                        <div class="cert-skills-heading">Verified Technical Skills:</div>
+                                        <div class="cert-skills-tags">
+                                            <span class="skill-pill">Exploratory Data Analysis</span>
+                                            <span class="skill-pill">Complex SQL Aggregations</span>
+                                            <span class="skill-pill">Data Transformation</span>
+                                            <span class="skill-pill">Business Metrics</span>
+                                            <span class="skill-pill">Reporting</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 3 Duplicate -->
+                        <div class="cert-card" data-cert-title="Cisco Academy &bull; Python Essential 1 Certificate">
+                            <div class="cert-card-inner">
+                                <div class="cert-card-front">
+                                    <div class="cert-img-wrapper" data-full-img="data/documents/certificates/python-essentials-1.jpg" title="Click to view full certificate">
+                                        <span class="cert-badge-tag">Verified</span>
+                                        <img src="data/documents/certificates/python-essentials-1.jpg" alt="Python Essential 1 Certificate" class="cert-img">
+                                        <div class="cert-img-zoom-overlay">
+                                            <i data-lucide="zoom-in" style="width: 20px; height: 20px;"></i>
+                                            <span>View Certificate</span>
+                                        </div>
+                                    </div>
+                                    <div class="cert-content">
+                                        <div>
+                                            <span class="cert-issuer">Cisco Academy</span>
+                                            <h3 class="cert-title">Python Essential 1</h3>
+                                            <span class="cert-date">Issued 2024 &bull; No Expiration</span>
+                                            <p class="cert-desc">Foundational programming in Python, covering modules, packages, OOP concepts, control structures, list operations, and exception handling.</p>
+                                        </div>
+                                        <div class="cert-footer">
+                                            <span class="cert-flip-hint">
+                                                <i data-lucide="rotate-cw" style="width: 12px; height: 12px;"></i>
+                                                <span>Tap card to flip</span>
+                                            </span>
+                                            <a href="#" target="_blank" rel="noopener noreferrer" class="cert-link" onclick="event.stopPropagation();">
+                                                <span>Verify</span>
+                                                <i data-lucide="external-link" style="width: 14px; height: 14px;"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cert-card-back">
+                                    <div class="cert-back-header">
+                                        <h4 class="cert-back-title">
+                                            <i data-lucide="code" style="width: 16px; height: 16px;"></i>
+                                            <span>Python Course Breakdown</span>
+                                        </h4>
+                                        <span class="cert-flip-hint">
+                                            <i data-lucide="rotate-ccw" style="width: 12px; height: 12px;"></i>
+                                            <span>Tap to flip back</span>
+                                        </span>
+                                    </div>
+                                    <div class="cert-back-body">
+                                        <p class="cert-back-about"><strong>What it's about:</strong> Official Cisco Networking Academy certification mastering foundational Python 3 programming, logic control flow, modular software development, memory data structures, object-oriented concepts, and robust exception handling.</p>
+                                        <div class="cert-skills-heading">Verified Technical Skills:</div>
+                                        <div class="cert-skills-tags">
+                                            <span class="skill-pill">Python 3 Core</span>
+                                            <span class="skill-pill">OOP Architecture</span>
+                                            <span class="skill-pill">Data Structures</span>
+                                            <span class="skill-pill">Modules & Packages</span>
+                                            <span class="skill-pill">Exception Handling</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 4 Duplicate -->
+                        <div class="cert-card" data-cert-title="IBM SkillsBuild & TESDA &bull; Data Fundamentals Certificate">
+                            <div class="cert-card-inner">
+                                <div class="cert-card-front">
+                                    <div class="cert-img-wrapper" data-full-img="data/documents/certificates/data-fundamentals.jpg" title="Click to view full certificate">
+                                        <span class="cert-badge-tag">Verified</span>
+                                        <img src="data/documents/certificates/data-fundamentals.jpg" alt="Data Fundamentals Certificate" class="cert-img">
+                                        <div class="cert-img-zoom-overlay">
+                                            <i data-lucide="zoom-in" style="width: 20px; height: 20px;"></i>
+                                            <span>View Certificate</span>
+                                        </div>
+                                    </div>
+                                    <div class="cert-content">
+                                        <div>
+                                            <span class="cert-issuer">IBM SkillsBuild &bull; TESDA</span>
+                                            <h3 class="cert-title">Data Fundamentals</h3>
+                                            <span class="cert-date">Issued 2024 &bull; No Expiration</span>
+                                            <p class="cert-desc">Core data architecture concepts, relational database systems, introductory analytics workflows, and structured query language fundamentals.</p>
+                                        </div>
+                                        <div class="cert-footer">
+                                            <span class="cert-flip-hint">
+                                                <i data-lucide="rotate-cw" style="width: 12px; height: 12px;"></i>
+                                                <span>Tap card to flip</span>
+                                            </span>
+                                            <a href="#" target="_blank" rel="noopener noreferrer" class="cert-link" onclick="event.stopPropagation();">
+                                                <span>Verify</span>
+                                                <i data-lucide="external-link" style="width: 14px; height: 14px;"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cert-card-back">
+                                    <div class="cert-back-header">
+                                        <h4 class="cert-back-title">
+                                            <i data-lucide="shield-check" style="width: 16px; height: 16px;"></i>
+                                            <span>Data Fundamentals Breakdown</span>
+                                        </h4>
+                                        <span class="cert-flip-hint">
+                                            <i data-lucide="rotate-ccw" style="width: 12px; height: 12px;"></i>
+                                            <span>Tap to flip back</span>
+                                        </span>
+                                    </div>
+                                    <div class="cert-back-body">
+                                        <p class="cert-back-about"><strong>What it's about:</strong> Foundational enterprise data qualification by IBM SkillsBuild and TESDA covering data governance, cloud data architecture, relational database systems, analytical lifecycles, and core big data principles.</p>
+                                        <div class="cert-skills-heading">Verified Technical Skills:</div>
+                                        <div class="cert-skills-tags">
+                                            <span class="skill-pill">Data Architecture</span>
+                                            <span class="skill-pill">Relational Databases</span>
+                                            <span class="skill-pill">Data Analytics</span>
+                                            <span class="skill-pill">Cloud Data</span>
+                                            <span class="skill-pill">SQL Querying</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1305,10 +1478,6 @@
             <i data-lucide="user"></i>
             <span class="mobile-nav-label">About</span>
         </a>
-        <a href="#skills" class="nav-link" aria-label="Skills">
-            <i data-lucide="cpu"></i>
-            <span class="mobile-nav-label">Skills</span>
-        </a>
         <a href="#certifications" class="nav-link" aria-label="Certifications">
             <i data-lucide="award"></i>
             <span class="mobile-nav-label">Certificates</span>
@@ -1918,13 +2087,19 @@
                 scrollExploreEl.classList.add('hero-settled');
             }
 
-            // 2. Smoothly reveal centered hero presentation image
+            // 2. Reveal Right Skills List in EXACT SYNC with text transfer
+            const heroSkillsRight = document.querySelector('.hero-skills-right');
+            if (heroSkillsRight) {
+                heroSkillsRight.classList.add('hero-skills-revealed');
+            }
+
+            // 3. Smoothly reveal centered hero presentation image
             const heroCenterImgWrapper = document.getElementById('hero-center-img-wrapper');
             if (heroCenterImgWrapper) {
                 heroCenterImgWrapper.classList.add('hero-img-revealed');
             }
 
-            // 3. Reveal Top Header Navbar ONLY AFTER the text has fully settled into minimal left-aligned bottom-left position
+            // 4. Reveal Top Header Navbar ONLY AFTER the text has fully settled into minimal left-aligned bottom-left position
             setTimeout(() => {
                 if (mainHeaderNav) {
                     mainHeaderNav.classList.remove('header-load-hidden');
@@ -1980,6 +2155,89 @@
 
         // Initialize Lucide Icons on page load
         lucide.createIcons();
+    </script>
+
+    <!-- Certificate Full Image Lightbox Modal -->
+    <div class="cert-modal-overlay" id="certModalOverlay" aria-hidden="true">
+        <div class="cert-modal-container">
+            <button class="cert-modal-close" id="certModalClose" aria-label="Close Modal">&times;</button>
+            <div class="cert-modal-body">
+                <img src="" alt="Certificate Preview" id="certModalImg" class="cert-modal-img">
+                <div class="cert-modal-caption" id="certModalCaption"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Certificate Interactive 3D Flip & Lightbox Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const modalOverlay = document.getElementById('certModalOverlay');
+            const modalImg = document.getElementById('certModalImg');
+            const modalCaption = document.getElementById('certModalCaption');
+            const modalClose = document.getElementById('certModalClose');
+            const marqueeTrack = document.querySelector('.certifications-marquee-track');
+
+            // 1. Lightbox Modal Event Handler (Clicking certificate image wrapper)
+            document.querySelectorAll('.cert-img-wrapper').forEach(wrapper => {
+                wrapper.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const imgEl = wrapper.querySelector('.cert-img');
+                    const fullImgSrc = wrapper.getAttribute('data-full-img') || (imgEl ? imgEl.src : '');
+                    const cardTitle = wrapper.closest('.cert-card')?.getAttribute('data-cert-title') || (imgEl ? imgEl.alt : 'Certificate Preview');
+
+                    if (fullImgSrc && modalOverlay && modalImg) {
+                        modalImg.src = fullImgSrc;
+                        if (modalCaption) modalCaption.textContent = cardTitle;
+                        modalOverlay.classList.add('is-active');
+                        modalOverlay.setAttribute('aria-hidden', 'false');
+                        if (marqueeTrack) marqueeTrack.classList.add('is-paused');
+                    }
+                });
+            });
+
+            // Close Modal Function
+            function closeCertModal() {
+                if (modalOverlay) {
+                    modalOverlay.classList.remove('is-active');
+                    modalOverlay.setAttribute('aria-hidden', 'true');
+                    if (marqueeTrack && !document.querySelector('.cert-card.is-flipped')) {
+                        marqueeTrack.classList.remove('is-paused');
+                    }
+                }
+            }
+
+            if (modalClose) modalClose.addEventListener('click', closeCertModal);
+            if (modalOverlay) {
+                modalOverlay.addEventListener('click', (e) => {
+                    if (e.target === modalOverlay) closeCertModal();
+                });
+            }
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeCertModal();
+            });
+
+            // 2. 3D Card Tap-Anywhere Flip & Flip Back Handler
+            document.querySelectorAll('.cert-card').forEach(card => {
+                card.style.cursor = 'pointer';
+                card.addEventListener('click', (e) => {
+                    // Do not trigger card flip if user clicked external verify link or certificate image modal trigger
+                    if (e.target.closest('.cert-link') || e.target.closest('.cert-img-wrapper')) {
+                        return;
+                    }
+
+                    // Toggle 3D flip class on the card
+                    card.classList.toggle('is-flipped');
+
+                    if (marqueeTrack) {
+                        if (document.querySelector('.cert-card.is-flipped')) {
+                            marqueeTrack.classList.add('is-paused');
+                        } else {
+                            marqueeTrack.classList.remove('is-paused');
+                        }
+                    }
+                });
+            });
+        });
     </script>
 
 </body>

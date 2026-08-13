@@ -66,6 +66,7 @@ body, body.dark-mode {
    BASE STYLES / TYPOGRAPHY
    ========================================================================== */
 html {
+    overflow-x: clip;
     scroll-behavior: auto;
     scroll-snap-type: none;
     scroll-padding-top: 60px; /* Offset for thin minimalist fixed header */
@@ -78,6 +79,7 @@ body {
     background-color: var(--bg-page);
     color: var(--text-primary);
     transition: background-color 0.3s ease, color 0.3s ease;
+    overflow-x: clip; /* Clips horizontal overflow without breaking position: sticky */
 }
 
 h1,
@@ -100,31 +102,38 @@ h6 {
     justify-content: space-between;
     align-items: flex-start;
     width: 100%;
-    max-width: 1400px;
+    max-width: 1440px;
     margin: 0 auto;
-    padding: 60px 40px 0 40px;
+    padding: 60px 48px 0 48px;
     box-sizing: border-box;
 }
 
 .sidebar-column {
-    flex: 0 0 28%; /* Maximized prominent profile column width */
+    flex: 0 0 29%;
+    margin-left: 0;
     position: sticky;
-    top: 105px;
-    height: fit-content;
+    top: 75px;
+    height: calc(100vh - 100px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     z-index: 100;
     margin-top: 0;
     padding-top: 0;
     box-sizing: border-box;
-    transition: top 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: top 0.3s cubic-bezier(0.4, 0, 0.2, 1), height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Sidebar sticks closer to the top when the header is hidden */
 body.header-hidden .sidebar-column {
     top: 20px;
+    height: calc(100vh - 40px);
 }
 
 .content-column {
     flex: 0 0 68%;
+    min-width: 0;
     display: flex;
     flex-direction: column;
     margin-top: 0;
@@ -213,10 +222,10 @@ body.header-hidden .sidebar-column {
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    max-width: 1400px;
+    max-width: 1440px;
     height: 100%;
     margin: 0 auto;
-    padding: 0 40px; /* Aligned with the 40px padding of main-layout content */
+    padding: 0 48px;
 }
 
 /* Smart Header Hidden State (translates upwards out of viewport, triggered by body class) */
@@ -392,7 +401,6 @@ body.dark-mode .logo-myname p {
 /* ==========================================================================
    GLOBAL DARK MODE OVERRIDES
    ========================================================================== */
-body.dark-mode .intro-card,
 body.dark-mode .modal-box,
 body.dark-mode .skills-card,
 body.dark-mode .roadmap-card,
@@ -404,13 +412,15 @@ body.dark-mode .about-modal-box {
     box-shadow: var(--card-shadow) !important;
 }
 
+body.dark-mode .intro-card,
+body.dark-mode .def-card,
 body.dark-mode .about-combined-card {
+    background: transparent !important;
     background-color: transparent !important;
     border: none !important;
     box-shadow: none !important;
 }
 
-body.dark-mode .intro-card:hover,
 body.dark-mode .skills-card:hover,
 body.dark-mode .roadmap-card:hover,
 body.dark-mode .work-card:hover,
@@ -419,6 +429,8 @@ body.dark-mode .contact-card:hover {
     border-color: var(--accent) !important;
 }
 
+body.dark-mode .intro-card:hover,
+body.dark-mode .def-card:hover,
 body.dark-mode .about-combined-card:hover {
     box-shadow: none !important;
     border-color: transparent !important;
@@ -1332,16 +1344,20 @@ body.dark-mode .row-expand-toggle-btn:hover {
     }
     
     /* Intro card overrides for a compact mobile flow */
-    .intro-card {
+    .intro-card,
+    .def-card {
         height: auto !important;
         padding-bottom: 20px;
     }
     
     .card-img-container {
         height: auto !important;
+        flex: none !important;
     }
     
     .card-content {
+        height: auto !important;
+        flex: none !important;
         gap: 15px;
         padding: 20px 20px 0 20px;
     }
