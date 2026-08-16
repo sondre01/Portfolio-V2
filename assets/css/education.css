@@ -1,249 +1,312 @@
 /* ==========================================================================
-   EDUCATION SECTION STYLES
+   ACADEMIC / EDUCATIONAL BACKGROUND STYLES
+   Canonical Card Design System (Matching Work & Profile Overview Cards)
    ========================================================================== */
 
-.education-section {
+.academic-section {
     width: 100%;
+    background: transparent;
+    padding: 0;
+    margin: 0;
 }
 
-.education-section h2 {
-    font-size: 2.2rem;
-    font-weight: 800;
-    color: #ffffff;
-    margin-top: 0;
-    margin-bottom: 30px;
-    letter-spacing: -0.5px;
-}
-
-/* Roadmap Container */
-.education-roadmap {
+/* Outer scroll runway for smooth passing flow */
+.academic-scroll-container {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    padding-left: 35px;
-    box-sizing: border-box;
-}
-
-/* Vertical Timeline Line */
-.roadmap-line {
-    position: absolute;
-    left: 8px;
-    top: 15px;
-    bottom: 15px;
-    width: 2px;
-    background: rgba(255, 255, 255, 0.15);
-    z-index: 1;
-}
-
-/* Individual Roadmap Item */
-.roadmap-item {
-    position: relative;
-    display: flex;
     width: 100%;
-    box-sizing: border-box;
+    min-height: 320vh;
+    margin: 0;
+    padding: 0;
 }
 
-/* Timeline Indicator Badge */
-.roadmap-badge {
-    position: absolute;
-    left: -35px;
-    top: 22px;
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background-color: #151515;
-    border: 3px solid rgba(255, 255, 255, 0.3);
-    z-index: 2;
+/* Seamless Frameless Sticky Stage Attached Directly to Website */
+.academic-sticky-stage {
+    position: sticky;
+    top: 60px;
+    width: 100%;
+    height: calc(100vh - 60px);
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: none;
     box-sizing: border-box;
-    transition: border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
-                background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-                transform 0.2s ease;
 }
 
-/* Current Stage Badge Glow */
-.roadmap-item.current .roadmap-badge {
-    border-color: #ff5e00;
-    background-color: #ff5e00;
-    box-shadow: 0 0 0 4px rgba(255, 94, 0, 0.25);
-}
-
-.roadmap-item.current .badge-dot {
-    display: block;
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background-color: #ffffff;
-}
-
-/* Canonical Card Design System (Matching Profile Overview & Professional Qualifications) */
-.roadmap-card {
+/* --------------------------------------------------------------------------
+   Layer 1: Sticky Background Headline (z-index: 1)
+   -------------------------------------------------------------------------- */
+.academic-bg-headline-layer {
+    position: absolute;
+    inset: 0;
     display: flex;
-    gap: 20px;
-    background-color: #151515;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    pointer-events: none;
+    padding: 24px;
+}
+
+.academic-bg-headline {
+    font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+    font-size: clamp(2.8rem, 6.2vw, 6.2rem);
+    font-weight: 900 !important;
+    color: #ffffff;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+    text-align: center;
+    margin: 0;
+    text-transform: uppercase;
+    opacity: 0.95;
+    user-select: none;
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.85);
+    transition: transform 0.15s ease-out, opacity 0.15s ease-out;
+}
+
+/* --------------------------------------------------------------------------
+   Layer 2: Passing Cards Layer (z-index: 2)
+   -------------------------------------------------------------------------- */
+.academic-floating-cards-layer {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: auto;
+    overflow: hidden;
+}
+
+/* Canonical Card System (Matching .work-card & .about-stat-card) */
+.academic-passing-card {
+    position: absolute;
+    width: clamp(300px, 34vw, 380px);
+    background-color: #151515; /* Exact same dark card surface as Work & About */
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-radius: 12px;
-    padding: 24px 22px;
-    width: 100%;
-    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    padding: 22px 20px;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.75);
+    will-change: transform, opacity;
+    transform: translate3d(0, 120vh, 0);
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    cursor: pointer;
 }
 
-/* Hover Micro-interactions */
-.roadmap-item:hover .roadmap-card {
-    transform: translateY(-3px);
+.academic-passing-card:hover {
     border-color: var(--accent, #ff5e00);
-    box-shadow: 0 8px 24px rgba(255, 94, 0, 0.14);
+    box-shadow: 0 8px 24px rgba(255, 94, 0, 0.18);
 }
 
-.roadmap-item:hover .roadmap-badge {
-    border-color: #ff5e00;
-    transform: scale(1.15);
+/* Balanced Staggered Horizontal Slots */
+.academic-passing-card.slot-left-1 {
+    left: 4%;
 }
 
-/* School Logo Container */
-.roadmap-logo {
+.academic-passing-card.slot-right-1 {
+    right: 4%;
+}
+
+.academic-passing-card.slot-center {
+    left: 50%;
+    transform: translate3d(-50%, 120vh, 0);
+}
+
+.academic-passing-card.slot-left-2 {
+    left: 7%;
+}
+
+.academic-passing-card.slot-right-2 {
+    right: 7%;
+}
+
+/* Card Header Layout (Logo + Text Info) */
+.academic-card-header-layout {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    width: 100%;
+}
+
+/* School Logo Container matching Work Company Logo */
+.academic-school-logo {
     flex-shrink: 0;
-    width: 65px;
-    height: 65px;
+    width: 52px;
+    height: 52px;
     border: 1px solid rgba(255, 255, 255, 0.12);
     background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 6px;
+    padding: 5px;
     box-sizing: border-box;
     overflow: hidden;
-    border-radius: 12px;
+    margin-top: 2px;
+    transition: border-color 0.3s ease, transform 0.3s ease;
 }
 
-.roadmap-logo img {
+.academic-passing-card:hover .academic-school-logo {
+    border-color: var(--accent, #ff5e00);
+    transform: scale(1.05);
+}
+
+.academic-school-logo img {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    transition: transform 0.3s ease;
     border-radius: 8px;
+    transition: transform 0.3s ease;
 }
 
-.roadmap-item:hover .roadmap-logo img {
-    transform: scale(1.08);
+.academic-passing-card:hover .academic-school-logo img {
+    transform: scale(1.06);
 }
 
-/* Timeline Content */
-.roadmap-content {
+/* Text Container */
+.academic-card-text {
+    flex-grow: 1;
+    min-width: 0;
     display: flex;
     flex-direction: column;
-    gap: 6px;
-    flex-grow: 1;
+    gap: 5px;
 }
 
-.roadmap-header {
+/* Header Meta Duration & Status */
+.card-header-meta {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-.roadmap-time {
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.82rem;
+    font-size: 0.78rem;
     font-weight: 700;
-    color: #ff5e00;
-    background-color: rgba(255, 94, 0, 0.12);
-    padding: 4px 10px;
-    border-radius: 6px;
-    line-height: 1;
-}
-
-.roadmap-status {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: rgba(255, 255, 255, 0.5);
     text-transform: uppercase;
     letter-spacing: 0.5px;
     line-height: 1;
+    flex-wrap: wrap;
+    gap: 6px;
 }
 
-.roadmap-content h3 {
-    font-size: 1.25rem;
-    font-weight: 800;
+.academic-duration {
+    color: #ff5e00;
+}
+
+.academic-status {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* School Title */
+.academic-school-name {
+    font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+    font-size: 1.15rem;
+    font-weight: 800 !important;
     color: #ffffff;
     margin: 0;
     letter-spacing: -0.3px;
-    line-height: 1.2;
+    line-height: 1.25;
 }
 
-.roadmap-subtitle {
+/* Campus / Subtitle */
+.academic-campus {
     font-family: 'Inter', sans-serif;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: rgba(255, 255, 255, 0.6);
     margin: 0;
-    line-height: 1;
-}
-
-.roadmap-degree {
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.98rem;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.9);
-    margin: 4px 0 2px 0;
     line-height: 1.2;
 }
 
-.roadmap-desc {
+/* Degree / Level */
+.academic-degree {
     font-family: 'Inter', sans-serif;
     font-size: 0.92rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 2px 0 0 0;
+    line-height: 1.3;
+}
+
+/* Description */
+.academic-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.88rem;
     line-height: 1.5;
     color: rgba(255, 255, 255, 0.7);
     margin: 0;
 }
 
+.academic-desc strong {
+    color: #ffffff;
+}
+
+/* Tag */
 .academic-tag {
     display: inline-flex;
     align-self: flex-start;
-    background-color: rgba(255, 255, 255, 0.05);
-    border-left: 2px solid #ff5e00;
-    color: #ffffff;
-    font-size: 0.8rem;
+    background-color: rgba(255, 94, 0, 0.1);
+    border: 1px solid rgba(255, 94, 0, 0.25);
+    color: #ff9e66;
+    font-size: 0.74rem;
     font-weight: 700;
-    padding: 6px 12px;
+    padding: 4px 10px;
     margin-top: 6px;
     text-transform: uppercase;
-    letter-spacing: 0.3px;
-    border-radius: 0 6px 6px 0;
+    letter-spacing: 0.4px;
+    border-radius: 6px;
 }
 
-/* Responsive Roadmap Layout */
+/* ==========================================================================
+   RESPONSIVE DESIGN FOR MOBILE
+   ========================================================================== */
+
 @media (max-width: 768px) {
-    .roadmap-card {
-        padding: 20px;
-    }
-}
-
-@media (max-width: 576px) {
-    .roadmap-card {
-        flex-direction: column;
-        gap: 15px;
-        align-items: flex-start;
-    }
-    
-    .roadmap-logo {
-        width: 55px;
-        height: 55px;
+    .academic-scroll-container {
+        min-height: auto;
     }
 
-    .roadmap-header {
+    .academic-sticky-stage {
+        position: relative;
+        top: 0;
+        height: auto;
+        padding: 30px 0;
         flex-direction: column;
-        align-items: flex-start;
-        gap: 6px;
+        gap: 24px;
+        overflow: visible;
+        background-color: transparent;
+        border: none;
+        box-shadow: none;
     }
-    
-    .roadmap-status {
-        margin-top: 2px;
+
+    .academic-bg-headline-layer {
+        position: relative;
+        inset: auto;
+        padding: 0;
+        margin-bottom: 20px;
+    }
+
+    .academic-bg-headline {
+        font-size: 2.2rem;
+    }
+
+    .academic-floating-cards-layer {
+        position: relative;
+        inset: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        width: 100%;
+        overflow: visible;
+    }
+
+    .academic-passing-card {
+        position: relative;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        width: 100%;
+        transform: none !important;
+        opacity: 1 !important;
     }
 }

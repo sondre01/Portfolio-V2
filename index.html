@@ -31,7 +31,7 @@
                 <a href="#about" class="nav-link">About</a>
                 <a href="#certifications" class="nav-link">Certificates</a>
                 <a href="#education" class="nav-link">Education</a>
-                <a href="#work" class="nav-link">Work</a>
+                <a href="#work" class="nav-link">Experience</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
 
@@ -865,33 +865,38 @@
                 </div>
             </section>
 
-            <!----------------- Education --------------------->
-            <section class="section education-section scroll-reveal" id="education">
-                <h2>Education</h2>
-                <div class="education-roadmap">
-                    <!-- Timeline Vertical Line -->
-                    <div class="roadmap-line"></div>
-
-                    <!-- Timeline Item: College -->
-                    <div class="roadmap-item current">
-                        <div class="roadmap-badge">
-                            <span class="badge-dot"></span>
+            <!----------------- Educational Backgrounds --------------------->
+            <section class="section academic-section scroll-reveal" id="education">
+                <div class="academic-scroll-container" id="academic-scroll-container">
+                    <div class="academic-sticky-stage" id="academic-sticky-stage">
+                        
+                        <!-- Layer 1: Centered Sticky Background Text (z-index: 1) -->
+                        <div class="academic-bg-headline-layer">
+                            <h2 class="academic-bg-headline">Educational<br>Backgrounds</h2>
                         </div>
-                        <div class="roadmap-card expandable-card">
-                            <div class="roadmap-logo">
-                                <img src="data/logo/School/college.png" alt="Rizal Technological University Logo">
-                            </div>
-                            <div class="roadmap-content">
-                                <div class="roadmap-header">
-                                    <span class="roadmap-time">2022 - Present</span>
-                                    <span class="roadmap-status">Currently in 4th/Final Year</span>
+
+                        <!-- Layer 2: Passing Cards Layer (z-index: 2) -->
+                        <div class="academic-floating-cards-layer">
+                            
+                            <!-- Card 1: College (Left) -->
+                            <div class="academic-passing-card slot-left-1 expandable-card" id="pass-card-1">
+                                <div class="academic-card-header-layout">
+                                    <div class="academic-school-logo">
+                                        <img src="data/logo/School/college.png" alt="Rizal Technological University Logo">
+                                    </div>
+                                    <div class="academic-card-text">
+                                        <div class="card-header-meta">
+                                            <span class="academic-duration">2022 – Present</span>
+                                            <span class="academic-status">Currently in 4th/Final Year</span>
+                                        </div>
+                                        <h3 class="academic-school-name">Rizal Technological University</h3>
+                                        <p class="academic-campus">Pasig Campus</p>
+                                        <h4 class="academic-degree">Bachelor of Science in Computer Engineering (BSCpE)</h4>
+                                    </div>
                                 </div>
-                                <h3>Rizal Technological University</h3>
-                                <p class="roadmap-subtitle">Pasig Campus</p>
-                                <h4 class="roadmap-degree">Bachelor of Science in Computer Engineering (BSCpE)</h4>
                                 
                                 <div class="card-details-wrapper">
-                                    <p class="roadmap-desc">Expected Graduation: <strong>July 2026</strong></p>
+                                    <p class="academic-desc">Expected Graduation: <strong>July 2026</strong> • Specializing in Data Architecture, Embedded Systems, and AI & Machine Learning applications.</p>
                                     <div class="academic-tag">Seeking OJT & Immediate Work (Awaiting Graduation)</div>
                                 </div>
                                 
@@ -900,29 +905,26 @@
                                     <span class="toggle-text">Show More</span>
                                 </button>
                             </div>
-                        </div>
-                    </div>
 
-                    <!-- Timeline Item: Senior High School -->
-                    <div class="roadmap-item">
-                        <div class="roadmap-badge">
-                            <span class="badge-dot"></span>
-                        </div>
-                        <div class="roadmap-card expandable-card">
-                            <div class="roadmap-logo">
-                                <img src="data/logo/School/9-12.png" alt="Rizal High School Logo">
-                            </div>
-                            <div class="roadmap-content">
-                                <div class="roadmap-header">
-                                    <span class="roadmap-time">2020 - 2022</span>
-                                    <span class="roadmap-status">Grades 11 - 12</span>
+                            <!-- Card 2: Senior High School (Right) -->
+                            <div class="academic-passing-card slot-right-1 expandable-card" id="pass-card-2">
+                                <div class="academic-card-header-layout">
+                                    <div class="academic-school-logo">
+                                        <img src="data/logo/School/9-12.png" alt="Rizal High School Logo">
+                                    </div>
+                                    <div class="academic-card-text">
+                                        <div class="card-header-meta">
+                                            <span class="academic-duration">2020 – 2022</span>
+                                            <span class="academic-status">Grades 11 – 12</span>
+                                        </div>
+                                        <h3 class="academic-school-name">Rizal High School</h3>
+                                        <p class="academic-campus">Senior High Department</p>
+                                        <h4 class="academic-degree">Senior High School (STEM)</h4>
+                                    </div>
                                 </div>
-                                <h3>Rizal High School</h3>
-                                <p class="roadmap-subtitle">Senior High Department</p>
-                                <h4 class="roadmap-degree">Senior High School Education</h4>
                                 
                                 <div class="card-details-wrapper">
-                                    <p class="roadmap-desc">Focused on pre-engineering, programming fundamentals, and technical mathematics.</p>
+                                    <p class="academic-desc">Focused on pre-engineering curriculum, advanced technical mathematics, and computer programming fundamentals.</p>
                                 </div>
                                 
                                 <button class="card-expand-toggle-btn" aria-label="Toggle Details">
@@ -930,29 +932,26 @@
                                     <span class="toggle-text">Show More</span>
                                 </button>
                             </div>
-                        </div>
-                    </div>
 
-                    <!-- Timeline Item: Junior High School (Upper Years) -->
-                    <div class="roadmap-item">
-                        <div class="roadmap-badge">
-                            <span class="badge-dot"></span>
-                        </div>
-                        <div class="roadmap-card expandable-card">
-                            <div class="roadmap-logo">
-                                <img src="data/logo/School/9-12.png" alt="Rizal High School Logo">
-                            </div>
-                            <div class="roadmap-content">
-                                <div class="roadmap-header">
-                                    <span class="roadmap-time">2018 - 2020</span>
-                                    <span class="roadmap-status">Grades 9 - 10</span>
+                            <!-- Card 3: Junior High School Upper (Center / Middle) -->
+                            <div class="academic-passing-card slot-center expandable-card" id="pass-card-3">
+                                <div class="academic-card-header-layout">
+                                    <div class="academic-school-logo">
+                                        <img src="data/logo/School/9-12.png" alt="Rizal High School Logo">
+                                    </div>
+                                    <div class="academic-card-text">
+                                        <div class="card-header-meta">
+                                            <span class="academic-duration">2018 – 2020</span>
+                                            <span class="academic-status">Grades 9 – 10</span>
+                                        </div>
+                                        <h3 class="academic-school-name">Rizal High School</h3>
+                                        <p class="academic-campus">Main Campus</p>
+                                        <h4 class="academic-degree">Junior High School (Upper Years)</h4>
+                                    </div>
                                 </div>
-                                <h3>Rizal High School</h3>
-                                <p class="roadmap-subtitle">Main Campus</p>
-                                <h4 class="roadmap-degree">Junior High School (Upper Years)</h4>
                                 
                                 <div class="card-details-wrapper">
-                                    <p class="roadmap-desc">Enriched curriculum covering secondary mathematics, physical sciences, and introductory IT concepts.</p>
+                                    <p class="academic-desc">Enriched curriculum covering secondary mathematics, physical sciences, and introductory IT foundational concepts.</p>
                                 </div>
                                 
                                 <button class="card-expand-toggle-btn" aria-label="Toggle Details">
@@ -960,29 +959,26 @@
                                     <span class="toggle-text">Show More</span>
                                 </button>
                             </div>
-                        </div>
-                    </div>
 
-                    <!-- Timeline Item: Junior High School (Lower Years) -->
-                    <div class="roadmap-item">
-                        <div class="roadmap-badge">
-                            <span class="badge-dot"></span>
-                        </div>
-                        <div class="roadmap-card expandable-card">
-                            <div class="roadmap-logo">
-                                <img src="data/logo/School/7to8.png" alt="Putlod San Jose National High School Logo">
-                            </div>
-                            <div class="roadmap-content">
-                                <div class="roadmap-header">
-                                    <span class="roadmap-time">2016 - 2018</span>
-                                    <span class="roadmap-status">Grades 7 - 8</span>
+                            <!-- Card 4: Junior High School Lower (Left) -->
+                            <div class="academic-passing-card slot-left-2 expandable-card" id="pass-card-4">
+                                <div class="academic-card-header-layout">
+                                    <div class="academic-school-logo">
+                                        <img src="data/logo/School/7to8.png" alt="Putlod San Jose National High School Logo">
+                                    </div>
+                                    <div class="academic-card-text">
+                                        <div class="card-header-meta">
+                                            <span class="academic-duration">2016 – 2018</span>
+                                            <span class="academic-status">Grades 7 – 8</span>
+                                        </div>
+                                        <h3 class="academic-school-name">Putlod San Jose National High School</h3>
+                                        <p class="academic-campus">Secondary Education</p>
+                                        <h4 class="academic-degree">Junior High School (Lower Years)</h4>
+                                    </div>
                                 </div>
-                                <h3>Putlod San Jose National High School</h3>
-                                <p class="roadmap-subtitle">Secondary Education</p>
-                                <h4 class="roadmap-degree">Junior High School (Lower Years)</h4>
                                 
                                 <div class="card-details-wrapper">
-                                    <p class="roadmap-desc">General secondary education and transition to secondary-level core curriculum.</p>
+                                    <p class="academic-desc">General secondary education and transition to secondary-level core curriculum.</p>
                                 </div>
                                 
                                 <button class="card-expand-toggle-btn" aria-label="Toggle Details">
@@ -990,29 +986,26 @@
                                     <span class="toggle-text">Show More</span>
                                 </button>
                             </div>
-                        </div>
-                    </div>
 
-                    <!-- Timeline Item: Elementary Education -->
-                    <div class="roadmap-item">
-                        <div class="roadmap-badge">
-                            <span class="badge-dot"></span>
-                        </div>
-                        <div class="roadmap-card expandable-card">
-                            <div class="roadmap-logo">
-                                <img src="data/logo/School/kindertosix.png" alt="Putlod Elementary School Logo">
-                            </div>
-                            <div class="roadmap-content">
-                                <div class="roadmap-header">
-                                    <span class="roadmap-time">2009 - 2016</span>
-                                    <span class="roadmap-status">Kindergarten - Grade 6</span>
+                            <!-- Card 5: Elementary Education (Right) -->
+                            <div class="academic-passing-card slot-right-2 expandable-card" id="pass-card-5">
+                                <div class="academic-card-header-layout">
+                                    <div class="academic-school-logo">
+                                        <img src="data/logo/School/kindertosix.png" alt="Putlod Elementary School Logo">
+                                    </div>
+                                    <div class="academic-card-text">
+                                        <div class="card-header-meta">
+                                            <span class="academic-duration">2009 – 2016</span>
+                                            <span class="academic-status">Kindergarten – Grade 6</span>
+                                        </div>
+                                        <h3 class="academic-school-name">Putlod Elementary School</h3>
+                                        <p class="academic-campus">Primary & Intermediate Education</p>
+                                        <h4 class="academic-degree">Elementary Education</h4>
+                                    </div>
                                 </div>
-                                <h3>Putlod Elementary School</h3>
-                                <p class="roadmap-subtitle">Primary & Intermediate Education</p>
-                                <h4 class="roadmap-degree">Elementary Education</h4>
                                 
                                 <div class="card-details-wrapper">
-                                    <p class="roadmap-desc">Foundational basic primary education focusing on language arts, science, and math.</p>
+                                    <p class="academic-desc">Foundational basic primary education focusing on language arts, science, and mathematics.</p>
                                 </div>
                                 
                                 <button class="card-expand-toggle-btn" aria-label="Toggle Details">
@@ -1020,14 +1013,15 @@
                                     <span class="toggle-text">Show More</span>
                                 </button>
                             </div>
+
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!----------------- Work --------------------->
+            <!----------------- Professional Experience --------------------->
             <section class="section work-section scroll-reveal" id="work">
-                <h2>Work</h2>
+                <h2>Professional Experience</h2>
                 
                 <!-- Row 1: Work Experience -->
                 <div class="work-row">
@@ -1092,71 +1086,61 @@
                     <!-- Subcategory A: Hardware, IoT & Embedded Systems -->
                     <div class="project-subcategory-title">
                         <span>A. Hardware, IoT & Embedded Systems</span>
-                        <button class="row-expand-toggle-btn" aria-label="Toggle Row Details" data-target="hardware-grid">
-                            <i data-lucide="chevron-down" style="width: 14px; height: 14px;"></i>
-                            <span class="toggle-text">Show More</span>
-                        </button>
                     </div>
                     <div class="projects-cards-grid" id="hardware-grid">
                         <!-- FOVB-AIOT -->
-                        <div class="work-card project-card expandable-card">
+                        <div class="work-card project-card">
                             <div class="card-header-meta">
                                 <span class="project-role">Data & Database Architect</span>
                             </div>
                             <h4 class="work-card-title">FOVB-AIOT (Capstone)</h4>
-                            <div class="card-details-wrapper">
-                                <p class="work-card-desc">A smart health kiosk measuring vitals (height via LiDAR, weight via Load Cell, heart rate, temperature) and digital BP (via computer vision). Integrates relational SQL database management for patient records and clean telemetry pipelines to feed machine learning risk predictions on a Flask portal.</p>
-                                <div class="work-tags">
-                                    <span class="work-tag">Python (Flask)</span>
-                                    <span class="work-tag">SQL Database</span>
-                                    <span class="work-tag">Data Pipelines</span>
-                                    <span class="work-tag">ML (XGBoost/MLP)</span>
-                                    <span class="work-tag">Arduino</span>
-                                    <span class="work-tag">IoT Telemetry</span>
-                                    <span class="work-tag">Computer Vision</span>
-                                </div>
-                                <a href="./data/documents/FOVB-AIoT_Manuscript.pdf" target="_blank" class="doc-link-btn">
-                                    <i data-lucide="file-text" style="width: 12px; height: 12px;"></i>
-                                    <span>Read Manuscript</span>
-                                </a>
+                            <p class="work-card-desc">A smart health kiosk measuring vitals (height via LiDAR, weight via Load Cell, heart rate, temperature) and digital BP (via computer vision). Integrates relational SQL database management for patient records and clean telemetry pipelines to feed machine learning risk predictions on a Flask portal.</p>
+                            <div class="work-tags">
+                                <span class="work-tag">Python (Flask)</span>
+                                <span class="work-tag">SQL Database</span>
+                                <span class="work-tag">Data Pipelines</span>
+                                <span class="work-tag">ML (XGBoost/MLP)</span>
+                                <span class="work-tag">Arduino</span>
+                                <span class="work-tag">IoT Telemetry</span>
+                                <span class="work-tag">Computer Vision</span>
                             </div>
+                            <a href="./data/documents/FOVB-AIoT_Manuscript.pdf" target="_blank" class="doc-link-btn">
+                                <i data-lucide="file-text" style="width: 12px; height: 12px;"></i>
+                                <span>Read Manuscript</span>
+                            </a>
                         </div>
 
                         <!-- AI Kilo Bot -->
-                        <div class="work-card project-card expandable-card">
+                        <div class="work-card project-card">
                             <div class="card-header-meta">
                                 <span class="project-role">Data Scientist & IoT Engineer</span>
                             </div>
                             <h4 class="work-card-title">AI Kilo Bot</h4>
-                            <div class="card-details-wrapper">
-                                <p class="work-card-desc">An intelligent digital scale combining an overhead camera and Raspberry Pi load cell. Integrates real-time sensor data fusion and an ingestion pipeline to merge YOLO object classification with telemetry weight data for automated billing analytics.</p>
-                                <div class="work-tags">
-                                    <span class="work-tag">Python</span>
-                                    <span class="work-tag">Data Ingestion</span>
-                                    <span class="work-tag">Sensor Fusion</span>
-                                    <span class="work-tag">YOLO / Roboflow</span>
-                                    <span class="work-tag">Raspberry Pi</span>
-                                    <span class="work-tag">HX711 Load Cell</span>
-                                </div>
+                            <p class="work-card-desc">An intelligent digital scale combining an overhead camera and Raspberry Pi load cell. Integrates real-time sensor data fusion and an ingestion pipeline to merge YOLO object classification with telemetry weight data for automated billing analytics.</p>
+                            <div class="work-tags">
+                                <span class="work-tag">Python</span>
+                                <span class="work-tag">Data Ingestion</span>
+                                <span class="work-tag">Sensor Fusion</span>
+                                <span class="work-tag">YOLO / Roboflow</span>
+                                <span class="work-tag">Raspberry Pi</span>
+                                <span class="work-tag">HX711 Load Cell</span>
                             </div>
                         </div>
 
                         <!-- RFID Tollgate System -->
-                        <div class="work-card project-card expandable-card">
+                        <div class="work-card project-card">
                             <div class="card-header-meta">
                                 <span class="project-role">Database & Systems Prototyper</span>
                             </div>
                             <h4 class="work-card-title">RFID Tollgate System</h4>
-                            <div class="card-details-wrapper">
-                                <p class="work-card-desc">Simulated electronic toll terminal processing virtual credit debits upon scanning active RFID tags. Manages a secure transaction logging pipeline to record real-time ledger updates, barrier states, and account balance synchronizations.</p>
-                                <div class="work-tags">
-                                    <span class="work-tag">C++ / Arduino IDE</span>
-                                    <span class="work-tag">Transaction Logging</span>
-                                    <span class="work-tag">SQL Database</span>
-                                    <span class="work-tag">RFID RC522</span>
-                                    <span class="work-tag">Servo Motors</span>
-                                    <span class="work-tag">C# Desktop UI</span>
-                                </div>
+                            <p class="work-card-desc">Simulated electronic toll terminal processing virtual credit debits upon scanning active RFID tags. Manages a secure transaction logging pipeline to record real-time ledger updates, barrier states, and account balance synchronizations.</p>
+                            <div class="work-tags">
+                                <span class="work-tag">C++ / Arduino IDE</span>
+                                <span class="work-tag">Transaction Logging</span>
+                                <span class="work-tag">SQL Database</span>
+                                <span class="work-tag">RFID RC522</span>
+                                <span class="work-tag">Servo Motors</span>
+                                <span class="work-tag">C# Desktop UI</span>
                             </div>
                         </div>
                     </div>
@@ -1164,68 +1148,58 @@
                     <!-- Subcategory B: Desktop & Web Software Applications -->
                     <div class="project-subcategory-title" style="margin-top: 35px;">
                         <span>B. Desktop & Web Software Applications</span>
-                        <button class="row-expand-toggle-btn" aria-label="Toggle Row Details" data-target="software-grid">
-                            <i data-lucide="chevron-down" style="width: 14px; height: 14px;"></i>
-                            <span class="toggle-text">Show More</span>
-                        </button>
                     </div>
                     <div class="projects-cards-grid" id="software-grid">
                         <!-- GG Resto POS Dashboard -->
-                        <div class="work-card project-card expandable-card">
+                        <div class="work-card project-card">
                             <div class="card-header-meta">
                                 <span class="project-role">Database Developer</span>
                             </div>
                             <h4 class="work-card-title">GG Resto POS Dashboard</h4>
-                            <div class="card-details-wrapper">
-                                <p class="work-card-desc">Cashier and management desktop program. Features a robust relational database schema, automated SQL backup pipelines, and a manager analytics dashboard processing sales reports and real-time inventory metrics.</p>
-                                <div class="work-tags">
-                                    <span class="work-tag">Java (Swing UI)</span>
-                                    <span class="work-tag">SQL Database</span>
-                                    <span class="work-tag">Analytics Dashboard</span>
-                                    <span class="work-tag">Automated Backup</span>
-                                    <span class="work-tag">MySQL</span>
-                                    <span class="work-tag">JDBC API</span>
-                                </div>
+                            <p class="work-card-desc">Cashier and management desktop program. Features a robust relational database schema, automated SQL backup pipelines, and a manager analytics dashboard processing sales reports and real-time inventory metrics.</p>
+                            <div class="work-tags">
+                                <span class="work-tag">Java (Swing UI)</span>
+                                <span class="work-tag">SQL Database</span>
+                                <span class="work-tag">Analytics Dashboard</span>
+                                <span class="work-tag">Automated Backup</span>
+                                <span class="work-tag">MySQL</span>
+                                <span class="work-tag">JDBC API</span>
                             </div>
                         </div>
 
                         <!-- Xvidia Shop -->
-                        <div class="work-card project-card expandable-card">
+                        <div class="work-card project-card">
                             <div class="card-header-meta">
                                 <span class="project-role">Data Analyst & DB Developer</span>
                             </div>
                             <h4 class="work-card-title">Xvidia Shop</h4>
-                            <div class="card-details-wrapper">
-                                <p class="work-card-desc">Dual inventory and repair queue service manager ledger. Implements relational SQL storage to track component stock levels, structured diagnostic status logs, and historical customer profiles for service reporting.</p>
-                                <div class="work-tags">
-                                    <span class="work-tag">C# (WinForms)</span>
-                                    <span class="work-tag">SQL Database</span>
-                                    <span class="work-tag">Data Normalization</span>
-                                </div>
-                                <a href="./data/documents/Xvidia_Documentation.pdf" target="_blank" class="doc-link-btn">
-                                    <i data-lucide="file-text" style="width: 12px; height: 12px;"></i>
-                                    <span>Read Manual</span>
-                                </a>
+                            <p class="work-card-desc">Dual inventory and repair queue service manager ledger. Implements relational SQL storage to track component stock levels, structured diagnostic status logs, and historical customer profiles for service reporting.</p>
+                            <div class="work-tags">
+                                <span class="work-tag">C# (WinForms)</span>
+                                <span class="work-tag">SQL Database</span>
+                                <span class="work-tag">Data Normalization</span>
                             </div>
+                            <a href="./data/documents/Xvidia_Documentation.pdf" target="_blank" class="doc-link-btn">
+                                <i data-lucide="file-text" style="width: 12px; height: 12px;"></i>
+                                <span>Read Manual</span>
+                            </a>
                         </div>
 
                         <!-- Web-Based Ticketing System -->
-                        <div class="work-card project-card expandable-card">
+                        <div class="work-card project-card">
                             <div class="card-header-meta">
                                 <span class="project-role">Data & Queue Analytics Project</span>
                             </div>
                             <h4 class="work-card-title">Web-Based Ticketing System</h4>
-                            <div class="card-details-wrapper">
-                                <p class="work-card-desc">A clean, modular web application designed to streamline support ticket logs, customer service queue metrics, and database-driven real-time status notifications for performance analytics.</p>
-                                <div class="work-tags">
-                                    <span class="work-tag">HTML / CSS / JS</span>
-                                    <span class="work-tag">Python</span>
-                                    <span class="work-tag">SQL Database</span>
-                                    <span class="work-tag">Queue Analytics</span>
-                                    <span class="work-tag">Vercel</span>
-                                </div>
+                            <p class="work-card-desc">A clean, modular web application designed to streamline support ticket logs, customer service queue metrics, and database-driven real-time status notifications for performance analytics.</p>
+                            <div class="work-tags">
+                                <span class="work-tag">HTML / CSS / JS</span>
+                                <span class="work-tag">Python</span>
+                                <span class="work-tag">SQL Database</span>
+                                <span class="work-tag">Queue Analytics</span>
+                                <span class="work-tag">Vercel</span>
                             </div>
-                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -1487,9 +1461,9 @@
             <i data-lucide="graduation-cap"></i>
             <span class="mobile-nav-label">Education</span>
         </a>
-        <a href="#work" class="nav-link" aria-label="Work">
+        <a href="#work" class="nav-link" aria-label="Experience">
             <i data-lucide="briefcase"></i>
-            <span class="mobile-nav-label">Work</span>
+            <span class="mobile-nav-label">Experience</span>
         </a>
         <a href="#contact" class="nav-link" aria-label="Contact">
             <i data-lucide="mail"></i>
@@ -1550,18 +1524,18 @@
         const closeBtn = document.getElementById('modal-close-btn');
 
         if (viewBtn && modal && closeBtn) {
-            viewBtn.addEventListener('click', () => {
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden'; // Prevents background scrolling when modal is open
-            });
-
-            const closeModal = () => {
+            function closeModal() {
                 modal.classList.remove('active');
                 document.body.style.overflow = '';
-            };
+            }
+
+            viewBtn.addEventListener('click', function() {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
 
             closeBtn.addEventListener('click', closeModal);
-            modal.addEventListener('click', (e) => {
+            modal.addEventListener('click', function(e) {
                 if (e.target === modal) {
                     closeModal();
                 }
@@ -1583,18 +1557,18 @@
         const aboutCloseBtn = document.getElementById('about-modal-close-btn');
 
         if (aboutViewBtn && aboutModal && aboutCloseBtn) {
-            aboutViewBtn.addEventListener('click', () => {
-                aboutModal.classList.add('active');
-                document.body.style.overflow = 'hidden'; // Prevents background scrolling when modal is open
-            });
-
-            const closeAboutModal = () => {
+            function closeAboutModal() {
                 aboutModal.classList.remove('active');
                 document.body.style.overflow = '';
-            };
+            }
+
+            aboutViewBtn.addEventListener('click', function() {
+                aboutModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
 
             aboutCloseBtn.addEventListener('click', closeAboutModal);
-            aboutModal.addEventListener('click', (e) => {
+            aboutModal.addEventListener('click', function(e) {
                 if (e.target === aboutModal) {
                     closeAboutModal();
                 }
@@ -1786,49 +1760,12 @@
             });
         }
 
-        // Row-level expand logic for project sections
-        const rowToggleButtons = document.querySelectorAll('.row-expand-toggle-btn');
-        rowToggleButtons.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.stopPropagation(); // Avoid triggering card click
-                const targetId = btn.getAttribute('data-target');
-                const targetGrid = document.getElementById(targetId);
-                if (!targetGrid) return;
-                
-                const cards = targetGrid.querySelectorAll('.project-card');
-                const isAnyExpanded = Array.from(cards).some(card => card.classList.contains('expanded'));
-                
-                // Toggle the expanded class on all project cards inside the grid
-                cards.forEach(card => {
-                    card.classList.toggle('expanded', !isAnyExpanded);
-                });
-                
-                // Update the row button state
-                const isExpanded = !isAnyExpanded;
-                btn.classList.toggle('expanded', isExpanded);
-                const btnText = btn.querySelector('.toggle-text');
-                if (btnText) {
-                    btnText.textContent = isExpanded ? 'Hide More' : 'Show More';
-                }
-            });
-        });
-
-        // Expandable Cards Toggle Logic (Education, Work Experience, & Projects)
+        // Expandable Cards Toggle Logic (Academic Background & Work Experience)
         const expandableCards = document.querySelectorAll('.expandable-card');
         expandableCards.forEach(card => {
             card.addEventListener('click', (e) => {
-                // Prevent toggle if clicking on links or other action buttons
-                if (e.target.closest('a') || (e.target.closest('button') && !e.target.closest('.card-expand-toggle-btn') && !e.target.closest('.row-expand-toggle-btn')) || window.getSelection().toString()) {
-                    return;
-                }
-                
-                // For project cards, delegate expansion to the row-level toggle button
-                if (card.classList.contains('project-card')) {
-                    const grid = card.closest('.projects-cards-grid');
-                    const btn = grid?.previousElementSibling?.querySelector('.row-expand-toggle-btn') || null;
-                    if (btn) {
-                        btn.click();
-                    }
+                // Prevent toggle if clicking on links or selection
+                if (e.target.closest('a') || (e.target.closest('button') && !e.target.closest('.card-expand-toggle-btn')) || window.getSelection().toString()) {
                     return;
                 }
                 
@@ -2238,6 +2175,93 @@
                     }
                 });
             });
+
+            // 3. Educational Background Pinned Stage with Passing Solid Black Cards
+            const acadScrollContainer = document.getElementById('academic-scroll-container');
+            const acadHeadline = document.querySelector('.academic-bg-headline');
+            const passingCardsConfig = [
+                { el: document.getElementById('pass-card-1'), start: 0.08, end: 0.48, isCenter: false },
+                { el: document.getElementById('pass-card-2'), start: 0.18, end: 0.58, isCenter: false },
+                { el: document.getElementById('pass-card-3'), start: 0.28, end: 0.68, isCenter: true },
+                { el: document.getElementById('pass-card-4'), start: 0.38, end: 0.78, isCenter: false },
+                { el: document.getElementById('pass-card-5'), start: 0.48, end: 0.88, isCenter: false },
+            ];
+
+            let isAcadTicking = false;
+
+            function updateAcademicPassing() {
+                isAcadTicking = false;
+                if (!acadScrollContainer) return;
+                
+                // On mobile devices, let cards render in clean linear layout
+                if (window.innerWidth <= 768) {
+                    passingCardsConfig.forEach(cfg => {
+                        if (cfg.el) {
+                            cfg.el.style.transform = '';
+                            cfg.el.style.opacity = '1';
+                            cfg.el.style.pointerEvents = 'auto';
+                        }
+                    });
+                    if (acadHeadline) acadHeadline.style.transform = '';
+                    return;
+                }
+
+                const rect = acadScrollContainer.getBoundingClientRect();
+                const windowH = window.innerHeight;
+                
+                // Skip if container is outside visible viewport
+                if (rect.bottom < 0 || rect.top > windowH) return;
+
+                const totalDist = rect.height - windowH;
+                const currentScroll = -rect.top;
+                const progress = Math.min(Math.max(currentScroll / (totalDist || 1), 0), 1);
+
+                // Update each passing solid black card
+                passingCardsConfig.forEach(cfg => {
+                    if (!cfg.el) return;
+
+                    if (progress < cfg.start) {
+                        // Card is waiting below
+                        cfg.el.style.transform = cfg.isCenter ? 'translate3d(-50%, 120vh, 0)' : 'translate3d(0, 120vh, 0)';
+                        cfg.el.style.opacity = '0';
+                        cfg.el.style.pointerEvents = 'none';
+                    } else if (progress > cfg.end) {
+                        // Card has passed and exited above
+                        cfg.el.style.transform = cfg.isCenter ? 'translate3d(-50%, -120vh, 0)' : 'translate3d(0, -120vh, 0)';
+                        cfg.el.style.opacity = '0';
+                        cfg.el.style.pointerEvents = 'none';
+                    } else {
+                        // Card is actively passing through
+                        const cardP = (progress - cfg.start) / (cfg.end - cfg.start);
+                        const y = (1 - cardP * 2) * 110; // +110vh to -110vh
+
+                        // Smooth edge fade
+                        let opacity = 1;
+                        if (cardP < 0.12) opacity = cardP / 0.12;
+                        else if (cardP > 0.88) opacity = (1 - cardP) / 0.12;
+
+                        cfg.el.style.transform = cfg.isCenter ? `translate3d(-50%, ${y}vh, 0)` : `translate3d(0, ${y}vh, 0)`;
+                        cfg.el.style.opacity = opacity.toFixed(3);
+                        cfg.el.style.pointerEvents = 'auto';
+                    }
+                });
+
+                // Subtle background headline scale
+                if (acadHeadline) {
+                    const scale = 0.96 + progress * 0.06;
+                    acadHeadline.style.transform = `scale(${scale})`;
+                }
+            }
+
+            window.addEventListener('scroll', () => {
+                if (!isAcadTicking) {
+                    requestAnimationFrame(updateAcademicPassing);
+                    isAcadTicking = true;
+                }
+            }, { passive: true });
+
+            window.addEventListener('resize', updateAcademicPassing);
+            updateAcademicPassing();
         });
     </script>
 
