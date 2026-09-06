@@ -314,4 +314,876 @@ body.dark-mode .row-expand-toggle-btn:hover {
     border-color: #ff5e00;
 }
 
+/* ==========================================================================
+   MISSION CONTROL / TELEMETRY TERMINAL CARD (WORK EXPERIENCE)
+   ========================================================================== */
 
+.work-terminal-wrapper {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.work-terminal-card {
+    background-color: #151515;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 14px;
+    padding: 28px 30px;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+}
+
+.work-terminal-card:hover {
+    transform: translateY(-3px);
+    border-color: #ff5e00;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.75), 0 0 24px rgba(255, 94, 0, 0.16);
+}
+
+/* Top Neon Gradient Accent Line */
+.terminal-accent-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #ff5e00 0%, rgba(255, 94, 0, 0.6) 45%, rgba(255, 255, 255, 0.1) 85%, transparent 100%);
+}
+
+/* Terminal Header */
+.terminal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 16px;
+    width: 100%;
+}
+
+.terminal-brand-group {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    width: 100%;
+}
+
+.terminal-company-logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.work-terminal-card:hover .terminal-company-logo {
+    border-color: #ff5e00;
+    transform: scale(1.06);
+    box-shadow: 0 0 18px rgba(255, 94, 0, 0.25);
+}
+
+.terminal-company-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.terminal-title-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex-grow: 1;
+    min-width: 0;
+}
+
+.terminal-meta-tags {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.74rem;
+    line-height: 1;
+}
+
+.terminal-status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 94, 0, 0.12);
+    border: 1px solid rgba(255, 94, 0, 0.35);
+    color: #ff5e00;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.pulse-beacon {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: #ff5e00;
+    box-shadow: 0 0 6px #ff5e00;
+    animation: pulseBeaconAnim 2s infinite ease-in-out;
+}
+
+@keyframes pulseBeaconAnim {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+        box-shadow: 0 0 4px #ff5e00;
+    }
+    50% {
+        transform: scale(1.35);
+        opacity: 0.65;
+        box-shadow: 0 0 12px #ff5e00;
+    }
+}
+
+.terminal-tenure-tag {
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 600;
+}
+
+.terminal-location-tag {
+    color: rgba(255, 255, 255, 0.45);
+}
+
+.terminal-role-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0;
+    letter-spacing: -0.4px;
+    line-height: 1.25;
+}
+
+/* Executive Lead Summary */
+.terminal-lead-summary {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.76);
+    margin: 0;
+}
+
+/* Telemetry Metrics Strip */
+.terminal-metrics-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.telemetry-metric-box {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.25s ease, background-color 0.25s ease, transform 0.25s ease;
+}
+
+.telemetry-metric-box:hover {
+    border-color: rgba(255, 94, 0, 0.4);
+    background-color: rgba(255, 94, 0, 0.04);
+    transform: translateY(-2px);
+}
+
+.metric-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.metric-number {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: #ffffff;
+    letter-spacing: -0.5px;
+    line-height: 1;
+}
+
+.metric-icon {
+    width: 18px;
+    height: 18px;
+    color: #ff5e00;
+    opacity: 0.9;
+}
+
+.metric-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #ff5e00;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin-top: 2px;
+}
+
+.metric-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.35;
+}
+
+/* Dynamic Pillar Console Panel */
+.terminal-console-panel {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 12px;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.terminal-panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 14px;
+}
+
+.terminal-section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.73rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+.terminal-section-tag i {
+    color: #ff5e00;
+}
+
+.terminal-pillar-tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.pillar-tab-btn {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pillar-tab-btn:hover {
+    color: #ffffff;
+    border-color: rgba(255, 94, 0, 0.5);
+    background: rgba(255, 94, 0, 0.06);
+}
+
+.pillar-tab-btn.active {
+    background: rgba(255, 94, 0, 0.16);
+    border-color: #ff5e00;
+    color: #ff5e00;
+    box-shadow: 0 0 14px rgba(255, 94, 0, 0.2);
+}
+
+.tab-index {
+    color: #ff5e00;
+    font-weight: 700;
+    opacity: 0.9;
+}
+
+.pillar-tab-btn.active .tab-index {
+    color: #ffffff;
+}
+
+/* Pillar Content Panes */
+.terminal-pillar-contents {
+    width: 100%;
+    position: relative;
+    min-height: 150px;
+}
+
+.terminal-pane {
+    display: none;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.terminal-pane.active {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.pane-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.pane-column {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 8px;
+    padding: 14px 16px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.pane-micro-title {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.74rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.pane-micro-title i,
+.pane-micro-title svg {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+}
+
+.challenge-col .pane-micro-title {
+    color: #ff9e66;
+}
+
+.solution-col .pane-micro-title {
+    color: #4ade80;
+}
+
+.pane-column p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.78);
+    margin: 0;
+}
+
+.pane-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-top: 12px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.08);
+}
+
+.pane-impact-tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.85);
+    flex: 1;
+    min-width: 260px;
+    line-height: 1.45;
+}
+
+.pane-impact-tag strong {
+    color: #ff5e00;
+}
+
+.pane-tech-pills {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.pane-tech-pill {
+    background: rgba(255, 94, 0, 0.1);
+    border: 1px solid rgba(255, 94, 0, 0.25);
+    color: #ffb088;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+/* Terminal Technology Index Footer */
+.terminal-tech-footer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.tech-footer-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.45);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.tech-footer-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.tech-chip {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.75);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.tech-chip:hover {
+    background: rgba(255, 94, 0, 0.12);
+    border-color: rgba(255, 94, 0, 0.35);
+    color: #ff5e00;
+}
+
+/* Responsive Styles for Work Terminal */
+@media (max-width: 900px) {
+    .pane-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .work-terminal-card {
+        padding: 22px 18px;
+    }
+
+    .terminal-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .terminal-brand-group {
+        align-items: flex-start;
+    }
+
+    .terminal-metrics-strip {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .terminal-panel-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .terminal-pillar-tabs {
+        width: 100%;
+    }
+
+    .pillar-tab-btn {
+        flex: 1 1 auto;
+        justify-content: center;
+    }
+
+    .pane-footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* ==========================================================================
+   3D FLIPPABLE PROJECT CARDS (WORKS / PROJECTS)
+   Sharp-edged, Minimal Front with HD Image Frame & Detailed Back Face
+   ========================================================================== */
+
+.project-flip-card {
+    perspective: 1200px;
+    width: 100%;
+    height: 400px;
+    position: relative;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.project-flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+.project-flip-card.is-flipped .project-flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.project-card-front,
+.project-card-back {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    background-color: #151515;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 4px; /* Sharp precision edge */
+    box-sizing: border-box;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.project-flip-card:hover .project-card-front,
+.project-flip-card:hover .project-card-back {
+    border-color: #ff5e00;
+    box-shadow: 0 10px 28px rgba(255, 94, 0, 0.16), 0 16px 36px rgba(0, 0, 0, 0.6);
+}
+
+/* --------------------------------------------------------------------------
+   PROJECT CARD FRONT (MINIMAL: HD IMAGE + IDENTIFICATION)
+   -------------------------------------------------------------------------- */
+.project-card-front {
+    padding: 10px;
+    justify-content: space-between;
+}
+
+.project-img-wrapper {
+    width: 100%;
+    height: 240px;
+    position: relative;
+    background: linear-gradient(135deg, rgba(30, 30, 35, 0.9) 0%, rgba(15, 15, 20, 0.95) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 3px; /* Sharp edge */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-hd-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.project-flip-card:hover .project-hd-img {
+    transform: scale(1.05);
+}
+
+/* High-tech placeholder if image not yet loaded */
+.project-img-fallback {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: radial-gradient(circle at center, rgba(255, 94, 0, 0.08) 0%, rgba(15, 15, 20, 0.95) 85%);
+    color: rgba(255, 255, 255, 0.4);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.project-fallback-icon {
+    width: 28px;
+    height: 28px;
+    color: #ff5e00;
+    opacity: 0.8;
+}
+
+.project-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(21, 21, 21, 0.85) 0%, rgba(21, 21, 21, 0.2) 50%, transparent 100%);
+    pointer-events: none;
+}
+
+/* Front Info (Role & Title) */
+.project-front-info {
+    padding: 12px 10px 6px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex-grow: 1;
+    justify-content: space-between;
+}
+
+.project-front-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.project-role-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #ff5e00;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    display: inline-block;
+}
+
+.project-front-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0;
+    letter-spacing: -0.3px;
+    line-height: 1.25;
+}
+
+.project-front-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    margin-top: auto;
+}
+
+.project-flip-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.55);
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    transition: color 0.2s ease;
+}
+
+.project-flip-card:hover .project-flip-indicator {
+    color: #ff5e00;
+}
+
+.project-flip-indicator i,
+.project-flip-indicator svg {
+    transition: transform 0.3s ease;
+}
+
+.project-flip-card:hover .project-flip-indicator i,
+.project-flip-card:hover .project-flip-indicator svg {
+    transform: rotate(90deg);
+}
+
+.project-corner-arrow {
+    width: 14px;
+    height: 14px;
+    color: rgba(255, 255, 255, 0.4);
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.project-flip-card:hover .project-corner-arrow {
+    color: #ff5e00;
+    transform: translate(2px, -2px);
+}
+
+/* --------------------------------------------------------------------------
+   PROJECT CARD BACK (FLIPPED: DESCRIPTION, TAGS, DOCS, FLIP BACK)
+   -------------------------------------------------------------------------- */
+.project-card-back {
+    transform: rotateY(180deg);
+    padding: 22px 20px;
+    justify-content: space-between;
+    background-color: #151515;
+}
+
+.project-back-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+    padding-bottom: 10px;
+}
+
+.project-back-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    flex: 1;
+    min-width: 0;
+}
+
+.project-back-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0;
+    letter-spacing: -0.3px;
+    line-height: 1.25;
+}
+
+.project-flip-back-btn {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.85);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 4px 9px;
+    border-radius: 3px; /* Sharp edge */
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+}
+
+.project-flip-back-btn:hover {
+    background: rgba(255, 94, 0, 0.2);
+    border-color: #ff5e00;
+    color: #ffffff;
+}
+
+.project-back-body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex-grow: 1;
+    padding: 10px 0;
+    overflow-y: auto;
+}
+
+.project-back-body::-webkit-scrollbar {
+    width: 3px;
+}
+
+.project-back-body::-webkit-scrollbar-thumb {
+    background: rgba(255, 94, 0, 0.4);
+    border-radius: 2px;
+}
+
+.project-back-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+    text-align: left;
+}
+
+.project-back-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: auto;
+}
+
+.project-card-back .work-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 3px 8px;
+    border-radius: 3px; /* Sharp edge */
+}
+
+.project-card-back:hover .work-tag {
+    background-color: rgba(255, 94, 0, 0.1);
+    border-color: rgba(255, 94, 0, 0.25);
+    color: #ff9e66;
+}
+
+.project-back-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 10px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.1);
+    margin-top: auto;
+}
+
+.project-card-back .doc-link-btn {
+    border-radius: 3px; /* Sharp edge */
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 5px 12px;
+    margin-top: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .projects-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .project-flip-card {
+        height: 390px;
+    }
+}
+
+@media (max-width: 576px) {
+    .projects-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    .project-flip-card {
+        height: 410px;
+    }
+    .project-img-wrapper {
+        height: 230px;
+    }
+}
