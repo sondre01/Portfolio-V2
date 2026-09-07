@@ -76,7 +76,7 @@
 .projects-cards-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 25px;
     width: 100%;
     box-sizing: border-box;
     margin-bottom: 25px;
@@ -240,19 +240,8 @@
     flex-shrink: 0;
 }
 
-/* Responsive grid adjustments */
-@media (max-width: 992px) {
-    .projects-cards-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
-    }
-}
-
+/* Responsive adjustments for legacy work cards */
 @media (max-width: 576px) {
-    .projects-cards-grid {
-        grid-template-columns: 1fr; /* 1 column on mobile */
-        gap: 15px;
-    }
-    
     .work-card {
         padding: 20px 24px;
     }
@@ -838,219 +827,273 @@ body.dark-mode .row-expand-toggle-btn:hover {
 }
 
 /* ==========================================================================
-   3D FLIPPABLE PROJECT CARDS (WORKS / PROJECTS)
-   Sharp-edged, Minimal Front with HD Image Frame & Detailed Back Face
+   INTERACTIVE PROJECT CARDS (WORKS / PROJECTS)
+   Hover Slide-in Info & Synchronized Picture Zoom-Dissolve Animation
+   Dual-Theme Contrast Architecture (Light & Dark Cards)
    ========================================================================== */
 
 .project-flip-card {
-    perspective: 1200px;
-    width: 100%;
-    height: 400px;
     position: relative;
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 5 / 8;
+    border-radius: 6px; /* Clean modern radius matching reference video */
+    overflow: hidden;
     cursor: pointer;
     box-sizing: border-box;
-}
-
-.project-flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
-    transform-style: preserve-3d;
-}
-
-.project-flip-card.is-flipped .project-flip-card-inner {
-    transform: rotateY(180deg);
-}
-
-.project-card-front,
-.project-card-back {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    background-color: #151515;
-    border: 1px solid rgba(255, 255, 255, 0.16);
-    border-radius: 4px; /* Sharp precision edge */
-    box-sizing: border-box;
-    transition: border-color 0.25s ease, box-shadow 0.25s ease;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-}
-
-.project-flip-card:hover .project-card-front,
-.project-flip-card:hover .project-card-back {
-    border-color: #ff5e00;
-    box-shadow: 0 10px 28px rgba(255, 94, 0, 0.16), 0 16px 36px rgba(0, 0, 0, 0.6);
+    transition: box-shadow 0.35s ease, border-color 0.35s ease;
 }
 
 /* --------------------------------------------------------------------------
-   PROJECT CARD FRONT (MINIMAL: HD IMAGE + IDENTIFICATION)
+   THEME 1: LIGHT CARD (Default & data-card-theme="light")
+   - Off-white clean surface (#f4f5f7)
+   - 100% Dark Black Typography (#121212)
    -------------------------------------------------------------------------- */
-.project-card-front {
-    padding: 10px;
-    justify-content: space-between;
+.project-flip-card,
+.project-flip-card[data-card-theme="light"] {
+    background-color: #f4f5f7 !important;
+    border: 1px solid rgba(0, 0, 0, 0.12) !important;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+
+    --card-text-primary: #121212;
+    --card-text-desc: #121212;
+    --card-badge-color: #121212;
+    --card-border-dashed: transparent;
+    --card-tag-text: #121212;
+    --card-tag-bg: rgba(18, 18, 18, 0.07);
+    --card-tag-border: rgba(18, 18, 18, 0.22);
+    --card-btn-text: #121212;
+    --card-btn-bg: rgba(18, 18, 18, 0.07);
+    --card-btn-border: rgba(18, 18, 18, 0.32);
+    --card-btn-hover-bg: #121212;
+    --card-btn-hover-text: #ffffff;
 }
 
-.project-img-wrapper {
-    width: 100%;
-    height: 240px;
-    position: relative;
-    background: linear-gradient(135deg, rgba(30, 30, 35, 0.9) 0%, rgba(15, 15, 20, 0.95) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 3px; /* Sharp edge */
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.project-flip-card:hover,
+.project-flip-card.is-revealed,
+.project-flip-card[data-card-theme="light"]:hover,
+.project-flip-card[data-card-theme="light"].is-revealed {
+    background-color: #f4f5f7 !important;
+    border-color: rgba(0, 0, 0, 0.24) !important;
+    box-shadow: 0 12px 34px rgba(0, 0, 0, 0.14);
 }
 
-.project-hd-img {
+/* --------------------------------------------------------------------------
+   THEME 2: DARK CARD (data-card-theme="dark")
+   - Deep midnight obsidian surface (#0d1117)
+   - 100% Crisp Solid White Typography (#ffffff)
+   -------------------------------------------------------------------------- */
+.project-flip-card[data-card-theme="dark"] {
+    background-color: #0d1117 !important;
+    border: 1px solid rgba(255, 255, 255, 0.14) !important;
+    box-shadow: 0 4px 22px rgba(0, 0, 0, 0.4);
+
+    --card-text-primary: #ffffff;
+    --card-text-desc: #ffffff;
+    --card-badge-color: #ffffff;
+    --card-border-dashed: transparent;
+    --card-tag-text: #ffffff;
+    --card-tag-bg: rgba(255, 255, 255, 0.08);
+    --card-tag-border: rgba(255, 255, 255, 0.24);
+    --card-btn-text: #ffffff;
+    --card-btn-bg: rgba(255, 255, 255, 0.1);
+    --card-btn-border: rgba(255, 255, 255, 0.35);
+    --card-btn-hover-bg: #ffffff;
+    --card-btn-hover-text: #0d1117;
+}
+
+.project-flip-card[data-card-theme="dark"]:hover,
+.project-flip-card[data-card-theme="dark"].is-revealed {
+    background-color: #0d1117 !important;
+    border-color: rgba(255, 255, 255, 0.32) !important;
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.65);
+}
+
+.project-flip-card-inner {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s ease;
+    overflow: hidden;
+    background-color: transparent;
 }
 
-.project-flip-card:hover .project-hd-img {
-    transform: scale(1.05);
-}
-
-/* High-tech placeholder if image not yet loaded */
-.project-img-fallback {
+/* --------------------------------------------------------------------------
+   PROJECT CARD FRONT: Visual layer with Image
+   In resting state: Image sits in bottom portion below header.
+   On hover: Image expands, blurs softly (matching video), and dissolves into card bg.
+   -------------------------------------------------------------------------- */
+.project-card-front {
     position: absolute;
     inset: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    background: radial-gradient(circle at center, rgba(255, 94, 0, 0.08) 0%, rgba(15, 15, 20, 0.95) 85%);
-    color: rgba(255, 255, 255, 0.4);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.7rem;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
+    justify-content: flex-end;
+    box-sizing: border-box;
+    z-index: 1;
+    background-color: transparent;
+    pointer-events: none;
+    transform: none;
 }
 
-.project-fallback-icon {
-    width: 28px;
-    height: 28px;
-    color: #ff5e00;
-    opacity: 0.8;
+/* Default front styling for cards without background images */
+.project-card-front:not(.has-bg-image) {
+    background: radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 0.06) 0%, transparent 70%);
+    opacity: 1;
+    transition: opacity 0.55s ease;
 }
 
-.project-img-overlay {
+.project-flip-card[data-card-theme="dark"] .project-card-front:not(.has-bg-image) {
+    background: radial-gradient(circle at 80% 80%, rgba(56, 189, 248, 0.12) 0%, rgba(30, 58, 138, 0.2) 40%, transparent 70%);
+}
+
+.project-flip-card:hover .project-card-front:not(.has-bg-image),
+.project-flip-card.is-revealed .project-card-front:not(.has-bg-image) {
+    opacity: 0;
+}
+
+/* Background image: Adjusted higher to utilize space below header; Zooms in, blurs smoothly, and dissolves on hover */
+.project-card-bg {
     position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(21, 21, 21, 0.85) 0%, rgba(21, 21, 21, 0.2) 50%, transparent 100%);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 15%;
+    width: 100%;
+    height: 85%;
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    z-index: 1;
+    transform: scale(1);
+    transform-origin: center bottom;
+    filter: blur(0px);
+    -webkit-filter: blur(0px);
+    opacity: 1;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1),
+                filter 0.55s ease,
+                opacity 0.5s ease;
+    will-change: transform, opacity, filter;
+    mask-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.4) 3%, black 8%, black 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.4) 3%, black 8%, black 100%);
+}
+
+/* On hover / revealed: Exactly like reference video, picture zooms in, blurs smoothly, and dissolves */
+.project-flip-card:hover .project-card-bg,
+.project-flip-card.is-revealed .project-card-bg {
+    transform: scale(1.18);
+    filter: blur(18px);
+    -webkit-filter: blur(18px);
+    opacity: 0;
     pointer-events: none;
 }
 
-/* Front Info (Role & Title) */
-.project-front-info {
-    padding: 12px 10px 6px 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    flex-grow: 1;
-    justify-content: space-between;
+/* Card overlay: Disabled */
+.project-card-overlay {
+    display: none !important;
 }
 
-.project-front-meta {
+/* Front Info wrapper */
+.project-front-info {
+    position: relative;
+    z-index: 4;
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    justify-content: flex-end;
+    margin-top: auto;
+    width: 100%;
+}
+
+/* Front meta is hidden to prevent duplicate text; header is fixed permanently at the top */
+.project-front-meta {
+    display: none !important;
 }
 
 .project-role-badge {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.72rem;
     font-weight: 700;
-    color: #ff5e00;
+    color: var(--card-badge-color, #121212) !important;
     text-transform: uppercase;
     letter-spacing: 0.6px;
     display: inline-block;
+    text-shadow: none !important;
 }
 
-.project-front-title {
-    font-family: 'Inter', sans-serif;
-    font-size: 1.15rem;
-    font-weight: 800;
-    color: #ffffff;
-    margin: 0;
-    letter-spacing: -0.3px;
-    line-height: 1.25;
-}
-
+/* "Hover for details" footer removed */
 .project-front-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 8px;
-    border-top: 1px solid rgba(255, 255, 255, 0.07);
-    margin-top: auto;
+    display: none !important;
 }
 
+.project-hover-indicator,
 .project-flip-indicator {
     display: inline-flex;
     align-items: center;
     gap: 6px;
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.7rem;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.55);
+    font-weight: 700;
+    color: var(--card-text-primary, #121212);
     text-transform: uppercase;
     letter-spacing: 0.4px;
-    transition: color 0.2s ease;
-}
-
-.project-flip-card:hover .project-flip-indicator {
-    color: #ff5e00;
-}
-
-.project-flip-indicator i,
-.project-flip-indicator svg {
-    transition: transform 0.3s ease;
-}
-
-.project-flip-card:hover .project-flip-indicator i,
-.project-flip-card:hover .project-flip-indicator svg {
-    transform: rotate(90deg);
 }
 
 .project-corner-arrow {
     width: 14px;
     height: 14px;
-    color: rgba(255, 255, 255, 0.4);
-    transition: color 0.2s ease, transform 0.2s ease;
+    color: var(--card-text-primary, #121212);
+    transition: transform 0.25s ease;
 }
 
 .project-flip-card:hover .project-corner-arrow {
-    color: #ff5e00;
-    transform: translate(2px, -2px);
+    transform: translateX(3px);
 }
 
 /* --------------------------------------------------------------------------
-   PROJECT CARD BACK (FLIPPED: DESCRIPTION, TAGS, DOCS, FLIP BACK)
+   PROJECT CARD BACK: Info Panel (Role, Title, Description, Tags, Docs)
+   - Title & Sub Info: Fixed permanently at top ("above"), does not slide or fade
+   - The Rest of the Info: Slides in smoothly FROM THE RIGHT upon hover
+   - Completely transparent: No background box or container on sliding text
    -------------------------------------------------------------------------- */
 .project-card-back {
-    transform: rotateY(180deg);
-    padding: 22px 20px;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    background-color: #151515;
+    padding: 20px 18px;
+    box-sizing: border-box;
+    z-index: 5;
+    background: transparent !important;
+    background-color: transparent !important;
+    color: var(--card-text-primary, #121212) !important;
+    transform: none !important;
+    opacity: 1 !important;
+    pointer-events: none;
 }
 
+.project-flip-card:hover .project-card-back,
+.project-flip-card.is-revealed .project-card-back {
+    pointer-events: auto;
+}
+
+/* Header (Title & Sub Info above): FIXED IN PLACE, NEVER SLIDES OR DISAPPEARS */
 .project-back-header {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     gap: 10px;
-    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
-    padding-bottom: 10px;
+    border-bottom: 1px dashed var(--card-border-dashed, transparent) !important;
+    padding-bottom: 8px;
+    transform: none !important;
+    opacity: 1 !important;
+    position: relative;
+    z-index: 6;
+    pointer-events: auto;
 }
 
 .project-back-meta {
@@ -1061,48 +1104,71 @@ body.dark-mode .row-expand-toggle-btn:hover {
     min-width: 0;
 }
 
+.project-card-back .project-role-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--card-badge-color, #121212) !important;
+    -webkit-text-fill-color: var(--card-badge-color, #121212) !important;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    display: inline-block;
+    text-shadow: none !important;
+    transition: none !important;
+}
+
+/* Header Title: High-contrast solid text based on card background */
 .project-back-title {
     font-family: 'Inter', sans-serif;
-    font-size: 1.05rem;
+    font-size: 1.12rem;
     font-weight: 800;
-    color: #ffffff;
+    color: var(--card-text-primary, #121212) !important;
+    -webkit-text-fill-color: var(--card-text-primary, #121212) !important;
     margin: 0;
     letter-spacing: -0.3px;
     line-height: 1.25;
+    text-shadow: none !important;
+    transition: none !important;
+}
+
+/* THE REST OF THE INFO (Body & Footer): Slides in alone from right on hover */
+.project-back-body,
+.project-back-footer {
+    transform: translateX(105%);
+    opacity: 0;
+    pointer-events: none;
+    background: transparent !important;
+    background-color: transparent !important;
+    transition: transform 0.35s ease, opacity 0.25s ease;
+    transition-delay: 0s;
+    will-change: transform, opacity;
+}
+
+/* On hover / revealed: text enters smoothly from right matching video */
+.project-flip-card:hover .project-back-body,
+.project-flip-card.is-revealed .project-back-body,
+.project-flip-card:hover .project-back-footer,
+.project-flip-card.is-revealed .project-back-footer {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+    transition-delay: 0.1s;
 }
 
 .project-flip-back-btn {
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    color: rgba(255, 255, 255, 0.85);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.68rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    padding: 4px 9px;
-    border-radius: 3px; /* Sharp edge */
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    flex-shrink: 0;
-    transition: all 0.2s ease;
-}
-
-.project-flip-back-btn:hover {
-    background: rgba(255, 94, 0, 0.2);
-    border-color: #ff5e00;
-    color: #ffffff;
+    display: none !important;
 }
 
 .project-back-body {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
     flex-grow: 1;
-    padding: 10px 0;
+    padding: 8px 0;
     overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--card-badge-color, #ff5e00) transparent;
 }
 
 .project-back-body::-webkit-scrollbar {
@@ -1110,7 +1176,7 @@ body.dark-mode .row-expand-toggle-btn:hover {
 }
 
 .project-back-body::-webkit-scrollbar-thumb {
-    background: rgba(255, 94, 0, 0.4);
+    background: var(--card-badge-color, #ff5e00);
     border-radius: 2px;
 }
 
@@ -1118,9 +1184,10 @@ body.dark-mode .row-expand-toggle-btn:hover {
     font-family: 'Inter', sans-serif;
     font-size: 0.85rem;
     line-height: 1.55;
-    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500 !important;
     margin: 0;
     text-align: left;
+    transition: none !important;
 }
 
 .project-back-tags {
@@ -1133,26 +1200,18 @@ body.dark-mode .row-expand-toggle-btn:hover {
 .project-card-back .work-tag {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.68rem;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.8);
-    background-color: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-weight: 700 !important;
     padding: 3px 8px;
     border-radius: 3px; /* Sharp edge */
-}
-
-.project-card-back:hover .work-tag {
-    background-color: rgba(255, 94, 0, 0.1);
-    border-color: rgba(255, 94, 0, 0.25);
-    color: #ff9e66;
+    transition: all 0.2s ease;
 }
 
 .project-back-footer {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: flex-end;
     padding-top: 10px;
-    border-top: 1px dashed rgba(255, 255, 255, 0.1);
+    border-top: none !important;
     margin-top: auto;
 }
 
@@ -1163,15 +1222,122 @@ body.dark-mode .row-expand-toggle-btn:hover {
     font-weight: 700;
     padding: 5px 12px;
     margin-top: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    transition: all 0.2s ease;
 }
 
-/* Responsive adjustments */
+/* --------------------------------------------------------------------------
+   STRICT CONTRAST ENFORCEMENT: LIGHT CARDS (100% Dark Black #121212)
+   -------------------------------------------------------------------------- */
+.project-flip-card[data-card-theme="light"],
+.project-flip-card[data-card-theme="light"] *,
+.project-flip-card:not([data-card-theme="dark"]),
+.project-flip-card:not([data-card-theme="dark"]) * {
+    color: #121212 !important;
+    -webkit-text-fill-color: #121212 !important;
+    text-shadow: none !important;
+}
+
+.project-flip-card[data-card-theme="light"] .project-card-back .work-tag,
+.project-flip-card:not([data-card-theme="dark"]) .project-card-back .work-tag {
+    background-color: rgba(18, 18, 18, 0.07) !important;
+    border: 1px solid rgba(18, 18, 18, 0.25) !important;
+}
+
+.project-flip-card[data-card-theme="light"] .project-card-back .doc-link-btn,
+.project-flip-card:not([data-card-theme="dark"]) .project-card-back .doc-link-btn {
+    background-color: rgba(18, 18, 18, 0.07) !important;
+    border: 1px solid rgba(18, 18, 18, 0.35) !important;
+}
+
+.project-flip-card[data-card-theme="light"] .project-card-back .doc-link-btn i,
+.project-flip-card[data-card-theme="light"] .project-card-back .doc-link-btn svg,
+.project-flip-card:not([data-card-theme="dark"]) .project-card-back .doc-link-btn i,
+.project-flip-card:not([data-card-theme="dark"]) .project-card-back .doc-link-btn svg {
+    color: #121212 !important;
+    stroke: #121212 !important;
+}
+
+/* Light Card Hovers: Crisp Inversion */
+.project-flip-card[data-card-theme="light"] .project-card-back .work-tag:hover,
+.project-flip-card:not([data-card-theme="dark"]) .project-card-back .work-tag:hover {
+    background-color: #121212 !important;
+    border-color: #121212 !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+.project-flip-card[data-card-theme="light"] .project-card-back .doc-link-btn:hover,
+.project-flip-card:not([data-card-theme="dark"]) .project-card-back .doc-link-btn:hover {
+    background-color: #121212 !important;
+    border-color: #121212 !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+.project-flip-card[data-card-theme="light"] .project-card-back .doc-link-btn:hover i,
+.project-flip-card[data-card-theme="light"] .project-card-back .doc-link-btn:hover svg,
+.project-flip-card:not([data-card-theme="dark"]) .project-card-back .doc-link-btn:hover i,
+.project-flip-card:not([data-card-theme="dark"]) .project-card-back .doc-link-btn:hover svg {
+    color: #ffffff !important;
+    stroke: #ffffff !important;
+}
+
+/* --------------------------------------------------------------------------
+   STRICT CONTRAST ENFORCEMENT: DARK CARDS (100% Crisp Solid White #ffffff)
+   -------------------------------------------------------------------------- */
+.project-flip-card[data-card-theme="dark"],
+.project-flip-card[data-card-theme="dark"] * {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    text-shadow: none !important;
+}
+
+.project-flip-card[data-card-theme="dark"] .project-card-back .work-tag {
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.22) !important;
+}
+
+.project-flip-card[data-card-theme="dark"] .project-card-back .doc-link-btn {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.35) !important;
+}
+
+.project-flip-card[data-card-theme="dark"] .project-card-back .doc-link-btn i,
+.project-flip-card[data-card-theme="dark"] .project-card-back .doc-link-btn svg {
+    color: #ffffff !important;
+    stroke: #ffffff !important;
+}
+
+/* Dark Card Hovers: Crisp Inversion */
+.project-flip-card[data-card-theme="dark"] .project-card-back .work-tag:hover {
+    background-color: #ffffff !important;
+    border-color: #ffffff !important;
+    color: #0d1117 !important;
+    -webkit-text-fill-color: #0d1117 !important;
+}
+
+.project-flip-card[data-card-theme="dark"] .project-card-back .doc-link-btn:hover {
+    background-color: #ffffff !important;
+    border-color: #ffffff !important;
+    color: #0d1117 !important;
+    -webkit-text-fill-color: #0d1117 !important;
+}
+
+.project-flip-card[data-card-theme="dark"] .project-card-back .doc-link-btn:hover i,
+.project-flip-card[data-card-theme="dark"] .project-card-back .doc-link-btn:hover svg {
+    color: #0d1117 !important;
+    stroke: #0d1117 !important;
+}
+
+/* Responsive adjustments for flippable project cards */
 @media (max-width: 992px) {
     .projects-cards-grid {
         grid-template-columns: repeat(2, 1fr);
-    }
-    .project-flip-card {
-        height: 390px;
+        gap: 20px;
     }
 }
 
@@ -1181,9 +1347,7 @@ body.dark-mode .row-expand-toggle-btn:hover {
         gap: 16px;
     }
     .project-flip-card {
-        height: 410px;
-    }
-    .project-img-wrapper {
-        height: 230px;
+        max-width: 320px;
+        margin: 0 auto;
     }
 }

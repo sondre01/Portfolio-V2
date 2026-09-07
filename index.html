@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>khinandrei</title>
     <link rel="shortcut icon" href="./favicon.ico?v=2">
     <link rel="icon" type="image/x-icon" href="./favicon.ico?v=2">
     <link rel="icon" type="image/png" sizes="64x64" href="./favicon.png?v=2">
@@ -13,9 +13,60 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Antonio:wght@700&family=Six+Caps&family=Teko:wght@700&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="assets/css/index.css?v=20260907_9">
+    <style>
+        /* Strict High-Contrast Typography: Light Cards -> Dark Black (#121212), Dark Cards -> Crisp Solid White (#ffffff) */
+        .project-flip-card[data-card-theme="light"],
+        .project-flip-card[data-card-theme="light"] *,
+        .project-flip-card:not([data-card-theme="dark"]),
+        .project-flip-card:not([data-card-theme="dark"]) * {
+            color: #121212 !important;
+            -webkit-text-fill-color: #121212 !important;
+            text-shadow: none !important;
+        }
+
+        .project-flip-card[data-card-theme="dark"],
+        .project-flip-card[data-card-theme="dark"] * {
+            color: #ffffff !important;
+            -webkit-text-fill-color: #ffffff !important;
+            text-shadow: none !important;
+        }
+
+        /* Hover states */
+        .project-flip-card[data-card-theme="light"] .work-tag:hover,
+        .project-flip-card[data-card-theme="light"] .doc-link-btn:hover,
+        .project-flip-card:not([data-card-theme="dark"]) .work-tag:hover,
+        .project-flip-card:not([data-card-theme="dark"]) .doc-link-btn:hover {
+            color: #ffffff !important;
+            -webkit-text-fill-color: #ffffff !important;
+            background-color: #121212 !important;
+            border-color: #121212 !important;
+        }
+
+        .project-flip-card[data-card-theme="light"] .doc-link-btn:hover i,
+        .project-flip-card[data-card-theme="light"] .doc-link-btn:hover svg,
+        .project-flip-card:not([data-card-theme="dark"]) .doc-link-btn:hover i,
+        .project-flip-card:not([data-card-theme="dark"]) .doc-link-btn:hover svg {
+            color: #ffffff !important;
+            stroke: #ffffff !important;
+        }
+
+        .project-flip-card[data-card-theme="dark"] .work-tag:hover,
+        .project-flip-card[data-card-theme="dark"] .doc-link-btn:hover {
+            color: #0d1117 !important;
+            -webkit-text-fill-color: #0d1117 !important;
+            background-color: #ffffff !important;
+            border-color: #ffffff !important;
+        }
+
+        .project-flip-card[data-card-theme="dark"] .doc-link-btn:hover i,
+        .project-flip-card[data-card-theme="dark"] .doc-link-btn:hover svg {
+            color: #0d1117 !important;
+            stroke: #0d1117 !important;
+        }
+    </style>
     <!-- Lucide Icons CDN -->
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
@@ -27,13 +78,13 @@
         <div class="header-inner">
             <div class="logo-myname" data-tooltip="Sondre • Personal Brand Logo" data-tooltip-pos="bottom">
                 <img src="./data/logo/logo-box (1).png" alt="Sondre">
-                <p>Khin Andrei</p>
+                <p>khinandrei</p>
             </div>
 
             <div class="locator-buttons">
                 <a href="#home" class="nav-link active">Home</a>
                 <a href="#about" class="nav-link">About</a>
-                <a href="#certifications" class="nav-link">Certificates</a>
+                <a href="#certifications" class="nav-link">Certifications</a>
                 <a href="#education" class="nav-link">Education</a>
                 <a href="#work" class="nav-link">Experience</a>
                 <a href="#contact" class="nav-link">Contact</a>
@@ -63,7 +114,7 @@
             <div class="hero-container" id="hero-container">
                 <h1 class="hero-line hero-fade-item hero-line-1">I'M KHIN ANDREI</h1>
                 <h2 class="hero-line hero-fade-item hero-line-2">
-                    ASPIRING <span id="typewriter-text">DATA ENGINEER</span>
+                    ASPIRING <span id="typewriter-text">DATA SPECIALIST</span>
                 </h2>
                 <h3 class="hero-line hero-fade-item hero-line-3">BASED IN THE PHILIPPINES</h3>
             </div>
@@ -895,14 +946,14 @@
                 </div>
             </section>
 
-            <!-- Educational Backgrounds -->
+            <!-- Educational Background -->
             <section class="section academic-section scroll-reveal" id="education">
                 <div class="academic-scroll-container" id="academic-scroll-container">
                     <div class="academic-sticky-stage" id="academic-sticky-stage">
                         
                         <!-- Layer 1: Centered Sticky Background Text (z-index: 1) -->
                         <div class="academic-bg-headline-layer">
-                            <h2 class="academic-bg-headline">Educational<br>Backgrounds</h2>
+                            <h2 class="academic-bg-headline footer-name">Educational<br>Background</h2>
                         </div>
 
                         <!-- Layer 2: Passing Cards Layer (z-index: 2) -->
@@ -929,11 +980,6 @@
                                     <p class="academic-desc">Expected Graduation: <strong>July 2026</strong> • Specializing in Data Architecture, Embedded Systems, and AI & Machine Learning applications.</p>
                                     <div class="academic-tag">Seeking OJT & Immediate Work (Awaiting Graduation)</div>
                                 </div>
-                                
-                                <button class="card-expand-toggle-btn" aria-label="Toggle Details">
-                                    <i data-lucide="chevron-down" style="width: 16px; height: 16px;"></i>
-                                    <span class="toggle-text">Show More</span>
-                                </button>
                             </div>
 
                             <!-- Card 2: Senior High School (Right) -->
@@ -956,11 +1002,6 @@
                                 <div class="card-details-wrapper">
                                     <p class="academic-desc">Focused on pre-engineering curriculum, advanced technical mathematics, and computer programming fundamentals.</p>
                                 </div>
-                                
-                                <button class="card-expand-toggle-btn" aria-label="Toggle Details">
-                                    <i data-lucide="chevron-down" style="width: 16px; height: 16px;"></i>
-                                    <span class="toggle-text">Show More</span>
-                                </button>
                             </div>
 
                             <!-- Card 3: Junior High School Upper (Center / Middle) -->
@@ -983,11 +1024,6 @@
                                 <div class="card-details-wrapper">
                                     <p class="academic-desc">Enriched curriculum covering secondary mathematics, physical sciences, and introductory IT foundational concepts.</p>
                                 </div>
-                                
-                                <button class="card-expand-toggle-btn" aria-label="Toggle Details">
-                                    <i data-lucide="chevron-down" style="width: 16px; height: 16px;"></i>
-                                    <span class="toggle-text">Show More</span>
-                                </button>
                             </div>
 
                             <!-- Card 4: Junior High School Lower (Left) -->
@@ -1010,11 +1046,6 @@
                                 <div class="card-details-wrapper">
                                     <p class="academic-desc">General secondary education and transition to secondary-level core curriculum.</p>
                                 </div>
-                                
-                                <button class="card-expand-toggle-btn" aria-label="Toggle Details">
-                                    <i data-lucide="chevron-down" style="width: 16px; height: 16px;"></i>
-                                    <span class="toggle-text">Show More</span>
-                                </button>
                             </div>
 
                             <!-- Card 5: Elementary Education (Right) -->
@@ -1037,11 +1068,6 @@
                                 <div class="card-details-wrapper">
                                     <p class="academic-desc">Foundational basic primary education focusing on language arts, science, and mathematics.</p>
                                 </div>
-                                
-                                <button class="card-expand-toggle-btn" aria-label="Toggle Details">
-                                    <i data-lucide="chevron-down" style="width: 16px; height: 16px;"></i>
-                                    <span class="toggle-text">Show More</span>
-                                </button>
                             </div>
 
                         </div>
@@ -1237,45 +1263,27 @@
                     </div>
                     <div class="projects-cards-grid" id="hardware-grid">
                         <!-- FOVB-AIOT -->
-                        <div class="project-flip-card">
+                        <div class="project-flip-card" data-card-theme="dark">
                             <div class="project-flip-card-inner">
-                                <!-- Front Face: Minimal (HD Picture + Identification) -->
-                                <div class="project-card-front">
-                                    <div class="project-img-wrapper">
-                                        <!-- Place your HD project image in src="..." -->
-                                        <img src="" alt="FOVB-AIOT Capstone" class="project-hd-img" style="display: none;" onload="this.style.display='block'; this.nextElementSibling.style.display='none';">
-                                        <div class="project-img-fallback">
-                                            <i data-lucide="cpu" class="project-fallback-icon"></i>
-                                            <span>HD Image Slot</span>
-                                        </div>
-                                        <div class="project-img-overlay"></div>
-                                    </div>
+                                <!-- Front Face: Minimal (Identification with Background Image) -->
+                                <div class="project-card-front has-bg-image">
+                                    <div class="project-card-bg" style="background-image: url('data/image/FOVB-AIOT.jpg'); background-position: center 55%;"></div>
+                                    <div class="project-card-overlay"></div>
                                     <div class="project-front-info">
                                         <div class="project-front-meta">
                                             <span class="project-role-badge">Data & Database Architect</span>
                                             <h4 class="project-front-title">FOVB-AIOT (Capstone)</h4>
                                         </div>
-                                        <div class="project-front-footer">
-                                            <span class="project-flip-indicator">
-                                                <i data-lucide="rotate-cw" style="width: 12px; height: 12px;"></i>
-                                                <span>Details</span>
-                                            </span>
-                                            <i data-lucide="arrow-up-right" class="project-corner-arrow"></i>
-                                        </div>
                                     </div>
                                 </div>
 
-                                <!-- Back Face: Detailed Overview -->
+                                <!-- Back Face: Detailed Overview (Slides from Right on Hover) -->
                                 <div class="project-card-back">
                                     <div class="project-back-header">
                                         <div class="project-back-meta">
                                             <span class="project-role-badge">Data & Database Architect</span>
                                             <h4 class="project-back-title">FOVB-AIOT (Capstone)</h4>
                                         </div>
-                                        <button type="button" class="project-flip-back-btn" aria-label="Flip back">
-                                            <i data-lucide="rotate-ccw" style="width: 12px; height: 12px;"></i>
-                                            <span>Back</span>
-                                        </button>
                                     </div>
                                     <div class="project-back-body">
                                         <p class="project-back-desc">A smart health kiosk measuring vitals (height via LiDAR, weight via Load Cell, heart rate, temperature) and digital BP (via computer vision). Integrates relational SQL database management for patient records and clean telemetry pipelines to feed machine learning risk predictions on a Flask portal.</p>
@@ -1300,45 +1308,27 @@
                         </div>
 
                         <!-- AI Kilo Bot -->
-                        <div class="project-flip-card">
+                        <div class="project-flip-card" data-card-theme="light">
                             <div class="project-flip-card-inner">
-                                <!-- Front Face: Minimal (HD Picture + Identification) -->
-                                <div class="project-card-front">
-                                    <div class="project-img-wrapper">
-                                        <!-- Place your HD project image in src="..." -->
-                                        <img src="" alt="AI Kilo Bot" class="project-hd-img" style="display: none;" onload="this.style.display='block'; this.nextElementSibling.style.display='none';">
-                                        <div class="project-img-fallback">
-                                            <i data-lucide="scale" class="project-fallback-icon"></i>
-                                            <span>HD Image Slot</span>
-                                        </div>
-                                        <div class="project-img-overlay"></div>
-                                    </div>
+                                <!-- Front Face: Minimal (Identification with Background Image) -->
+                                <div class="project-card-front has-bg-image">
+                                    <div class="project-card-bg" style="background-image: url('data/image/aikilobot.png'); background-position: center top;"></div>
+                                    <div class="project-card-overlay"></div>
                                     <div class="project-front-info">
                                         <div class="project-front-meta">
                                             <span class="project-role-badge">Data Scientist & IoT Engineer</span>
                                             <h4 class="project-front-title">AI Kilo Bot</h4>
                                         </div>
-                                        <div class="project-front-footer">
-                                            <span class="project-flip-indicator">
-                                                <i data-lucide="rotate-cw" style="width: 12px; height: 12px;"></i>
-                                                <span>Details</span>
-                                            </span>
-                                            <i data-lucide="arrow-up-right" class="project-corner-arrow"></i>
-                                        </div>
                                     </div>
                                 </div>
 
-                                <!-- Back Face: Detailed Overview -->
+                                <!-- Back Face: Detailed Overview (Slides from Right on Hover) -->
                                 <div class="project-card-back">
                                     <div class="project-back-header">
                                         <div class="project-back-meta">
                                             <span class="project-role-badge">Data Scientist & IoT Engineer</span>
                                             <h4 class="project-back-title">AI Kilo Bot</h4>
                                         </div>
-                                        <button type="button" class="project-flip-back-btn" aria-label="Flip back">
-                                            <i data-lucide="rotate-ccw" style="width: 12px; height: 12px;"></i>
-                                            <span>Back</span>
-                                        </button>
                                     </div>
                                     <div class="project-back-body">
                                         <p class="project-back-desc">An intelligent digital scale combining an overhead camera and Raspberry Pi load cell. Integrates real-time sensor data fusion and an ingestion pipeline to merge YOLO object classification with telemetry weight data for automated billing analytics.</p>
@@ -1356,45 +1346,27 @@
                         </div>
 
                         <!-- RFID Tollgate System -->
-                        <div class="project-flip-card">
+                        <div class="project-flip-card" data-card-theme="dark">
                             <div class="project-flip-card-inner">
-                                <!-- Front Face: Minimal (HD Picture + Identification) -->
-                                <div class="project-card-front">
-                                    <div class="project-img-wrapper">
-                                        <!-- Place your HD project image in src="..." -->
-                                        <img src="" alt="RFID Tollgate System" class="project-hd-img" style="display: none;" onload="this.style.display='block'; this.nextElementSibling.style.display='none';">
-                                        <div class="project-img-fallback">
-                                            <i data-lucide="rss" class="project-fallback-icon"></i>
-                                            <span>HD Image Slot</span>
-                                        </div>
-                                        <div class="project-img-overlay"></div>
-                                    </div>
+                                <!-- Front Face: Minimal (Identification with Background Image) -->
+                                <div class="project-card-front has-bg-image">
+                                    <div class="project-card-bg" style="background-image: url('data/image/tollgate.jpg'); background-position: center top;"></div>
+                                    <div class="project-card-overlay"></div>
                                     <div class="project-front-info">
                                         <div class="project-front-meta">
                                             <span class="project-role-badge">Database & Systems Prototyper</span>
                                             <h4 class="project-front-title">RFID Tollgate System</h4>
                                         </div>
-                                        <div class="project-front-footer">
-                                            <span class="project-flip-indicator">
-                                                <i data-lucide="rotate-cw" style="width: 12px; height: 12px;"></i>
-                                                <span>Details</span>
-                                            </span>
-                                            <i data-lucide="arrow-up-right" class="project-corner-arrow"></i>
-                                        </div>
                                     </div>
                                 </div>
 
-                                <!-- Back Face: Detailed Overview -->
+                                <!-- Back Face: Detailed Overview (Slides from Right on Hover) -->
                                 <div class="project-card-back">
                                     <div class="project-back-header">
                                         <div class="project-back-meta">
                                             <span class="project-role-badge">Database & Systems Prototyper</span>
                                             <h4 class="project-back-title">RFID Tollgate System</h4>
                                         </div>
-                                        <button type="button" class="project-flip-back-btn" aria-label="Flip back">
-                                            <i data-lucide="rotate-ccw" style="width: 12px; height: 12px;"></i>
-                                            <span>Back</span>
-                                        </button>
                                     </div>
                                     <div class="project-back-body">
                                         <p class="project-back-desc">Simulated electronic toll terminal processing virtual credit debits upon scanning active RFID tags. Manages a secure transaction logging pipeline to record real-time ledger updates, barrier states, and account balance synchronizations.</p>
@@ -1418,45 +1390,27 @@
                     </div>
                     <div class="projects-cards-grid" id="software-grid">
                         <!-- GG Resto POS Dashboard -->
-                        <div class="project-flip-card">
+                        <div class="project-flip-card" data-card-theme="light">
                             <div class="project-flip-card-inner">
-                                <!-- Front Face: Minimal (HD Picture + Identification) -->
-                                <div class="project-card-front">
-                                    <div class="project-img-wrapper">
-                                        <!-- Place your HD project image in src="..." -->
-                                        <img src="" alt="GG Resto POS Dashboard" class="project-hd-img" style="display: none;" onload="this.style.display='block'; this.nextElementSibling.style.display='none';">
-                                        <div class="project-img-fallback">
-                                            <i data-lucide="monitor" class="project-fallback-icon"></i>
-                                            <span>HD Image Slot</span>
-                                        </div>
-                                        <div class="project-img-overlay"></div>
-                                    </div>
+                                <!-- Front Face: Minimal (Identification with Background Image) -->
+                                <div class="project-card-front has-bg-image">
+                                    <div class="project-card-bg" style="background-image: url('data/image/GG%20Resto%20POS%20Dashboard.jpg'); background-position: center top;"></div>
+                                    <div class="project-card-overlay"></div>
                                     <div class="project-front-info">
                                         <div class="project-front-meta">
                                             <span class="project-role-badge">Database Developer</span>
                                             <h4 class="project-front-title">GG Resto POS Dashboard</h4>
                                         </div>
-                                        <div class="project-front-footer">
-                                            <span class="project-flip-indicator">
-                                                <i data-lucide="rotate-cw" style="width: 12px; height: 12px;"></i>
-                                                <span>Details</span>
-                                            </span>
-                                            <i data-lucide="arrow-up-right" class="project-corner-arrow"></i>
-                                        </div>
                                     </div>
                                 </div>
 
-                                <!-- Back Face: Detailed Overview -->
+                                <!-- Back Face: Detailed Overview (Slides from Right on Hover) -->
                                 <div class="project-card-back">
                                     <div class="project-back-header">
                                         <div class="project-back-meta">
                                             <span class="project-role-badge">Database Developer</span>
                                             <h4 class="project-back-title">GG Resto POS Dashboard</h4>
                                         </div>
-                                        <button type="button" class="project-flip-back-btn" aria-label="Flip back">
-                                            <i data-lucide="rotate-ccw" style="width: 12px; height: 12px;"></i>
-                                            <span>Back</span>
-                                        </button>
                                     </div>
                                     <div class="project-back-body">
                                         <p class="project-back-desc">Cashier and management desktop program. Features a robust relational database schema, automated SQL backup pipelines, and a manager analytics dashboard processing sales reports and real-time inventory metrics.</p>
@@ -1474,45 +1428,27 @@
                         </div>
 
                         <!-- Xvidia Shop -->
-                        <div class="project-flip-card">
+                        <div class="project-flip-card" data-card-theme="light">
                             <div class="project-flip-card-inner">
-                                <!-- Front Face: Minimal (HD Picture + Identification) -->
-                                <div class="project-card-front">
-                                    <div class="project-img-wrapper">
-                                        <!-- Place your HD project image in src="..." -->
-                                        <img src="" alt="Xvidia Shop" class="project-hd-img" style="display: none;" onload="this.style.display='block'; this.nextElementSibling.style.display='none';">
-                                        <div class="project-img-fallback">
-                                            <i data-lucide="shopping-bag" class="project-fallback-icon"></i>
-                                            <span>HD Image Slot</span>
-                                        </div>
-                                        <div class="project-img-overlay"></div>
-                                    </div>
+                                <!-- Front Face: Minimal (Identification with Background Image) -->
+                                <div class="project-card-front has-bg-image">
+                                    <div class="project-card-bg" style="background-image: url('data/image/Xvidia%20Shop.jpg'); background-position: center 20%;"></div>
+                                    <div class="project-card-overlay"></div>
                                     <div class="project-front-info">
                                         <div class="project-front-meta">
                                             <span class="project-role-badge">Data Analyst & DB Developer</span>
                                             <h4 class="project-front-title">Xvidia Shop</h4>
                                         </div>
-                                        <div class="project-front-footer">
-                                            <span class="project-flip-indicator">
-                                                <i data-lucide="rotate-cw" style="width: 12px; height: 12px;"></i>
-                                                <span>Details</span>
-                                            </span>
-                                            <i data-lucide="arrow-up-right" class="project-corner-arrow"></i>
-                                        </div>
                                     </div>
                                 </div>
 
-                                <!-- Back Face: Detailed Overview -->
+                                <!-- Back Face: Detailed Overview (Slides from Right on Hover) -->
                                 <div class="project-card-back">
                                     <div class="project-back-header">
                                         <div class="project-back-meta">
                                             <span class="project-role-badge">Data Analyst & DB Developer</span>
                                             <h4 class="project-back-title">Xvidia Shop</h4>
                                         </div>
-                                        <button type="button" class="project-flip-back-btn" aria-label="Flip back">
-                                            <i data-lucide="rotate-ccw" style="width: 12px; height: 12px;"></i>
-                                            <span>Back</span>
-                                        </button>
                                     </div>
                                     <div class="project-back-body">
                                         <p class="project-back-desc">Dual inventory and repair queue service manager ledger. Implements relational SQL storage to track component stock levels, structured diagnostic status logs, and historical customer profiles for service reporting.</p>
@@ -1533,45 +1469,25 @@
                         </div>
 
                         <!-- Web-Based Ticketing System -->
-                        <div class="project-flip-card">
+                        <div class="project-flip-card" data-card-theme="dark">
                             <div class="project-flip-card-inner">
-                                <!-- Front Face: Minimal (HD Picture + Identification) -->
+                                <!-- Front Face: Minimal (Identification) -->
                                 <div class="project-card-front">
-                                    <div class="project-img-wrapper">
-                                        <!-- Place your HD project image in src="..." -->
-                                        <img src="" alt="Web-Based Ticketing System" class="project-hd-img" style="display: none;" onload="this.style.display='block'; this.nextElementSibling.style.display='none';">
-                                        <div class="project-img-fallback">
-                                            <i data-lucide="ticket" class="project-fallback-icon"></i>
-                                            <span>HD Image Slot</span>
-                                        </div>
-                                        <div class="project-img-overlay"></div>
-                                    </div>
                                     <div class="project-front-info">
                                         <div class="project-front-meta">
                                             <span class="project-role-badge">Data & Queue Analytics Project</span>
                                             <h4 class="project-front-title">Web-Based Ticketing System</h4>
                                         </div>
-                                        <div class="project-front-footer">
-                                            <span class="project-flip-indicator">
-                                                <i data-lucide="rotate-cw" style="width: 12px; height: 12px;"></i>
-                                                <span>Details</span>
-                                            </span>
-                                            <i data-lucide="arrow-up-right" class="project-corner-arrow"></i>
-                                        </div>
                                     </div>
                                 </div>
 
-                                <!-- Back Face: Detailed Overview -->
+                                <!-- Back Face: Detailed Overview (Slides from Right on Hover) -->
                                 <div class="project-card-back">
                                     <div class="project-back-header">
                                         <div class="project-back-meta">
                                             <span class="project-role-badge">Data & Queue Analytics Project</span>
                                             <h4 class="project-back-title">Web-Based Ticketing System</h4>
                                         </div>
-                                        <button type="button" class="project-flip-back-btn" aria-label="Flip back">
-                                            <i data-lucide="rotate-ccw" style="width: 12px; height: 12px;"></i>
-                                            <span>Back</span>
-                                        </button>
                                     </div>
                                     <div class="project-back-body">
                                         <p class="project-back-desc">A clean, modular web application designed to streamline support ticket logs, customer service queue metrics, and database-driven real-time status notifications for performance analytics.</p>
@@ -1595,16 +1511,11 @@
     <!-- Standalone Contact Section (No Sticky Sidebar) -->
     <section class="section contact-section scroll-reveal" id="contact">
         <div class="contact-hero-card">
-            <h2>Contact</h2>
-            <div class="contact-grid">
-                <!-- Left: Contact Details -->
-                <div class="contact-column">
-                    <div class="contact-card">
-                        <div class="contact-card-header">
-                            <h3>Let's Connect</h3>
-                        </div>
-                        <p class="contact-intro">Have an exciting internship, project collaboration, or just want to chat? Send me a message and I'll get back to you as soon as possible.</p>
-                        
+            <h2>Let's Connect</h2>
+            <div class="contact-card">
+                <div class="contact-grid">
+                    <!-- Left: Contact Details -->
+                    <div class="contact-column">
                         <div class="contact-info-list">
                             <!-- Email -->
                             <a href="mailto:gamboa.khinandrei@gmail.com" class="contact-info-item">
@@ -1639,31 +1550,10 @@
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Infrastructure Badges -->
-                        <div class="contact-badge-section">
-                            <span class="contact-badge-title">Deployment & Infrastructure</span>
-                            <div class="contact-badges-row">
-                                <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" class="infra-badge">
-                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vercel/vercel-original.svg" alt="Vercel Logo">
-                                    <span>Hosted on Vercel</span>
-                                </a>
-                                <a href="https://resend.com" target="_blank" rel="noopener noreferrer" class="infra-badge">
-                                    <img src="https://cdn.brandfetch.io/resend.com" alt="Resend Logo">
-                                    <span>Powered by Resend</span>
-                                </a>
-                            </div>
-                        </div>
                     </div>
-                </div>
 
-                <!-- Right: Form -->
-                <div class="contact-column form-col">
-                    <div class="contact-card">
-                        <div class="contact-card-header">
-                            <h3>Send Message</h3>
-                        </div>
-                        
+                    <!-- Right: Form -->
+                    <div class="contact-column form-col">
                         <form id="contact-form" class="contact-form">
                             <div class="form-group">
                                 <label for="contact-name">Full Name</label>
@@ -1706,19 +1596,23 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-content">
-            <p class="footer-copyright">&copy; 2026 Khin Andrei Gamboa. All rights reserved.</p>
-            <p class="footer-motto">Built with passion &bull; Focused on performance</p>
-            <div class="footer-socials">
-                <a href="https://github.com/sondre01" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                    <i data-lucide="github"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/khinandreigamboa" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                    <i data-lucide="linkedin"></i>
-                </a>
-                <a href="#contact" aria-label="Email">
-                    <i data-lucide="mail"></i>
-                </a>
+        <div class="footer-container">
+            <h2 class="footer-name footer-title">KHINANDREIGAMBOA</h2>
+            <div class="footer-divider"></div>
+            <div class="footer-content">
+                <p class="footer-copyright">&copy; 2026 Khin Andrei Gamboa</p>
+                <p class="footer-motto">Built with passion &bull; Focused on performance</p>
+                <div class="footer-socials">
+                    <a href="https://github.com/sondre01" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                        <i data-lucide="github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/khinandreigamboa" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <i data-lucide="linkedin"></i>
+                    </a>
+                    <a href="#contact" aria-label="Email">
+                        <i data-lucide="mail"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </footer>
@@ -1858,7 +1752,7 @@
         </a>
         <a href="#certifications" class="nav-link" aria-label="Certifications">
             <i data-lucide="award"></i>
-            <span class="mobile-nav-label">Certificates</span>
+            <span class="mobile-nav-label">Certifications</span>
         </a>
         <a href="#education" class="nav-link" aria-label="Education">
             <i data-lucide="graduation-cap"></i>
@@ -2340,7 +2234,7 @@
         };
 
         // Typewriter & Hero Intro Animation Sequence Controller
-        const words = ["DATA ENGINEER", "DATA ANALYST", "DATA SPECIALIST"];
+        const words = ["DATA SPECIALIST", "DATA ENGINEER", "DATA ANALYST", "DATA SCIENTIST"];
         let wordIndex = 0;
         let charIndex = words[0].length;
         let isDeleting = true;
@@ -2691,7 +2585,7 @@
                 // Subtle background headline scale
                 if (acadHeadline) {
                     const scale = 0.96 + progress * 0.06;
-                    acadHeadline.style.transform = `scale(${scale})`;
+                    acadHeadline.style.transform = `scale(${scale}, ${scale * 1.25})`;
                 }
             }
 

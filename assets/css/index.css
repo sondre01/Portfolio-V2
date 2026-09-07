@@ -1,12 +1,12 @@
 /* Import section-specific stylesheets */
-@import "home.css";
-@import "about.css";
-@import "skills.css";
-@import "certifications.css";
-@import "education.css";
-@import "work.css";
-@import "contact.css";
-@import "footer.css";
+@import "home.css?v=20260907_9";
+@import "about.css?v=20260907_9";
+@import "skills.css?v=20260907_9";
+@import "certifications.css?v=20260907_9";
+@import "education.css?v=20260907_9";
+@import "work.css?v=20260907_9";
+@import "contact.css?v=20260907_9";
+@import "footer.css?v=20260907_9";
 
 /* ==========================================================================
    THEME VARIABLES & TOKENS
@@ -166,8 +166,7 @@ body.header-hidden .sidebar-column {
 .featured-skills-card,
 .cert-card,
 .roadmap-card,
-.work-card,
-.contact-card {
+.work-card {
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
@@ -405,7 +404,6 @@ body.dark-mode .modal-box,
 body.dark-mode .skills-card,
 body.dark-mode .roadmap-card,
 body.dark-mode .work-card,
-body.dark-mode .contact-card,
 body.dark-mode .about-modal-box {
     background-color: var(--bg-card) !important;
     border-color: var(--border-color) !important;
@@ -421,10 +419,15 @@ body.dark-mode .about-combined-card {
     box-shadow: none !important;
 }
 
+body.dark-mode .contact-card {
+    background-color: #151515 !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    border-radius: 12px !important;
+}
+
 body.dark-mode .skills-card:hover,
 body.dark-mode .roadmap-card:hover,
-body.dark-mode .work-card:hover,
-body.dark-mode .contact-card:hover {
+body.dark-mode .work-card:hover {
     box-shadow: var(--card-shadow-hover) !important;
     border-color: var(--accent) !important;
 }
@@ -434,6 +437,12 @@ body.dark-mode .def-card:hover,
 body.dark-mode .about-combined-card:hover {
     box-shadow: none !important;
     border-color: transparent !important;
+}
+
+body.dark-mode .contact-card:hover {
+    transform: translateY(-3px) !important;
+    border-color: var(--accent, #ff5e00) !important;
+    box-shadow: 0 8px 24px rgba(255, 94, 0, 0.12) !important;
 }
 
 body.dark-mode h1,
@@ -470,12 +479,30 @@ body.dark-mode .form-group label {
 
 body.dark-mode .stat-item,
 body.dark-mode .resume-preview-container,
-body.dark-mode .roadmap-logo,
-body.dark-mode .infra-badge,
-body.dark-mode .form-control {
+body.dark-mode .roadmap-logo {
     background-color: var(--input-bg) !important;
     border-color: var(--border-color) !important;
     color: var(--text-primary) !important;
+}
+
+body.dark-mode .form-control {
+    background-color: #101012 !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode .form-control:hover {
+    border-color: rgba(255, 255, 255, 0.16) !important;
+}
+
+body.dark-mode .form-control:focus {
+    border-color: #ff5e00 !important;
+    box-shadow: 0 0 0 2px rgba(255, 94, 0, 0.15) !important;
+}
+
+body.dark-mode .infra-badge {
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    background-color: rgba(255, 255, 255, 0.03) !important;
 }
 
 body.dark-mode .resume-tab {
@@ -566,7 +593,7 @@ body.dark-mode .roadmap-badge {
 }
 
 body.dark-mode .contact-badge-section {
-    border-top-color: var(--border-color) !important;
+    border-top: none !important;
 }
 
 body.dark-mode .modal-close-btn,
@@ -684,7 +711,6 @@ h6,
 .about-modal-title,
 .contact-card-title,
 .timeline-title,
-.footer-title,
 .preview-name,
 .preview-section-title,
 .stat-number,

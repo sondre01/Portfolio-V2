@@ -3,11 +3,55 @@
    ========================================================================== */
 .footer {
     width: 100%;
-    margin-top: 60px;
-    padding: 30px 0;
-    border-top: 1px solid var(--border-color);
+    margin-top: 80px;
+    padding: 0 0 36px 0;
     box-sizing: border-box;
-    transition: border-color 0.3s ease;
+    overflow: hidden;
+}
+
+/* Constrains footer elements to align strictly with the website's layout frame */
+.footer-container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 48px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Large Centered Name Header before the horizontal divider (Tall / Ultra-Condensed Display Grotesque) */
+.footer-name {
+    font-family: 'Six Caps', 'Antonio', 'Teko', 'Impact', sans-serif;
+    font-size: clamp(3rem, 7.5vw, 6.8rem);
+    font-weight: 400;
+    letter-spacing: -0.07em !important;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--text-primary, #ffffff);
+    margin: 16px auto 28px auto;
+    padding: 0;
+    line-height: 1;
+    user-select: none;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    transform: scaleY(1.25);
+    transform-origin: center center;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Thicker Horizontal Line Divider that stays strictly inside the frame */
+.footer-divider {
+    width: 100%;
+    height: 2px;
+    background-color: var(--border-color);
+    margin: 0 0 28px 0;
+    border: none;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease;
 }
 
 .footer-content {
@@ -66,10 +110,50 @@
 }
 
 /* Responsive adjustments */
+@media (max-width: 992px) {
+    .footer {
+        margin-top: 60px;
+    }
+
+    .footer-container {
+        padding: 0 24px;
+    }
+
+    .footer-name {
+        font-size: clamp(2.5rem, 6.8vw, 4.8rem);
+        margin: 12px auto 22px auto;
+    }
+
+    .footer-divider {
+        margin-bottom: 24px;
+    }
+}
+
 @media (max-width: 768px) {
     .footer-content {
         flex-direction: column;
         text-align: center;
         gap: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .footer {
+        margin-top: 48px;
+        padding-bottom: 28px;
+    }
+
+    .footer-container {
+        padding: 0 16px;
+    }
+
+    .footer-name {
+        font-size: clamp(1.8rem, 8vw, 3rem);
+        margin: 8px auto 18px auto;
+        transform: scaleY(1.2);
+    }
+
+    .footer-divider {
+        margin-bottom: 20px;
     }
 }

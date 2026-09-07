@@ -51,17 +51,24 @@
 }
 
 .academic-bg-headline {
-    font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
-    font-size: clamp(2.8rem, 6.2vw, 6.2rem);
-    font-weight: 900 !important;
-    color: #ffffff;
-    letter-spacing: -0.04em;
-    line-height: 1.05;
-    text-align: center;
-    margin: 0;
+    font-family: 'Six Caps', 'Antonio', 'Teko', 'Impact', sans-serif;
+    font-size: clamp(3rem, 7.5vw, 6.8rem);
+    font-weight: 400;
+    letter-spacing: -0.07em !important;
     text-transform: uppercase;
-    opacity: 0.95;
+    text-align: center;
+    color: var(--text-primary, #ffffff);
+    margin: 0 auto !important;
+    padding: 0;
+    line-height: 1;
     user-select: none;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    transform: scaleY(1.25);
+    transform-origin: center center;
+    opacity: 0.95;
     text-shadow: 0 10px 30px rgba(0, 0, 0, 0.85);
     transition: transform 0.15s ease-out, opacity 0.15s ease-out;
 }
@@ -88,7 +95,7 @@
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 0;
     box-shadow: 0 16px 36px rgba(0, 0, 0, 0.75);
     will-change: transform, opacity;
     transform: translate3d(0, 120vh, 0);
@@ -99,6 +106,35 @@
 .academic-passing-card:hover {
     border-color: var(--accent, #ff5e00);
     box-shadow: 0 8px 24px rgba(255, 94, 0, 0.18);
+}
+
+/* Card Extra Details (Hidden by default; Revealed Smoothly on Hover) */
+.academic-passing-card .card-details-wrapper {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 1px dashed transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: max-height 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 0.35s ease,
+                margin-top 0.35s ease,
+                padding-top 0.35s ease,
+                border-color 0.35s ease;
+    will-change: max-height, opacity;
+}
+
+.academic-passing-card:hover .card-details-wrapper,
+.academic-passing-card:focus-within .card-details-wrapper,
+.academic-passing-card.expanded .card-details-wrapper {
+    max-height: 250px;
+    opacity: 1;
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top-color: rgba(255, 255, 255, 0.12);
 }
 
 /* Balanced Staggered Horizontal Slots */
@@ -286,7 +322,10 @@
     }
 
     .academic-bg-headline {
-        font-size: 2.2rem;
+        font-size: clamp(1.8rem, 8vw, 3rem);
+        line-height: 1;
+        letter-spacing: -0.07em !important;
+        transform: scaleY(1.2) !important;
     }
 
     .academic-floating-cards-layer {
@@ -308,5 +347,13 @@
         width: 100%;
         transform: none !important;
         opacity: 1 !important;
+    }
+
+    .academic-passing-card .card-details-wrapper {
+        max-height: none !important;
+        opacity: 1 !important;
+        margin-top: 14px !important;
+        padding-top: 14px !important;
+        border-top-color: rgba(255, 255, 255, 0.12) !important;
     }
 }
